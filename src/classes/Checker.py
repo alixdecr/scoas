@@ -69,7 +69,7 @@ class Checker:
 
             if not result:
                 self.execution["rule-violations"].append(
-                    {"rule": rule.id, "route": check_data["route-name"]}
+                    {"rule": rule.id, "route": check_data["route-name"], "status-codes": check_data["status-codes"]}
                 )
 
 

@@ -1,8 +1,5 @@
 from .Rule import Rule
-import data_loader
-
-
-STANDARD_STATUS_CODES = list(data_loader.STATUS_CODES.keys())
+from data_loader import STATUS_CODES
 
 
 class NeverNonStandardCodes(Rule):
@@ -18,6 +15,6 @@ class NeverNonStandardCodes(Rule):
 
         status_codes = data.get("status-codes", [])
 
-        has_non_standard = any(code not in STANDARD_STATUS_CODES for code in status_codes)
+        has_non_standard = any(code not in list(STATUS_CODES.keys()) for code in status_codes)
 
         return not has_non_standard

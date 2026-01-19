@@ -1,6 +1,6 @@
 import logging, time, os
-import data_loader
 import utils
+from data_loader import CONFIG
 from classes.Checker import Checker
 
 
@@ -16,9 +16,6 @@ logging.basicConfig(
         logging.StreamHandler()
     ]
 )
-
-
-CONFIG = data_loader.CONFIG
 
 
 def main():

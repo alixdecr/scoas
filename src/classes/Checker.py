@@ -49,7 +49,9 @@ class Checker:
                     "method-name": method_name,
                     "method-data": method_data,
                     "status-codes": status_codes,
-                    "route-name": route_name
+                    "route-name": route_name,
+                    "has-path-parameters": has_path_parameters,
+                    "has-query-parameters": has_query_parameters
                 }
 
                 for rule in RULES:

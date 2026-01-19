@@ -23,8 +23,8 @@ class Checker:
 
         logger.info(f"Starting execution for '{self.name}'")
 
-        if not self.oas:
-            logger.error("Empty OAS file")
+        if not self.oas or "paths" not in self.oas:
+            logger.error("Empty or invalid OAS file")
             return
         
         for path_name, path_data in self.oas["paths"].items():
@@ -84,10 +84,9 @@ class Checker:
     @staticmethod
     def has_query_parameters(data):
 
-        if "parameters" in data:
-            for parameter in data["parameters"]:
-                if "in" in parameter and parameter["in"] == "query":
-                    return True
+        for parameter in data.get("parameters", []):
+            if parameter.get("in") == "query":
+                return True
                 
         return False
     

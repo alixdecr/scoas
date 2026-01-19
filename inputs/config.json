@@ -1,0 +1,5 @@
+{
+    "oas-path": "inputs/oas",
+    "out-path": "outputs",
+    "generate-report": true
+}

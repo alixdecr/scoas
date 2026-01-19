@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Execution Report</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            margin-bottom: 2rem;
+            margin-top: 2rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+        h1, h2, h3 {
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+        p {
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+        ul {
+            margin-left: 2rem;
+        }
+        li {
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        details {
+            background-color: rgb(236, 236, 236);
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            padding: 1rem;
+        }
+
+        details[open] summary {
+            color: rgb(0, 140, 255);
+        }
+        .color-high {
+            color: #d32f2f;
+        }
+        .color-medium {
+            color: #cc8a1f;
+        }
+        .color-low {
+            color: #799e24;
+        }
+        .misuse-container {
+            margin-bottom: 1rem;
+            margin-top: 1rem;
+            padding: 1rem;
+        }
+        .misuse-container p {
+            margin: 0;
+        }
+        .misuse-container code {
+            color: #d400ff;
+            font-size: larger;
+        }
+        .misuse-container-low {
+            background-color: #c4dda8;
+        }
+        .misuse-container-medium {
+            background-color: #f3d4a3;
+        }
+        .misuse-container-high {
+            background-color: #e2abab;
+        }
+    </style>
+</head>
+<body>
+    <h1>Execution Report for OAS File "{{ execution_data.name }}"</h1>
+    <p><b>Started:</b> {{ execution_data.date }}</p>
+
+    <p>Found a total of <b>{{ execution_data.misuses.total }}</b> status code misuses:</p>
+    <ul>
+        <li class="color-high"><b>{{ execution_data.misuses.high }}</b> of high severity</li>
+        <li class="color-medium"><b>{{ execution_data.misuses.medium }}</b> of medium severity</li>
+        <li class="color-low"><b>{{ execution_data.misuses.low }}</b> of low severity</li>
+    </ul>
+
+    {% for route_name, route_data in execution_data.routes.items() %}
+        <details>
+            <summary><b>{{ route_name }}</b> - <span class="color-high">{{ route_data.misuses.high }} high</span>, <span class="color-medium">{{ route_data.misuses.medium }} medium</span>, <span class="color-low">{{ route_data.misuses.low }} low</span></summary>
+            <p><b>Existing Responses:</b> {{ ", ".join(route_data.responses) }}</p>
+            <p><b>Path Parameters:</b> {{ route_data.has_path_parameters }}</p>
+            <p><b>Query Parameters:</b> {{ route_data.has_query_parameters }}</p>
+            <p><b>Misuses:</b></p>
+            {% for misuse_id in route_data.misuses.ids %}
+                <div class="misuse-container misuse-container-{{ rules[misuse_id].severity }}">
+                    <p><b>ID:</b> {{ misuse_id }}</p>
+                    <p><b>Description:</b> {{ rules[misuse_id].description }}</p>
+                </div>
+            {% endfor %}
+        </details>
+    {% endfor %}
+</body>
+</html>

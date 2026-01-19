@@ -1,0 +1,327 @@
+{
+
+    "100": {
+        "name": "Continue",
+        "description": "No description yet."
+    },
+
+    "101": {
+        "name": "Switching Protocols",
+        "description": "No description yet."
+    },
+
+    "102": {
+        "name": "Processing",
+        "description": "No description yet."
+    },
+
+    "103": {
+        "name": "Early Hints",
+        "description": "No description yet."
+    },
+
+    "104": {
+        "name": "Upload Resumption Supported (TEMPORARY)",
+        "description": "No description yet."
+    },
+
+    "200": {
+        "name": "OK",
+        "description": "The request has succeeded."
+    },
+
+    "201": {
+        "name": "Created",
+        "description": "The request has been fulfilled and has resulted in one or more new resources being created."
+    },
+
+    "202": {
+        "name": "Accepted",
+        "description": "No description yet."
+    },
+
+    "203": {
+        "name": "Non-Authoritative Information",
+        "description": "No description yet."
+    },
+
+    "204": {
+        "name": "No Content",
+        "description": "The server has successfully fulfilled the request and that there is no additional content to send in the response content."
+    },
+
+    "205": {
+        "name": "Reset Content",
+        "description": "No description yet."
+    },
+
+    "206": {
+        "name": "Partial Content",
+        "description": "No description yet."
+    },
+
+    "207": {
+        "name": "Multi-Status",
+        "description": "No description yet."
+    },
+
+    "208": {
+        "name": "Already Reported",
+        "description": "No description yet."
+    },
+
+    "226": {
+        "name": "IM Used",
+        "description": "No description yet."
+    },
+
+    "300": {
+        "name": "Multiple Choices",
+        "description": "No description yet."
+    },
+
+    "301": {
+        "name": "Moved Permanently",
+        "description": "No description yet."
+    },
+
+    "302": {
+        "name": "Found",
+        "description": "No description yet."
+    },
+
+    "303": {
+        "name": "See Other",
+        "description": "No description yet."
+    },
+
+    "304": {
+        "name": "Not Modified",
+        "description": "No description yet."
+    },
+
+    "305": {
+        "name": "Use Proxy",
+        "description": "No description yet."
+    },
+
+    "306": {
+        "name": "(Unused)",
+        "description": "No description yet."
+    },
+
+    "307": {
+        "name": "Temporary Redirect",
+        "description": "No description yet."
+    },
+
+    "308": {
+        "name": "Permanent Redirect",
+        "description": "No description yet."
+    },
+
+    "400": {
+        "name": "Bad Request",
+        "description": "The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing)."
+    },
+
+    "401": {
+        "name": "Unauthorized",
+        "description": "The request has not been applied because it lacks valid authentication credentials for the target resource."
+    },
+
+    "402": {
+        "name": "Payment Required",
+        "description": "No description yet."
+    },
+
+    "403": {
+        "name": "Forbidden",
+        "description": "The server understood the request but refuses to fulfill it."
+    },
+
+    "404": {
+        "name": "Not Found",
+        "description": "The origin server did not find a current representation for the target resource or is not willing to disclose that one exists."
+    },
+
+    "405": {
+        "name": "Method Not Allowed",
+        "description": "The method received in the request-line is known by the origin server but not supported by the target resource."
+    },
+
+    "406": {
+        "name": "Not Acceptable",
+        "description": "The target resource does not have a current representation that would be acceptable to the user agent, according to the proactive negotiation header fields received in the request, and the server is unwilling to supply a default representation."
+    },
+
+    "407": {
+        "name": "Proxy Authentication Required",
+        "description": "No description yet."
+    },
+
+    "408": {
+        "name": "Request Timeout",
+        "description": "No description yet."
+    },
+
+    "409": {
+        "name": "Conflict",
+        "description": "No description yet."
+    },
+
+    "410": {
+        "name": "Gone",
+        "description": "No description yet."
+    },
+
+    "411": {
+        "name": "Length Required",
+        "description": "No description yet."
+    },
+
+    "412": {
+        "name": "Precondition Failed",
+        "description": "No description yet."
+    },
+
+    "413": {
+        "name": "Content Too Large",
+        "description": "The server is refusing to process a request because the request content is larger than the server is willing or able to process."
+    },
+
+    "414": {
+        "name": "URI Too Long",
+        "description": "No description yet."
+    },
+
+    "415": {
+        "name": "Unsupported Media Type",
+        "description": "The origin server is refusing to service the request because the content is in a format not supported by this method on the target resource."
+    },
+
+    "416": {
+        "name": "Range Not Satisfiable",
+        "description": "No description yet."
+    },
+
+    "417": {
+        "name": "Expectation Failed",
+        "description": "No description yet."
+    },
+
+    "418": {
+        "name": "Im A Teapot (Unused)",
+        "description": "No description yet."
+    },
+
+    "421": {
+        "name": "Misdirected Request",
+        "description": "No description yet."
+    },
+
+    "422": {
+        "name": "Unprocessable Content",
+        "description": "The server understands the content type of the request content, and the syntax of the request content is correct, but it was unable to process the contained instructions."
+    },
+
+    "423": {
+        "name": "Locked",
+        "description": "No description yet."
+    },
+
+    "424": {
+        "name": "Failed Dependency",
+        "description": "No description yet."
+    },
+
+    "425": {
+        "name": "Too Early",
+        "description": "No description yet."
+    },
+
+    "426": {
+        "name": "Upgrade Required",
+        "description": "No description yet."
+    },
+
+    "428": {
+        "name": "Precondition Required",
+        "description": "No description yet."
+    },
+
+    "429": {
+        "name": "Too Many Requests",
+        "description": "No description yet."
+    },
+
+    "431": {
+        "name": "Request Header Fields Too Large",
+        "description": "No description yet."
+    },
+
+    "451": {
+        "name": "Unavailable For Legal Reasons",
+        "description": "No description yet."
+    },
+
+    "500": {
+        "name": "Internal Server Error",
+        "description": "No description yet."
+    },
+
+    "501": {
+        "name": "Not Implemented",
+        "description": "No description yet."
+    },
+
+    "502": {
+        "name": "Bad Gateway",
+        "description": "No description yet."
+    },
+
+    "503": {
+        "name": "Service Unavailable",
+        "description": "No description yet."
+    },
+
+    "504": {
+        "name": "Gateway Timeout",
+        "description": "No description yet."
+    },
+
+    "505": {
+        "name": "HTTP Version Not Supported",
+        "description": "No description yet."
+    },
+
+    "506": {
+        "name": "Variant Also Negotiates",
+        "description": "No description yet."
+    },
+
+    "507": {
+        "name": "Insufficient Storage",
+        "description": "No description yet."
+    },
+
+    "508": {
+        "name": "Loop Detected",
+        "description": "No description yet."
+    },
+
+    "510": {
+        "name": "Not Extended (OBSOLETED)",
+        "description": "No description yet."
+    },
+
+    "511": {
+        "name": "Network Authentication Required",
+        "description": "No description yet."
+    },
+
+    "default": {
+        "name": "(OpenAPI)",
+        "description": "Used to collectively describe error responses in the OpenAPI Specification. It is used as a fallback for status codes that are not covered individually."
+    }
+}

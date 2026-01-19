@@ -14,7 +14,8 @@ class Checker:
         self.name = name
         self.oas = oas
         self.execution = {
-            "status-codes": {}
+            "status-codes": {},
+            "rule-violations": []
         }
 
 
@@ -54,12 +55,22 @@ class Checker:
                     "has-query-parameters": has_query_parameters
                 }
 
-                for rule in RULES:
-                    rule.check(check_data)
+                self.check_rules(check_data)
 
         utils.save_json(f"outputs/{self.name}/execution.json", self.execution)
 
         logger.info(f"Finished execution for '{self.name}'")
+
+
+    def check_rules(self, check_data):
+
+        for rule in RULES:
+            result = rule.check(check_data)
+
+            if not result:
+                self.execution["rule-violations"].append(
+                    {"rule": rule.id, "route": check_data["route-name"]}
+                )
 
 
     def has_path_parameters(self, path_name):

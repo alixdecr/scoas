@@ -1,6 +1,6 @@
 import logging
 import utils
-from classes.rules import RULES
+from .rules import RULES
 
 
 logger = logging.getLogger(__name__)
@@ -65,20 +65,24 @@ class Checker:
     def check_rules(self, check_data):
 
         for rule in RULES:
-            result = rule.check(check_data)
-
-            if not result:
+            if not rule.check(check_data):
                 self.execution["rule-violations"].append(
-                    {"rule": rule.id, "route": check_data["route-name"], "status-codes": check_data["status-codes"]}
+                    {
+                        "rule": rule.id,
+                        "route": check_data["route-name"],
+                        "status-codes": check_data["status-codes"]
+                    }
                 )
 
 
-    def has_path_parameters(self, path_name):
+    @staticmethod
+    def has_path_parameters(path_name):
 
         return "{" in path_name and "}" in path_name
     
 
-    def has_query_parameters(self, data):
+    @staticmethod
+    def has_query_parameters(data):
 
         if "parameters" in data:
             for parameter in data["parameters"]:

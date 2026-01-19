@@ -1,4 +1,5 @@
 import logging, time, os
+import data_loader
 from classes.Checker import Checker
 from utils import utils
 
@@ -17,10 +18,12 @@ logging.basicConfig(
 )
 
 
+CONFIG = data_loader.CONFIG
+
+
 def main():
     
-    config = utils.load_json("inputs/config.json")
-    oas_path = config["oas-path"]
+    oas_path = CONFIG["oas-path"]
 
     for file in os.listdir(oas_path):
 

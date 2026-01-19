@@ -6,18 +6,18 @@ logger = logging.getLogger(__name__)
 
 def load_json(path):
 
-    logger.info(f"Attempting to load JSON file from: {path}")
+    logger.info(f"Attempting to load JSON file from '{path}'")
 
     try:
         with open(path, "r", encoding="utf-8-sig") as file:
             file = json.load(file)
 
-            logger.info(f"Successfully loaded JSON file from: {path}")
+            logger.info(f"Successfully loaded JSON file from '{path}'")
 
             return file
 
     except Exception as e:
-        logger.error(f"Failed to load JSON file from: {path}")
+        logger.error(f"Failed to load JSON file from '{path}'")
         logger.error(e)
 
         return {}
@@ -33,4 +33,4 @@ def save_json(path, data):
     with open(path, "w", encoding="utf-8-sig") as file:
         json.dump(data, file, indent=4)
 
-    logger.info(f"Saved JSON file to: {path}")
+    logger.info(f"Saved JSON file to '{path}'")

@@ -20,7 +20,7 @@ class Checker:
 
     def execute(self):
 
-        logger.info(f"Starting execution for: {self.name}")
+        logger.info(f"Starting execution for '{self.name}'")
 
         if not self.oas:
             logger.error("Empty OAS file")
@@ -43,7 +43,7 @@ class Checker:
                 for code_name, code_data in method_data["responses"].items():
                     status_codes.append(code_name)
                     self.add_status_code(code_name)
-                    logger.info(f"Found status code {code_name} in: {route_name}")
+                    logger.info(f"Found response '{code_name}' in '{route_name}'")
 
                 check_data = {
                     "method-name": method_name,
@@ -57,7 +57,7 @@ class Checker:
 
         utils.save_json(f"outputs/{self.name}/execution.json", self.execution)
 
-        logger.info(f"Finished execution for: {self.name}")
+        logger.info(f"Finished execution for '{self.name}'")
 
 
     def has_path_parameters(self, path_name):

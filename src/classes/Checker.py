@@ -1,5 +1,5 @@
 import logging
-from utils import utils
+import utils
 from classes.rules import RULES
 
 

@@ -1,7 +1,7 @@
 import logging, time, os
 import data_loader
+import utils
 from classes.Checker import Checker
-from utils import utils
 
 
 # setup logger configuration

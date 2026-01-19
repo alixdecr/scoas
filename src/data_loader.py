@@ -11,5 +11,5 @@ def load_json(filename):
         return json.load(file)
 
 
-STATUS_CODES = load_json("codes.json")
+STATUS_CODES = load_json("status-codes.json")
 CONFIG = load_json("config.json")

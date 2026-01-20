@@ -1,6 +1,7 @@
 import logging
 import utils
-from config import OUT_PATH
+from jinja2 import Environment, FileSystemLoader
+from config import OUT_PATH, TEMPLATE_PATH
 from .rules import RULES
 
 
@@ -100,3 +101,16 @@ class Checker:
             self.execution["status-codes"][code] = 0
 
         self.execution["status-codes"][code] += 1
+
+
+    def generate_report(self):
+
+        OUT_FILE = OUT_PATH / self.name / "report.html"
+
+        env = Environment(loader=FileSystemLoader("."))
+        template = env.get_template(TEMPLATE_PATH)
+
+        # to fix parameters
+        report = template.render(execution_data=self.execution_data, status_codes=self.status_codes, rules=self.rules)
+
+        utils.save_data(OUT_FILE, report)

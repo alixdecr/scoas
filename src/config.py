@@ -6,6 +6,7 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
 DATA_PATH = PROJECT_ROOT / "data"
 OAS_PATH = PROJECT_ROOT / "data" / "oas"
+TEMPLATE_PATH = PROJECT_ROOT / "data" / "template.html"
 OUT_PATH = PROJECT_ROOT / "outputs"
 LOGS_PATH = PROJECT_ROOT / "logs"
 

@@ -44,6 +44,9 @@ class Checker:
                 status_codes = []
 
                 for code_name, code_data in method_data["responses"].items():
+
+                    code_name = f"{code_name} {STATUS_CODES.get(code_name).get("name", "Unknown")}"
+
                     status_codes.append(code_name)
                     self.add_status_code(code_name)
                     logger.info(f"Found response '{code_name}' in '{route_name}'")

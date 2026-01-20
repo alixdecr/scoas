@@ -25,6 +25,11 @@
             margin-top: 1rem;
             margin-bottom: 1rem;
         }
+        code {
+            color: blueviolet;
+            font-size: larger;
+            font-weight: bold;
+        }
         .rule-container {
             border: 1px solid black;
             margin-bottom: 1rem;
@@ -37,11 +42,13 @@
     <h1>SCOAS Report for OAS: {{ name }}</h1>
     <p><b>Timestamp:</b> {{ timestamp }}</p>
 
-    <p><b>Status Code Misuses:</b> Found a total of <b>{{ execution["rule-violations"] | length }}</b> rule violations</p>
+    <p><b>Status Code Misuses:</b> Found a total of <b>{{ execution["rule-violations"] | length }}</b> rule violations.</p>
+    <p>If your OpenAPI Specification file contains status code misuses, they should be fixed based on the rule descriptions provided.</p>
 
     {% for violation in execution["rule-violations"] %}
         <div class="rule-container">
-            <p><b>Route:</b> {{ violation.route }}</p>
+            <p><b>Route:</b> <code>{{ violation.route }}</code></p>
+            <p><b>Implemented Responses:</b> <code>{{ violation["status-codes"] | join(", ") }}</code></p>
             <p><b>Rule ID:</b> {{ violation.rule.id }}</p>
             <p><b>Rule Description:</b> {{ violation.rule.description }}</p>
             <p><b>Rule Category:</b> {{ violation.rule.category }}</p>

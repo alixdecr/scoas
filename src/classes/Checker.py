@@ -1,7 +1,7 @@
 import logging
 import utils
 from jinja2 import Environment, FileSystemLoader
-from config import OUT_PATH, TEMPLATE_PATH
+from config import OUT_PATH, TEMPLATE_PATH, STATUS_CODES, TIMESTAMP
 from .rules import RULES
 
 
@@ -63,6 +63,8 @@ class Checker:
 
         utils.save_json(OUT_FILE, self.execution)
 
+        self.generate_report()
+
         logger.info(f"Finished execution for '{self.name}'")
 
 
@@ -72,7 +74,11 @@ class Checker:
             if not rule.check(check_data):
                 self.execution["rule-violations"].append(
                     {
-                        "rule": rule.id,
+                        "rule": {
+                            "id": rule.id,
+                            "description": rule.description,
+                            "category": rule.category
+                        },
                         "route": check_data["route-name"],
                         "status-codes": check_data["status-codes"]
                     }
@@ -107,10 +113,17 @@ class Checker:
 
         OUT_FILE = OUT_PATH / self.name / "report.html"
 
-        env = Environment(loader=FileSystemLoader("."))
-        template = env.get_template(TEMPLATE_PATH)
+        TEMPLATE_DIR = str(TEMPLATE_PATH.parent)
+        TEMPLATE_FILE = str(TEMPLATE_PATH.name)
 
-        # to fix parameters
-        report = template.render(execution_data=self.execution_data, status_codes=self.status_codes, rules=self.rules)
+        env = Environment(loader=FileSystemLoader(TEMPLATE_DIR))
+        template = env.get_template(TEMPLATE_FILE)
+
+        report = template.render(
+            name=self.name,
+            timestamp=TIMESTAMP,
+            execution=self.execution,
+            status_codes=STATUS_CODES
+        )
 
         utils.save_data(OUT_FILE, report)

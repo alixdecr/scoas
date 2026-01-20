@@ -1,4 +1,5 @@
 import json
+import time
 from pathlib import Path
 
 
@@ -23,3 +24,4 @@ def _load_data(file_name):
         return json.load(file)
 
 STATUS_CODES = _load_data("status-codes.json")
+TIMESTAMP = time.strftime("%Y-%m-%d-%H-%M")

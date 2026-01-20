@@ -1,14 +1,13 @@
 import logging
 import time
 import utils
-from config import LOGS_PATH, OAS_PATH
+from config import LOGS_PATH, OAS_PATH, TIMESTAMP
 from classes.Checker import Checker
 
 
 # --------------
 # LOGGING SETUP
 # --------------
-TIMESTAMP = time.strftime("%Y-%m-%d-%H-%M")
 LOG_FILE = LOGS_PATH / f"{TIMESTAMP}.log"
 
 logging.basicConfig(

@@ -42,3 +42,14 @@ def save_json(file_path, data):
         json.dump(data, file, indent=4)
 
     logger.info(f"Saved JSON file to '{file_path}'")
+
+
+def save_data(file_path, data):
+
+    file_path = Path(file_path)
+    file_path.parent.mkdir(parents=True, exist_ok=True)
+
+    with file_path.open("w", encoding="utf-8") as file:
+        file.write(data)
+
+    logger.info(f"Saved data to '{file_path}'")

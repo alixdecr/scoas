@@ -1,5 +1,5 @@
 from .Rule import Rule
-from data_loader import STATUS_CODES
+from config import STATUS_CODES
 
 
 class NeverNonStandardCodes(Rule):

@@ -1,18 +1,15 @@
 import logging
 import time
 import utils
-from pathlib import Path
-from data_loader import CONFIG
+from config import LOGS_PATH, OAS_PATH
 from classes.Checker import Checker
 
 
 # --------------
 # LOGGING SETUP
 # --------------
-LOG_PATH = Path("logs")
-LOG_PATH.mkdir(exist_ok=True)
 TIMESTAMP = time.strftime("%Y-%m-%d-%H-%M")
-LOG_FILE = LOG_PATH / f"{TIMESTAMP}.log"
+LOG_FILE = LOGS_PATH / f"{TIMESTAMP}.log"
 
 logging.basicConfig(
     encoding="utf-8",
@@ -32,14 +29,12 @@ logger = logging.getLogger(__name__)
 # MAIN EXECUTION
 # ---------------
 def main():
-    
-    oas_path = Path(CONFIG["oas-path"])
 
-    if not oas_path.exists() or not oas_path.is_dir():
-        logger.error(f"OAS path does not exist or is not a directory: '{oas_path}'")
+    if not OAS_PATH.exists() or not OAS_PATH.is_dir():
+        logger.error(f"OAS path does not exist or is not a directory: '{OAS_PATH}'")
         return
     
-    for file_path in oas_path.glob("*.json"):
+    for file_path in OAS_PATH.glob("*.json"):
         try:
             name = file_path.stem
             oas = utils.load_json(file_path)

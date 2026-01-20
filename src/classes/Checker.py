@@ -1,5 +1,6 @@
 import logging
 import utils
+from config import OUT_PATH
 from .rules import RULES
 
 
@@ -57,7 +58,9 @@ class Checker:
 
                 self.check_rules(check_data)
 
-        utils.save_json(f"outputs/{self.name}/execution.json", self.execution)
+        OUT_FILE = OUT_PATH / self.name / "execution.json"
+
+        utils.save_json(OUT_FILE, self.execution)
 
         logger.info(f"Finished execution for '{self.name}'")
 

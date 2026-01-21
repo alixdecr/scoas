@@ -1,11 +1,11 @@
 from .Rule import Rule
 
 
-class Always204ForNoContent(Rule):
+class Always204For2xxNoContent(Rule):
 
 
-    id = "always-204-for-no-content"
-    description = "Always implement a response with the status code '204 No Content' if the response content is empty."
+    id = "always-204-for-2xx-no-content"
+    description = "Always implement a response with the status code '204 No Content' if the response content in the successful range is empty."
     category = "standard"
 
 
@@ -22,7 +22,7 @@ class Always204ForNoContent(Rule):
                 if response_data:
                     content = response_data.get("content", {})
 
-                    if not content:
+                    if not content and code != "204":
                         return False
                     
         return True

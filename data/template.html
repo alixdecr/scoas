@@ -42,10 +42,10 @@
     <h1>SCOAS Report for OAS: {{ execution.name }}</h1>
     <p><b>Timestamp:</b> {{ execution.timestamp }}</p>
 
-    <p><b>Status Code Misuses:</b> Found a total of <b>{{ execution["rule-violations"] | length }}</b> rule violations.</p>
+    <p><b>Status Code Misuses:</b> Found a total of <b>{{ execution["rule-violations"]["total"] }}</b> rule violations.</p>
     <p>If your OpenAPI Specification file contains status code misuses, they should be fixed based on the rule descriptions that are provided.</p>
 
-    {% for violation in execution["rule-violations"] %}
+    {% for violation in execution["rule-violations"]["list"] %}
         <div class="rule-container">
             <p><b>Route:</b> <code>{{ violation.route }}</code></p>
             <p><b>Implemented Responses:</b> <code>{{ violation["status-codes"] | join(", ") }}</code></p>

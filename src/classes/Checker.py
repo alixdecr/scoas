@@ -19,7 +19,11 @@ class Checker:
             "name": name,
             "timestamp": TIMESTAMP,
             "status-codes": {},
-            "rule-violations": []
+            "rule-violations": {
+                "total": 0,
+                "by-rule": {},
+                "list": []
+            }
         }
 
 
@@ -77,7 +81,7 @@ class Checker:
 
         for rule in RULES:
             if not rule.check(check_data):
-                self.execution["rule-violations"].append(
+                self.execution["rule-violations"]["list"].append(
                     {
                         "rule": {
                             "id": rule.id,
@@ -88,6 +92,13 @@ class Checker:
                         "status-codes": check_data["status-codes"]
                     }
                 )
+
+                self.execution["rule-violations"]["total"] += 1
+
+                if rule.id not in self.execution["rule-violations"]["by-rule"]:
+                    self.execution["rule-violations"]["by-rule"][rule.id] = 0
+
+                self.execution["rule-violations"]["by-rule"][rule.id] += 1
 
 
     @staticmethod

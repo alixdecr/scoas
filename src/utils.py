@@ -17,7 +17,7 @@ def load_json(file_path):
         return None
 
     try:
-        with file_path.open(encoding="utf-8") as file:
+        with file_path.open(encoding="utf-8-sig") as file:
             file = json.load(file)
 
             logger.info(f"Loaded JSON file from '{file_path}'")

@@ -17,7 +17,7 @@
             padding-left: 1rem;
             padding-right: 1rem;
         }
-        h1, h2, h3 {
+        h1 {
             margin-top: 2rem;
             margin-bottom: 1rem;
         }
@@ -42,6 +42,9 @@
         .rule-id {
             color: rgb(0, 214, 143);
         }
+        .violation-title {
+            color: red;
+        }
     </style>
 </head>
 <body>
@@ -58,6 +61,7 @@
 
     {% for violation in data["rule-violations"]["list"] %}
         <div class="rule-container">
+            <h3 class="violation-title">Violation #{{ loop.index }}</h3>
             <p><b>Route:</b> <code>{{ violation.route }}</code></p>
             <p><b>Implemented Responses:</b> <code>{{ violation["status-codes"] }}</code></p>
             <p><b>Rule ID:</b> <code class="rule-id">{{ violation.rule.id }}</code></p>

@@ -139,7 +139,14 @@ class Checker:
 
         for violation in report_data["rule-violations"]["list"]:
             violation["rule"]["description"] = re.sub(r"'([^']+)'", r"<code>\1</code>", violation["rule"]["description"])
-            violation["status-codes"] = ", ".join(violation["status-codes"])
+
+            # transform the status code list into a string list of status codes with their corresponding names (200 OK, 404 Not Found, etc)
+            status_codes = ", ".join(
+                f"{code_id} {STATUS_CODES.get(code_id, {}).get("name", "Unknown")}"
+                for code_id in violation.get("status-codes", [])
+            )
+
+            violation["status-codes"] = status_codes
 
         return report_data
 

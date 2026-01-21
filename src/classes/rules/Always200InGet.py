@@ -5,7 +5,7 @@ class Always200InGet(Rule):
 
 
     id = "always-200-in-get"
-    description = "Always implement a response with the status code '200 OK' in a GET method."
+    description = "Always implement a response with the status code '200 OK' in a 'GET' method."
     category = "standard"
 
 

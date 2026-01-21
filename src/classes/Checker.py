@@ -1,5 +1,6 @@
 import logging
 import utils
+import re
 from jinja2 import Environment, FileSystemLoader
 from config import OUT_PATH, TEMPLATE_PATH, STATUS_CODES, TIMESTAMP
 from .rules import RULES
@@ -130,6 +131,19 @@ class Checker:
         self.execution["status-codes"][code] += 1
 
 
+    def prepare_report_data(self):
+
+        report_data = self.execution
+
+        report_data["rule-violations"]["by-rule"] = dict(sorted(report_data["rule-violations"]["by-rule"].items(), key=lambda item: item[1], reverse=True))
+
+        for violation in report_data["rule-violations"]["list"]:
+            violation["rule"]["description"] = re.sub(r"'([^']+)'", r"<code>\1</code>", violation["rule"]["description"])
+            violation["status-codes"] = ", ".join(violation["status-codes"])
+
+        return report_data
+
+
     def generate_report(self):
 
         OUT_FILE = OUT_PATH / self.name / "report.html"
@@ -140,9 +154,8 @@ class Checker:
         env = Environment(loader=FileSystemLoader(TEMPLATE_DIR))
         template = env.get_template(TEMPLATE_FILE)
 
-        report = template.render(
-            execution=self.execution,
-            status_codes=STATUS_CODES
-        )
+        report_data = self.prepare_report_data()
+
+        report = template.render(data=report_data)
 
         utils.save_data(OUT_FILE, report)

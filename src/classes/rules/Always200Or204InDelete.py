@@ -5,7 +5,7 @@ class Always200Or204InDelete(Rule):
 
 
     id = "always-200-or-204-in-delete"
-    description = "Always implement a response with the status code '200 OK' or '204 No Content' in a DELETE method."
+    description = "Always implement a response with the status code '200 OK' or '204 No Content' in a 'DELETE' method."
     category = "standard"
 
 

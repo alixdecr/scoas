@@ -1,5 +1,4 @@
 import logging
-import time
 import utils
 from config import LOGS_PATH, OAS_PATH, TIMESTAMP
 from classes.Checker import Checker

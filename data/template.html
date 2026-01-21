@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SCOAS Report - {{ execution.name }}</title>
+    <title>SCOAS Report - {{ data.name }}</title>
     <style>
         * {
             box-sizing: border-box;
@@ -21,6 +21,9 @@
             margin-top: 2rem;
             margin-bottom: 1rem;
         }
+        ul {
+            margin-left: 2rem;
+        }
         p {
             margin-top: 1rem;
             margin-bottom: 1rem;
@@ -36,20 +39,28 @@
             margin-top: 1rem;
             padding: 1rem;
         }
+        .rule-id {
+            color: rgb(0, 214, 143);
+        }
     </style>
 </head>
 <body>
-    <h1>SCOAS Report for OAS: {{ execution.name }}</h1>
-    <p><b>Timestamp:</b> {{ execution.timestamp }}</p>
+    <h1>SCOAS Report for OAS: {{ data.name }}</h1>
+    <p><b>Timestamp:</b> {{ data.timestamp }}</p>
 
-    <p><b>Status Code Misuses:</b> Found a total of <b>{{ execution["rule-violations"]["total"] }}</b> rule violations.</p>
+    <p><b>Status Code Misuses:</b> Found a total of <b>{{ data["rule-violations"]["total"] }}</b> rule violations.</p>
+    <ul>
+        {% for rule in data["rule-violations"]["by-rule"] %}
+            <li><b>{{ data["rule-violations"]["by-rule"][rule] }}</b> violations of the rule <code class="rule-id">{{ rule }}</code></li>
+        {% endfor %}
+    </ul>
     <p>If your OpenAPI Specification file contains status code misuses, they should be fixed based on the rule descriptions that are provided.</p>
 
-    {% for violation in execution["rule-violations"]["list"] %}
+    {% for violation in data["rule-violations"]["list"] %}
         <div class="rule-container">
             <p><b>Route:</b> <code>{{ violation.route }}</code></p>
-            <p><b>Implemented Responses:</b> <code>{{ violation["status-codes"] | join(", ") }}</code></p>
-            <p><b>Rule ID:</b> {{ violation.rule.id }}</p>
+            <p><b>Implemented Responses:</b> <code>{{ violation["status-codes"] }}</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">{{ violation.rule.id }}</code></p>
             <p><b>Rule Description:</b> {{ violation.rule.description }}</p>
             <p><b>Rule Category:</b> {{ violation.rule.category }}</p>
         </div>

@@ -5,7 +5,7 @@ class Always201InCreate(Rule):
 
 
     id = "always-201-in-create"
-    description = "Always implement a response with the status code '201 Created' if the method can create data (POST or PUT)."
+    description = "Always implement a response with the status code '201 Created' if the method can create data ('POST' or 'PUT')."
     category = "standard"
 
 

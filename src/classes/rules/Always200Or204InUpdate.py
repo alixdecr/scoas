@@ -5,7 +5,7 @@ class Always200Or204InUpdate(Rule):
 
 
     id = "always-200-or-204-in-update"
-    description = "Always implement a response with the status code '200 OK' or '204 No Content' in a PUT or PATCH method."
+    description = "Always implement a response with the status code '200 OK' or '204 No Content' in a 'PUT' or 'PATCH' method."
     category = "standard"
 
 

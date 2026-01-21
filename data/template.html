@@ -42,7 +42,7 @@
         .rule-id {
             color: rgb(0, 214, 143);
         }
-        .violation-title {
+        .violation-color {
             color: red;
         }
     </style>
@@ -51,17 +51,17 @@
     <h1>SCOAS Report for OAS: {{ data.name }}</h1>
     <p><b>Timestamp:</b> {{ data.timestamp }}</p>
 
-    <p><b>Status Code Misuses:</b> Found a total of <b>{{ data["rule-violations"]["total"] }}</b> rule violations.</p>
+    <p><b>Status Code Misuses:</b> Found a total of <b class="violation-color">{{ data["rule-violations"]["total"] }}</b> rule violations.</p>
     <ul>
         {% for rule in data["rule-violations"]["by-rule"] %}
-            <li><b>{{ data["rule-violations"]["by-rule"][rule] }}</b> violations of the rule <code class="rule-id">{{ rule }}</code></li>
+            <li><b class="violation-color">{{ data["rule-violations"]["by-rule"][rule] }}</b> violations of the rule <code class="rule-id">{{ rule }}</code></li>
         {% endfor %}
     </ul>
     <p>If your OpenAPI Specification file contains status code misuses, they should be fixed based on the rule descriptions that are provided.</p>
 
     {% for violation in data["rule-violations"]["list"] %}
         <div class="rule-container">
-            <h3 class="violation-title">Violation #{{ loop.index }}</h3>
+            <h3 class="violation-color">Violation #{{ loop.index }}</h3>
             <p><b>Route:</b> <code>{{ violation.route }}</code></p>
             <p><b>Implemented Responses:</b> <code>{{ violation["status-codes"] }}</code></p>
             <p><b>Rule ID:</b> <code class="rule-id">{{ violation.rule.id }}</code></p>

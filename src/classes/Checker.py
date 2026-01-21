@@ -16,6 +16,8 @@ class Checker:
         self.name = name
         self.oas = oas
         self.execution = {
+            "name": name,
+            "timestamp": TIMESTAMP,
             "status-codes": {},
             "rule-violations": []
         }
@@ -44,13 +46,11 @@ class Checker:
                 has_auth = self.has_auth(method_data)
                 status_codes = []
 
-                for code_name, code_data in method_data["responses"].items():
+                logger.info(f"Checking route '{route_name}'")
 
-                    code_name = f"{code_name} {STATUS_CODES.get(code_name).get("name", "Unknown")}"
-
-                    status_codes.append(code_name)
-                    self.add_status_code(code_name)
-                    logger.info(f"Found response '{code_name}' in '{route_name}'")
+                for code, code_data in method_data["responses"].items():
+                    status_codes.append(code)
+                    self.add_status_code(code)
 
                 check_data = {
                     "method-name": method_name,
@@ -130,8 +130,6 @@ class Checker:
         template = env.get_template(TEMPLATE_FILE)
 
         report = template.render(
-            name=self.name,
-            timestamp=TIMESTAMP,
             execution=self.execution,
             status_codes=STATUS_CODES
         )

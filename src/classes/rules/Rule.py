@@ -22,9 +22,9 @@ class Rule(ABC):
         result = cls._check(data)
 
         if result:
-            logger.info(f"Result of rule '{cls.id}' for '{route}' with responses '{status_codes}': PASS")
+            logger.info(f"Rule '{cls.id}' for '{route}' with responses '{status_codes}': PASS")
         else:
-            logger.warning(f"Result of rule '{cls.id}' for '{route}' with responses '{status_codes}': FAIL")
+            logger.warning(f"Rule '{cls.id}' for '{route}' with responses '{status_codes}': FAIL")
 
         return result
 

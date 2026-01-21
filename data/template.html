@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SCOAS Report - {{ name }}</title>
+    <title>SCOAS Report - {{ execution.name }}</title>
     <style>
         * {
             box-sizing: border-box;
@@ -39,11 +39,11 @@
     </style>
 </head>
 <body>
-    <h1>SCOAS Report for OAS: {{ name }}</h1>
-    <p><b>Timestamp:</b> {{ timestamp }}</p>
+    <h1>SCOAS Report for OAS: {{ execution.name }}</h1>
+    <p><b>Timestamp:</b> {{ execution.timestamp }}</p>
 
     <p><b>Status Code Misuses:</b> Found a total of <b>{{ execution["rule-violations"] | length }}</b> rule violations.</p>
-    <p>If your OpenAPI Specification file contains status code misuses, they should be fixed based on the rule descriptions provided.</p>
+    <p>If your OpenAPI Specification file contains status code misuses, they should be fixed based on the rule descriptions that are provided.</p>
 
     {% for violation in execution["rule-violations"] %}
         <div class="rule-container">

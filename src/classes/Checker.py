@@ -41,6 +41,7 @@ class Checker:
 
                 route_name = f"{method_name.upper()} {path_name}"
                 has_query_parameters = self.has_query_parameters(method_data) or has_common_query_parameters
+                has_auth = self.has_auth(method_data)
                 status_codes = []
 
                 for code_name, code_data in method_data["responses"].items():
@@ -57,7 +58,8 @@ class Checker:
                     "status-codes": status_codes,
                     "route-name": route_name,
                     "has-path-parameters": has_path_parameters,
-                    "has-query-parameters": has_query_parameters
+                    "has-query-parameters": has_query_parameters,
+                    "has-auth": has_auth
                 }
 
                 self.check_rules(check_data)
@@ -102,6 +104,11 @@ class Checker:
                 return True
                 
         return False
+    
+
+    def has_auth(self, data):
+
+        return "security" in self.oas or "security" in data
     
 
     def add_status_code(self, code):

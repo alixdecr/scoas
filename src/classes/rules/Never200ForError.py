@@ -7,7 +7,7 @@ class Never200ForError(Rule):
 
     id = "never-200-for-error"
     description = "Never implement a response with the status code '200 OK' if the response content describes an error."
-    category = "rest"
+    category = "standard"
 
 
     @classmethod

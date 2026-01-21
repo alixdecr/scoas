@@ -5,7 +5,7 @@ class Always204For2xxNoContent(Rule):
 
 
     id = "always-204-for-2xx-no-content"
-    description = "Always implement a response with the status code '204 No Content' if the response content in the successful range is empty."
+    description = "Always implement a response with the status code '204 No Content' if a successful ('2xx') response content is empty."
     category = "standard"
 
 

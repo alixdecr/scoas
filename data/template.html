@@ -63,7 +63,8 @@
         <div class="rule-container">
             <h3 class="violation-color">Violation #{{ loop.index }}</h3>
             <p><b>Route:</b> <code>{{ violation.route }}</code></p>
-            <p><b>Implemented Responses:</b> <code>{{ violation["status-codes"] }}</code></p>
+            <p><b>Responses:</b> <code>{{ violation["status-codes"] }}</code></p>
+            <p><b>Parameters:</b> <code>{{ violation["parameters"] }}</code></p>
             <p><b>Rule ID:</b> <code class="rule-id">{{ violation.rule.id }}</code></p>
             <p><b>Rule Description:</b> {{ violation.rule.description }}</p>
             <p><b>Rule Category:</b> {{ violation.rule.category }}</p>

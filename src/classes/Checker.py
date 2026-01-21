@@ -51,7 +51,14 @@ class Checker:
                 has_auth = self.has_auth(method_data)
                 status_codes = []
 
-                logger.info(f"Checking route '{route_name}'")
+                parameters = path_data.get("parameters", []) + method_data.get("parameters", [])
+                parameter_list = []
+
+                for param in parameters:
+                    if "name" in param:
+                        name = param["name"]
+                        is_in = param.get("in", "unknown")
+                        parameter_list.append(f"{name} ({is_in})")
 
                 for code, code_data in method_data["responses"].items():
                     status_codes.append(code)
@@ -64,8 +71,11 @@ class Checker:
                     "route-name": route_name,
                     "has-path-parameters": has_path_parameters,
                     "has-query-parameters": has_query_parameters,
-                    "has-auth": has_auth
+                    "has-auth": has_auth,
+                    "parameter-list": parameter_list
                 }
+
+                logger.info(f"Checking route '{route_name}'")
 
                 self.check_rules(check_data)
 
@@ -90,7 +100,8 @@ class Checker:
                             "category": rule.category
                         },
                         "route": check_data["route-name"],
-                        "status-codes": check_data["status-codes"]
+                        "status-codes": check_data["status-codes"],
+                        "parameters": check_data["parameter-list"]
                     }
                 )
 
@@ -141,12 +152,12 @@ class Checker:
             violation["rule"]["description"] = re.sub(r"'([^']+)'", r"<code>\1</code>", violation["rule"]["description"])
 
             # transform the status code list into a string list of status codes with their corresponding names (200 OK, 404 Not Found, etc)
-            status_codes = ", ".join(
+            violation["status-codes"] = ", ".join(
                 f"{code_id} {STATUS_CODES.get(code_id, {}).get("name", "Unknown")}"
                 for code_id in violation.get("status-codes", [])
             )
 
-            violation["status-codes"] = status_codes
+            violation["parameters"] = ", ".join(violation["parameters"])
 
         return report_data
 

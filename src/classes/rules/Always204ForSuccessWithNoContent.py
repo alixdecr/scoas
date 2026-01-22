@@ -6,7 +6,7 @@ class Always204ForSuccessWithNoContent(Rule):
 
 
     id = "always-204-for-success-with-no-content"
-    description = "Always implement a response with the status code '204 No Content' if a successful ('2xx') response does not have content."
+    description = "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content."
     sources = [SOURCES["204"], SOURCES["2xx"]]
 
 

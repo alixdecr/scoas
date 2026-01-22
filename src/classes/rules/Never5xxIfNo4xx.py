@@ -6,7 +6,7 @@ class Never5xxIfNo4xx(Rule):
 
 
     id = "never-5xx-if-no-4xx"
-    description = "Never implement a response with a status code in the range '5xx' (server error) if the route does not implement at least a response with a status code in the range '4xx' (client error)."
+    description = "Never implement a response with a status code in the '5xx Server Error' range if the route does not implement at least a response with a status code in the '4xx Client Error' range."
     sources = [SOURCES["5xx"], SOURCES["4xx"]]
 
 

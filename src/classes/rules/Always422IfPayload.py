@@ -6,7 +6,7 @@ class Always422IfPayload(Rule):
 
 
     id = "always-422-if-payload"
-    description = "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (for invalid semantic)."
+    description = "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics)."
     sources = [SOURCES["422"]]
 
 

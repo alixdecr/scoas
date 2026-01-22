@@ -6,7 +6,7 @@ class Always422IfParams(Rule):
 
 
     id = "always-422-if-params"
-    description = "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (for invalid semantic)."
+    description = "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics)."
     sources = [SOURCES["422"]]
 
 

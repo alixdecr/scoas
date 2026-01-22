@@ -6,7 +6,7 @@ class Always4xxOrDefault(Rule):
 
 
     id = "always-4xx-or-default"
-    description = "Always implement a response with a status code in the '4xx' (client error) range or a 'default' response in case of a client and/or unexpected error."
+    description = "Always implement a response with a status code in the '4xx Client Error' range or a 'default' response in case of a client and/or unexpected error."
     sources = [SOURCES["4xx"], SOURCES["openapi-default-response"]]
 
 

@@ -6,7 +6,7 @@ class Always400IfParams(Rule):
 
 
     id = "always-400-if-params"
-    description = "Always implement a response with the status code '400 Bad Request' if the method contains parameters (for invalid syntax)."
+    description = "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax)."
     sources = [SOURCES["400"]]
 
 

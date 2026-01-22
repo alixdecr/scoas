@@ -6,7 +6,7 @@ class Always400IfPayload(Rule):
 
 
     id = "always-400-if-payload"
-    description = "Always implement a response with the status code '400 Bad Request' if the method contains a payload (for invalid syntax)."
+    description = "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax)."
     sources = [SOURCES["400"]]
 
 

@@ -19,6 +19,7 @@ class Checker:
         self.execution = {
             "name": name,
             "timestamp": TIMESTAMP,
+            "nb-routes": 0,
             "status-codes": {},
             "rule-violations": {
                 "total": 0,
@@ -45,6 +46,8 @@ class Checker:
 
                 if method_name not in ("get", "post", "put", "patch", "delete"):
                     continue
+
+                self.execution["nb-routes"] += 1
 
                 route_name = f"{method_name.upper()} {path_name}"
                 has_query_parameters = self.has_query_parameters(method_data) or has_common_query_parameters

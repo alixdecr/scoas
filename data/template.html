@@ -60,7 +60,7 @@
             <li><b class="violation-color">{{ data["rule-violations"]["by-rule"][rule] }}</b> violations of the rule <code class="rule-id">{{ rule }}</code></li>
         {% endfor %}
     </ul>
-    <p>If your OpenAPI Specification file contains status code misuses, they should be fixed based on the rule descriptions that are provided.</p>
+    <p>If your OpenAPI Specification file contains status code misuses, they should be fixed based on the rule descriptions that are provided. The rule sources provide references to the standards (RFCs) that were used to define the rules.</p>
 
     {% for violation in data["rule-violations"]["list"] %}
         <div class="rule-container">

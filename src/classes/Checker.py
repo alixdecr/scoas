@@ -159,7 +159,10 @@ class Checker:
                 for code_id in violation.get("status-codes", [])
             )
 
-            violation["parameters"] = ", ".join(violation["parameters"])
+            if violation["parameters"]:
+                violation["parameters"] = ", ".join(violation["parameters"])
+            else:
+                violation["parameters"] = "No parameters"
 
         return report_data
 

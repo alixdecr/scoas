@@ -25,5 +25,7 @@
 
     "Accept": "RFC 9110, Section 12.5.1 (Accept)",
     "Content-Length": "RFC 9110, Section 8.6 (Content-Length)",
-    "Content-Type": "RFC 9110, Section 8.3 (Content-Type)"
+    "Content-Type": "RFC 9110, Section 8.3 (Content-Type)",
+
+    "openapi-default-response": "OpenAPI 'default' response"
 }

@@ -19,4 +19,4 @@ class Always200Or204InDelete(Rule):
         if method_name != "delete":
             return True
 
-        return "204" in status_codes or "200" in status_codes
+        return "200" in status_codes or "204" in status_codes

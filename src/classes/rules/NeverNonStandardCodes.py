@@ -8,7 +8,7 @@ class NeverNonStandardCodes(Rule):
 
     id = "never-non-standard-codes"
     description = "Never implement responses with non-standard status codes."
-    sources = [SOURCES["standard-status-codes"]]
+    sources = [SOURCES["standard-status-codes"], SOURCES["openapi-default-response"]]
 
 
     @classmethod

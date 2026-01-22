@@ -67,3 +67,30 @@ python src/main.py
 ```
 
 Steps 4 and 5 need to be done with the virtual environment activated (which should be the case if you followed step 3 correctly).
+
+## Using the Tool
+
+### 1. OAS File Folder
+
+To execute SCOAS on OpenAPI Specifications, insert their files (must be in JSON `.json` format) in the `data/oas` folder. If for any reason you wish to use another OAS folder, modify the `OAS_PATH` variable located in `src/config.py`.
+
+### 2. Execute the Tool
+
+Execute the tool with the following command:
+
+```bash
+python src/main.py
+```
+
+### 3. Visualize Results
+
+Once the execution is finished, you will be able to visualize the following:
+
+- The execution logs, located in the `logs` folder.
+- The execution raw data, located in the `outputs/<oas-name>/execution.json` file.
+- The execution report, located in the `outputs/<oas-name>/report.html` file.
+
+
+### 4. Fix the Status Code Misuses
+
+After analyzing the execution report, feel free to modify your OpenAPI Specification based on the rule violations that were identified.

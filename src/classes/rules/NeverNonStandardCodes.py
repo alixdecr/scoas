@@ -1,4 +1,5 @@
 from .Rule import Rule
+from config import SOURCES
 from config import STATUS_CODES
 
 
@@ -7,7 +8,7 @@ class NeverNonStandardCodes(Rule):
 
     id = "never-non-standard-codes"
     description = "Never implement responses with non-standard status codes."
-    category = "standard"
+    sources = [SOURCES["standard-status-codes"]]
 
 
     @classmethod

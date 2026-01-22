@@ -1,5 +1,5 @@
 from .Rule import Rule
-
+from config import SOURCES
 
 
 class Always422IfPayload(Rule):
@@ -7,7 +7,7 @@ class Always422IfPayload(Rule):
 
     id = "always-422-if-payload"
     description = "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (for invalid semantic)."
-    category = "standard"
+    sources = [SOURCES["422"]]
 
 
     @classmethod

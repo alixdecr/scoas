@@ -1,4 +1,5 @@
 from .Rule import Rule
+from config import SOURCES
 
 
 class Never415IfNoPayload(Rule):
@@ -6,7 +7,7 @@ class Never415IfNoPayload(Rule):
 
     id = "never-415-if-no-payload"
     description = "Never implement a response with the status code '415 Unsupported Media Type' if the method does not contain a payload."
-    category = "standard"
+    sources = [SOURCES["415"]]
 
 
     @classmethod

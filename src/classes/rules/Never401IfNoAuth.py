@@ -1,4 +1,5 @@
 from .Rule import Rule
+from config import SOURCES
 
 
 class Never401IfNoAuth(Rule):
@@ -6,7 +7,7 @@ class Never401IfNoAuth(Rule):
 
     id = "never-401-if-no-auth"
     description = "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism."
-    category = "rest"
+    sources = [SOURCES["401"]]
 
 
     @classmethod

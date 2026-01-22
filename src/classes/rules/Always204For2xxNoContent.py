@@ -1,4 +1,5 @@
 from .Rule import Rule
+from config import SOURCES
 
 
 class Always204For2xxNoContent(Rule):
@@ -6,7 +7,7 @@ class Always204For2xxNoContent(Rule):
 
     id = "always-204-for-2xx-no-content"
     description = "Always implement a response with the status code '204 No Content' if a successful ('2xx') response content is empty."
-    category = "standard"
+    sources = [SOURCES["204"], SOURCES["2xx"]]
 
 
     @classmethod

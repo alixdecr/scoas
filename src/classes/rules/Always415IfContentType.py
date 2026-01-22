@@ -1,4 +1,5 @@
 from .Rule import Rule
+from config import SOURCES
 
 
 class Always415IfContentType(Rule):
@@ -6,7 +7,7 @@ class Always415IfContentType(Rule):
 
     id = "always-415-if-content-type"
     description = "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request."
-    category = "standard"
+    sources = [SOURCES["415"], SOURCES["Content-Type"]]
 
 
     @classmethod

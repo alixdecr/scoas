@@ -1,4 +1,5 @@
 from .Rule import Rule
+from config import SOURCES
 
 
 class Always413IfContentLength(Rule):
@@ -6,7 +7,7 @@ class Always413IfContentLength(Rule):
 
     id = "always-413-if-content-length"
     description = "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request."
-    category = "standard"
+    sources = [SOURCES["413"], SOURCES["Content-Length"]]
 
 
     @classmethod

@@ -1,5 +1,5 @@
 from .Rule import Rule
-
+from config import SOURCES
 
 
 class Always400IfPayload(Rule):
@@ -7,7 +7,7 @@ class Always400IfPayload(Rule):
 
     id = "always-400-if-payload"
     description = "Always implement a response with the status code '400 Bad Request' if the method contains a payload (for invalid syntax)."
-    category = "standard"
+    sources = [SOURCES["400"]]
 
 
     @classmethod

@@ -1,5 +1,5 @@
 from .Rule import Rule
-
+from config import SOURCES
 
 
 class Always422IfParams(Rule):
@@ -7,7 +7,7 @@ class Always422IfParams(Rule):
 
     id = "always-422-if-params"
     description = "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (for invalid semantic)."
-    category = "standard"
+    sources = [SOURCES["422"]]
 
 
     @classmethod

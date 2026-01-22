@@ -45,6 +45,9 @@
         .violation-color {
             color: red;
         }
+        .source-color {
+            color: rgb(0, 89, 255);
+        }
     </style>
 </head>
 <body>
@@ -67,7 +70,7 @@
             <p><b>Parameters:</b> <code>{{ violation["parameters"] }}</code></p>
             <p><b>Rule ID:</b> <code class="rule-id">{{ violation.rule.id }}</code></p>
             <p><b>Rule Description:</b> {{ violation.rule.description }}</p>
-            <p><b>Rule Category:</b> {{ violation.rule.category }}</p>
+            <p><b>Rule Sources:</b> <code class="source-color">{{ violation.rule.sources }}</code></p>
         </div>
     {% endfor %}
 </body>

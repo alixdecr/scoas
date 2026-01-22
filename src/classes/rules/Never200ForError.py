@@ -1,5 +1,5 @@
 from .Rule import Rule
-
+from config import SOURCES
 
 
 class Never200ForError(Rule):
@@ -7,7 +7,7 @@ class Never200ForError(Rule):
 
     id = "never-200-for-error"
     description = "Never implement a response with the status code '200 OK' if the response content describes an error."
-    category = "standard"
+    sources = [SOURCES["200"]]
 
 
     @classmethod

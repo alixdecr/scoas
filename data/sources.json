@@ -1,0 +1,29 @@
+{
+    "get": "RFC 9110, Section 9.3.1 (GET)",
+    "post": "RFC 9110, Section 9.3.3 (POST)",
+    "put": "RFC 9110, Section 9.3.4 (PUT)",
+    "patch": "RFC 5789 (PATCH Method for HTTP)",
+    "delete": "RFC 9110, Section 9.3.5 (DELETE)",
+
+    "200": "RFC 9110, Section 15.3.1 (200 OK)",
+    "201": "RFC 9110, Section 15.3.2 (201 Created)",
+    "204": "RFC 9110, Section 15.3.5 (204 No Content)",
+    "400": "RFC 9110, Section 15.5.1 (400 Bad Request)",
+    "401": "RFC 9110, Section 15.5.2 (401 Unauthorized)",
+    "403": "RFC 9110, Section 15.5.4 (403 Forbidden)",
+    "404": "RFC 9110, Section 15.5.5 (404 Not Found)",
+    "406": "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+    "413": "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+    "415": "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+    "422": "RFC 9110, Section 15.5.21 (422 Unprocessable Content)",
+
+    "2xx": "RFC 9110, Section 15.3 (Successful 2xx)",
+    "4xx": "RFC 9110, Section 15.5 (Client Error 4xx)",
+    "5xx": "RFC 9110, Section 15.6 (Server Error 5xx)",
+
+    "standard-status-codes": "RFC 9110, Section 15 (Status Codes)",
+
+    "Accept": "RFC 9110, Section 12.5.1 (Accept)",
+    "Content-Length": "RFC 9110, Section 8.6 (Content-Length)",
+    "Content-Type": "RFC 9110, Section 8.3 (Content-Type)"
+}

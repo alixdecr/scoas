@@ -97,7 +97,7 @@ class Checker:
                         "rule": {
                             "id": rule.id,
                             "description": rule.description,
-                            "category": rule.category
+                            "sources": rule.sources
                         },
                         "route": check_data["route-name"],
                         "status-codes": check_data["status-codes"],
@@ -150,6 +150,8 @@ class Checker:
 
         for violation in report_data["rule-violations"]["list"]:
             violation["rule"]["description"] = re.sub(r"'([^']+)'", r"<code>\1</code>", violation["rule"]["description"])
+
+            violation["rule"]["sources"] = " | ".join(violation["rule"]["sources"])
 
             # transform the status code list into a string list of status codes with their corresponding names (200 OK, 404 Not Found, etc)
             violation["status-codes"] = ", ".join(

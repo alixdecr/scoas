@@ -1,5 +1,5 @@
 from .Rule import Rule
-
+from config import SOURCES
 
 
 class Always400IfParams(Rule):
@@ -7,7 +7,7 @@ class Always400IfParams(Rule):
 
     id = "always-400-if-params"
     description = "Always implement a response with the status code '400 Bad Request' if the method contains parameters (for invalid syntax)."
-    category = "standard"
+    sources = [SOURCES["400"]]
 
 
     @classmethod

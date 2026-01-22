@@ -1,5 +1,5 @@
 from .Rule import Rule
-
+from config import SOURCES
 
 
 class Never201InNoCreate(Rule):
@@ -7,7 +7,7 @@ class Never201InNoCreate(Rule):
 
     id = "never-201-in-no-create"
     description = "Never implement a response with the status code '201 Created' if the method cannot create data ('GET', 'PATCH', or 'DELETE')."
-    category = "standard"
+    sources = [SOURCES["201"], SOURCES["get"], SOURCES["patch"], SOURCES["delete"]]
 
 
     @classmethod

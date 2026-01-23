@@ -42,7 +42,8 @@ for folder_name in os.listdir(base_dir):
                 
                 evaluation_data["results-per-spec"][name] = {
                     "nb-routes": nb_routes,
-                    "nb-violations": nb_violations
+                    "nb-violations": nb_violations,
+                    "avg-violations-per-route": nb_violations / nb_routes
                 }
 
                 for rule in execution_data["rule-violations"]["by-rule"]:
@@ -161,8 +162,39 @@ ax.spines["right"].set_visible(False)
 ax.yaxis.grid(True, color="gray", linestyle="--", linewidth=0.5, zorder=0)
 ax.set_axisbelow(True)
 
-
 plt.tight_layout()
 
 plt.savefig(CHARTS_PATH / "chart-number-of-routes-and-violations-per-specification.pdf", format="pdf")
+plt.close()
+
+
+# -------------------------------------------------------
+# CHART - AVERAGE VIOLATIONS PER ROUTE PER SPECIFICATION
+# -------------------------------------------------------
+chart_data = dict(sorted(evaluation_data["results-per-spec"].items(), key=lambda item: item[1]["avg-violations-per-route"]))
+
+specs = list(chart_data.keys())
+nb_avg = [chart_data[spec]["avg-violations-per-route"] for spec in specs]
+
+x = np.arange(len(specs))
+width = 0.35
+
+fig, ax = plt.subplots(figsize=(20, 12))
+rects = ax.bar(x, nb_avg, width, label="Average Violations per Route", color="skyblue")
+
+ax.set_xlabel("Specification Name", fontweight="bold", fontsize=16, labelpad=20)
+ax.set_ylabel("Average Violations per Route", fontweight="bold", fontsize=16, labelpad=20)
+ax.set_xticks(x)
+ax.set_xticklabels(specs, rotation=45, ha="right")
+
+ax = plt.gca()
+ax.spines["top"].set_visible(False)
+ax.spines["right"].set_visible(False)
+
+ax.yaxis.grid(True, color="gray", linestyle="--", linewidth=0.5, zorder=0)
+ax.set_axisbelow(True)
+
+plt.tight_layout()
+
+plt.savefig(CHARTS_PATH / "chart-average-violations-per-route-per-specification.pdf", format="pdf")
 plt.close()

@@ -1,14 +1,26 @@
 import os
 import json
 import matplotlib.pyplot as plt
-import numpy as np
+from pathlib import Path
 
+
+# ------
+# PATHS
+# ------
+EVALUATION_PATH = Path(__file__).resolve().parent
+CHARTS_PATH = EVALUATION_PATH / "charts"
+CHARTS_PATH.mkdir(parents=True, exist_ok=True)
+
+
+# -----------------
+# DATA PREPARATION
+# -----------------
 base_dir = "outputs"
 
 evaluation_data = {
-    "apis": {},
-    "nb-total-violations": 0,
-    "violations": {}
+    "nb-violations-total": 0,
+    "results-per-api": {},
+    "results-per-violation": {}
 }
 
 for folder_name in os.listdir(base_dir):
@@ -19,67 +31,69 @@ for folder_name in os.listdir(base_dir):
         
         if os.path.isfile(json_path):
             with open(json_path, "r") as f:
-                data = json.load(f)
+                execution_data = json.load(f)
 
-                name = data["name"]
-                nb_routes = data["nb-routes"]
-                nb_violations = data["rule-violations"]["total"]
+                name = execution_data["name"]
+                nb_routes = execution_data["nb-routes"]
+                nb_violations = execution_data["rule-violations"]["total"]
+
+                evaluation_data["nb-violations-total"] += nb_violations
                 
-                evaluation_data["apis"][name] = {
+                evaluation_data["results-per-api"][name] = {
                     "nb-routes": nb_routes,
                     "nb-violations": nb_violations
                 }
 
-                evaluation_data["nb-total-violations"] += nb_violations
+                for rule in execution_data["rule-violations"]["by-rule"]:
+                    if rule not in evaluation_data["results-per-violation"]:
+                        evaluation_data["results-per-violation"][rule] = {
+                            "nb-total": 0,
+                            "nb-apis": 0,
+                            "in": []
+                        }
 
-                for rule in data["rule-violations"]["by-rule"]:
-                    if rule not in evaluation_data["violations"]:
-                        evaluation_data["violations"][rule] = 0
+                    evaluation_data["results-per-violation"][rule]["nb-total"] += execution_data["rule-violations"]["by-rule"][rule]
 
-                    evaluation_data["violations"][rule] += data["rule-violations"]["by-rule"][rule]
+                    if name not in evaluation_data["results-per-violation"][rule]["in"]:
+                        evaluation_data["results-per-violation"][rule]["in"].append(name)
+                        evaluation_data["results-per-violation"][rule]["nb-apis"] += 1
 
 
-print(evaluation_data["nb-total-violations"])
+print(json.dumps(evaluation_data, indent=4))
 
-"""
-sorted_data = dict(sorted(evaluation_data["violations"].items(), key=lambda item: item[1], reverse=True))
 
-keys = list(sorted_data.keys())
-values = list(sorted_data.values())
+# --------------------------------------
+# CHART FOR VIOLATIONS PER DISTINCT API
+# --------------------------------------
+chart_data = dict(sorted(evaluation_data["results-per-violation"].items(), key=lambda item: item[1]["nb-apis"], reverse=True))
 
-# Create horizontal bar chart
-plt.figure(figsize=(10, 8))
-plt.barh(keys, values, color='skyblue')
-plt.xlabel('Values')
-plt.title('Counts of HTTP Response Rules')
-plt.gca().invert_yaxis()  # Largest values on top
+rule_ids = list(chart_data.keys())
+rule_values = [chart_data[rule_id]["nb-apis"] for rule_id in rule_ids]
+
+plt.figure(figsize=(20, 12))
+plt.barh(rule_ids, rule_values, color="orange")
+
+plt.xlabel("Amount of REST API Specifications", fontweight="bold", fontsize=16, labelpad=20)
+plt.ylabel("Rule Identifier", fontweight="bold", fontsize=16, labelpad=20)
+
+plt.xticks(fontsize=16)
+plt.yticks(fontsize=16)
+
+plt.xticks(range(0, 61, 10))
+
+ax = plt.gca()
+ax.spines["top"].set_visible(False)
+ax.spines["right"].set_visible(False)
+ax.spines["bottom"].set_visible(False)
+
+ax.xaxis.grid(True, color="gray", linestyle="--", linewidth=0.5, zorder=0)
+ax.set_axisbelow(True)
+
+plt.gca().invert_yaxis()
+
+ax.margins(y=0)
+
 plt.tight_layout()
 
-# Display the chart
-plt.show()
-"""
-
-
-"""
-api_names = list(apis.keys())
-routes = [apis[api]['nb-routes'] for api in apis]
-violations = [apis[api]['nb-violations'] for api in apis]
-
-x = np.arange(1, len(api_names) + 1)
-width = 0.4
-
-# Create bar chart
-plt.figure(figsize=(18, 6))
-plt.bar(x - width / 2, routes, width=width, label="Number of Routes")
-plt.bar(x + width / 2, violations, width=width, label="Number of Violations")
-
-# Axis labels and ticks
-plt.xlabel("API Index")
-plt.ylabel("Count")
-plt.title("Routes vs Violations per API")
-plt.xticks(x, x)  # show indices instead of API names
-plt.legend()
-
-plt.tight_layout()
-plt.show()
-"""
+plt.savefig(CHARTS_PATH / "chart-violations-per-distinct-api.pdf", format="pdf")
+plt.close()

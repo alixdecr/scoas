@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SCOAS Report - {{ data.name }}</title>
+    <title>SCOAS Execution Report - {{ data.name }}</title>
     <style>
         * {
             box-sizing: border-box;
@@ -18,49 +18,114 @@
             padding-right: 1rem;
         }
         h1 {
+            border-bottom: 1px solid gray;
+            font-size: 1.5rem;
             margin-top: 2rem;
             margin-bottom: 1rem;
+            padding-bottom: 1rem;
+        }
+        h2 {
+            font-size: 1.2rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        h3 {
+            font-size: 1rem;
         }
         ul {
             margin-left: 2rem;
         }
         p {
+            font-size: 0.9rem;
             margin-top: 1rem;
             margin-bottom: 1rem;
         }
         code {
             color: blueviolet;
-            font-size: larger;
-            font-weight: bold;
+        }
+        .info-container {
+            background-color: rgb(202, 223, 255);
+            color: rgb(0, 80, 146);
+            padding: 0.5rem;
         }
         .rule-container {
-            border: 1px solid black;
+            background-color: rgb(247, 247, 247);
             margin-bottom: 1rem;
             margin-top: 1rem;
             padding: 1rem;
         }
         .rule-id {
-            color: rgb(0, 214, 143);
+            color: rgb(197, 118, 0);
         }
         .violation-color {
-            color: red;
+            color: rgb(212, 0, 0);
+        }
+        .ok-color {
+            color: rgb(0, 136, 0);
         }
         .source-color {
             color: rgb(0, 89, 255);
         }
+        .summary-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: flex-start;
+            margin: 1rem;
+        }
+        .summary-card {
+            text-align: center;
+            padding: 0.5rem;
+        }
+        .summary-number {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        .summary-title {
+            font-size: 1rem;
+            margin-top: 0.1rem;
+        }
     </style>
 </head>
 <body>
-    <h1>SCOAS Report for OAS: {{ data.name }}</h1>
+    <h1>SCOAS Execution Report - {{ data.name }}</h1>
+
     <p><b>Timestamp:</b> {{ data.timestamp }}</p>
 
-    <p><b>Status Code Misuses:</b> Found a total of <b class="violation-color">{{ data["rule-violations"]["total"] }}</b> rule violations.</p>
+    <h2>Summary</h2>
+
+    <div class="summary-container">
+        <div class="summary-card">
+            <div class="summary-number violation-color">{{ data["rule-violations"]["total"] }}</div>
+            <div class="summary-title violation-color">Rule Violations</div>
+        </div>
+        <div class="summary-card">
+            <div class="summary-number violation-color">{{ data["rule-violations"]["average-per-route"] }}</div>
+            <div class="summary-title violation-color">Average Violations/Route</div>
+        </div>
+        <div class="summary-card">
+            <div class="summary-number ok-color">{{ data["nb-routes-without-violations"] }}</div>
+            <div class="summary-title ok-color">Routes Without Violations</div>
+        </div>
+        <div class="summary-card">
+            <div class="summary-number">{{ data["nb-routes"] }}</div>
+            <div class="summary-title">Routes Analyzed</div>
+        </div>
+        <div class="summary-card">
+            <div class="summary-number">{{ data["status-codes"]["total"] }}</div>
+            <div class="summary-title">Responses Analyzed</div>
+        </div>
+    </div>
+
+    <div class="info-container">If your OpenAPI Specification file contains status code misuses, they should be fixed based on the rule descriptions that are provided. The rule sources provide references to the standards (RFCs) that were used to define the rules.</div>
+
+    <h2>Details</h2>
+
     <ul>
         {% for rule in data["rule-violations"]["by-rule"] %}
             <li><b class="violation-color">{{ data["rule-violations"]["by-rule"][rule] }}</b> violations of the rule <code class="rule-id">{{ rule }}</code></li>
         {% endfor %}
     </ul>
-    <p>If your OpenAPI Specification file contains status code misuses, they should be fixed based on the rule descriptions that are provided. The rule sources provide references to the standards (RFCs) that were used to define the rules.</p>
 
     {% for violation in data["rule-violations"]["list"] %}
         <div class="rule-container">

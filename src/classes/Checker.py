@@ -20,9 +20,14 @@ class Checker:
             "name": name,
             "timestamp": TIMESTAMP,
             "nb-routes": 0,
-            "status-codes": {},
+            "nb-routes-without-violations": 0,
+            "status-codes": {
+                "total": 0,
+                "by-code": {}
+            },
             "rule-violations": {
                 "total": 0,
+                "average-per-route": 0,
                 "by-rule": {},
                 "list": []
             }
@@ -80,7 +85,12 @@ class Checker:
 
                 logger.info(f"Checking route '{route_name}'")
 
-                self.check_rules(check_data)
+                has_violations = self.check_rules(check_data)
+
+                if not has_violations:
+                    self.execution["nb-routes-without-violations"] += 1
+
+        self.execution["rule-violations"]["average-per-route"] = round(self.execution["rule-violations"]["total"] / self.execution["nb-routes"], 2)
 
         OUT_FILE = OUT_PATH / self.name / "execution.json"
 
@@ -92,6 +102,8 @@ class Checker:
 
 
     def check_rules(self, check_data):
+
+        has_violations = False
 
         for rule in RULES:
             if not rule.check(check_data):
@@ -114,6 +126,11 @@ class Checker:
                     self.execution["rule-violations"]["by-rule"][rule.id] = 0
 
                 self.execution["rule-violations"]["by-rule"][rule.id] += 1
+
+                has_violations = True
+
+
+        return has_violations
 
 
     @staticmethod
@@ -139,10 +156,11 @@ class Checker:
 
     def add_status_code(self, code):
 
-        if code not in self.execution["status-codes"]:
-            self.execution["status-codes"][code] = 0
+        if code not in self.execution["status-codes"]["by-code"]:
+            self.execution["status-codes"]["by-code"][code] = 0
 
-        self.execution["status-codes"][code] += 1
+        self.execution["status-codes"]["by-code"][code] += 1
+        self.execution["status-codes"]["total"] += 1
 
 
     def prepare_report_data(self):
@@ -165,7 +183,7 @@ class Checker:
             if violation["parameters"]:
                 violation["parameters"] = ", ".join(violation["parameters"])
             else:
-                violation["parameters"] = "No parameters"
+                violation["parameters"] = "/"
 
         return report_data
 

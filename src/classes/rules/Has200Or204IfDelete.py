@@ -2,10 +2,9 @@ from .Rule import Rule
 from config import SOURCES
 
 
-class Always200Or204InDelete(Rule):
+class Has200Or204IfDelete(Rule):
 
 
-    id = "always-200-or-204-in-delete"
     description = "Always implement a response with the status code '200 OK' or '204 No Content' in a 'DELETE' method."
     sources = [SOURCES["200"], SOURCES["204"], SOURCES["delete"]]
 

@@ -2,10 +2,9 @@ from .Rule import Rule
 from config import SOURCES
 
 
-class Always404IfPath(Rule):
+class Has404IfPath(Rule):
 
 
-    id = "always-404-if-path"
     description = "Always implement a response with the status code '404 Not Found' if the method contains path parameters."
     sources = [SOURCES["404"]]
 

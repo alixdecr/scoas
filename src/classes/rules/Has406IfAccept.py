@@ -2,10 +2,9 @@ from .Rule import Rule
 from config import SOURCES
 
 
-class Always406IfAccept(Rule):
+class Has406IfAccept(Rule):
 
 
-    id = "always-406-if-accept"
     description = "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content."
     sources = [SOURCES["406"], SOURCES["Accept"]]
 

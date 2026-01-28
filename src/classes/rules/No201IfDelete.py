@@ -2,10 +2,9 @@ from .Rule import Rule
 from config import SOURCES
 
 
-class Never201InDelete(Rule):
+class No201IfDelete(Rule):
 
 
-    id = "never-201-in-delete"
     description = "Never implement a response with the status code '201 Created' in a 'DELETE' method (as it can never create data)."
     sources = [SOURCES["201"], SOURCES["delete"]]
 

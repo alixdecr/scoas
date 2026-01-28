@@ -3,10 +3,9 @@ from config import SOURCES
 from config import STATUS_CODES
 
 
-class NeverNonStandardCodes(Rule):
+class NoNonStandardCodes(Rule):
 
 
-    id = "never-non-standard-codes"
     description = "Never implement responses with non-standard status codes."
     sources = [SOURCES["standard-status-codes"], SOURCES["openapi-default-response"]]
 

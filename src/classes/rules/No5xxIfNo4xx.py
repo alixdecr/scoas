@@ -2,10 +2,9 @@ from .Rule import Rule
 from config import SOURCES
 
 
-class Never5xxIfNo4xx(Rule):
+class No5xxIfNo4xx(Rule):
 
 
-    id = "never-5xx-if-no-4xx"
     description = "Never implement a response with a status code in the '5xx Server Error' range if the route does not implement at least a response with a status code in the '4xx Client Error' range."
     sources = [SOURCES["5xx"], SOURCES["4xx"]]
 

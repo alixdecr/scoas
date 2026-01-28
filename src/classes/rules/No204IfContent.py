@@ -2,10 +2,9 @@ from .Rule import Rule
 from config import SOURCES
 
 
-class Never204ForContent(Rule):
+class No204IfContent(Rule):
 
 
-    id = "never-204-for-content"
     description = "Never implement a response with the status code '204 No Content' if its content is not empty. In the case of an OAS file, the response should not have a 'content' field."
     sources = [SOURCES["204"]]
 

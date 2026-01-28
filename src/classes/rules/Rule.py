@@ -1,4 +1,4 @@
-import logging
+import logging, re
 from abc import ABC, abstractmethod
 
 
@@ -11,6 +11,14 @@ class Rule(ABC):
     id: str
     description: str
     category: str
+
+
+    def __init_subclass__(cls):
+
+        super().__init_subclass__()
+        # automatically generate the class ID based on the class name -> MyRule becomes my-rule
+        name = re.sub(r"(?<!^)(?=[A-Z]|(?<=\D)(?=\d))", "-", cls.__name__).lower()
+        cls.id = name.lower()
 
 
     @classmethod

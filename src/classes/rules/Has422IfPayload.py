@@ -2,12 +2,11 @@ from .Rule import Rule
 from config import SOURCES
 
 
-class Always400IfPayload(Rule):
+class Has422IfPayload(Rule):
 
 
-    id = "always-400-if-payload"
-    description = "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax)."
-    sources = [SOURCES["400"]]
+    description = "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics)."
+    sources = [SOURCES["422"]]
 
 
     @classmethod
@@ -19,4 +18,4 @@ class Always400IfPayload(Rule):
         if method_name not in ("post", "put", "patch"):
             return True
         
-        return "400" in status_codes
+        return "422" in status_codes

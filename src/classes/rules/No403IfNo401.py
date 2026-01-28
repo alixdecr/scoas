@@ -2,10 +2,9 @@ from .Rule import Rule
 from config import SOURCES
 
 
-class Never403IfNo401(Rule):
+class No403IfNo401(Rule):
 
 
-    id = "never-403-if-no-401"
     description = "Never implement a response with the status code '403 Forbidden' if the method does not implement a response with the status code '401 Unauthorized'."
     sources = [SOURCES["403"], SOURCES["401"]]
 

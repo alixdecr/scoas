@@ -2,12 +2,11 @@ from .Rule import Rule
 from config import SOURCES
 
 
-class Always400IfParams(Rule):
+class Has422IfParams(Rule):
 
 
-    id = "always-400-if-params"
-    description = "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax)."
-    sources = [SOURCES["400"]]
+    description = "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics)."
+    sources = [SOURCES["422"]]
 
 
     @classmethod
@@ -20,4 +19,4 @@ class Always400IfParams(Rule):
         if not has_path_parameters and not has_query_parameters:
             return True
         
-        return "400" in status_codes
+        return "422" in status_codes

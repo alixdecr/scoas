@@ -2,10 +2,9 @@ from .Rule import Rule
 from config import SOURCES
 
 
-class Always200Or201Or204InPost(Rule):
+class Has200Or201Or204IfPost(Rule):
 
 
-    id = "always-200-or-201-or-204-in-post"
     description = "Always implement a response with the status code '200 OK', '201 Created', or '204 No Content' in a 'POST' method."
     sources = [SOURCES["200"], SOURCES["201"], SOURCES["204"], SOURCES["post"]]
 

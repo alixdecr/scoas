@@ -2,12 +2,11 @@ from .Rule import Rule
 from config import SOURCES
 
 
-class Never415IfNoPayload(Rule):
+class No413IfNoPayload(Rule):
 
 
-    id = "never-415-if-no-payload"
-    description = "Never implement a response with the status code '415 Unsupported Media Type' if the method does not contain a payload."
-    sources = [SOURCES["415"]]
+    description = "Never implement a response with the status code '413 Content Too Large' if the method does not contain a payload."
+    sources = [SOURCES["413"]]
 
 
     @classmethod
@@ -19,4 +18,4 @@ class Never415IfNoPayload(Rule):
         if method_name in ("post", "put", "patch"):
             return True
 
-        return "415" not in status_codes
+        return "413" not in status_codes

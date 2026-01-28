@@ -2,10 +2,9 @@ from .Rule import Rule
 from config import SOURCES
 
 
-class Never200ForError(Rule):
+class No200IfError(Rule):
 
 
-    id = "never-200-for-error"
     description = "Never implement a response with the status code '200 OK' if the response content describes an error."
     sources = [SOURCES["200"]]
 

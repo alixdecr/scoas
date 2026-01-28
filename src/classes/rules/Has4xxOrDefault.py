@@ -2,10 +2,9 @@ from .Rule import Rule
 from config import SOURCES
 
 
-class Always4xxOrDefault(Rule):
+class Has4xxOrDefault(Rule):
 
 
-    id = "always-4xx-or-default"
     description = "Always implement a response with a status code in the '4xx Client Error' range or a 'default' OAS response in case of a client and/or unexpected error."
     sources = [SOURCES["4xx"], SOURCES["openapi-default-response"]]
 

@@ -2,10 +2,9 @@ from .Rule import Rule
 from config import SOURCES
 
 
-class Always200InGet(Rule):
+class Has200IfGet(Rule):
 
 
-    id = "always-200-in-get"
     description = "Always implement a response with the status code '200 OK' in a 'GET' method."
     sources = [SOURCES["200"], SOURCES["get"]]
 

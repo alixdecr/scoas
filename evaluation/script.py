@@ -176,17 +176,23 @@ chart_data = dict(sorted(evaluation_data["results-per-spec"].items(), key=lambda
 specs = list(chart_data.keys())
 nb_avg = [chart_data[spec]["avg-violations-per-route"] for spec in specs]
 
+# create the 5 percentile bins
+routes = sorted(chart_data[spec]["nb-routes"] for spec in specs)
+p10 = round(np.percentile(routes, 10))
+p36_67 = round(np.percentile(routes, 10 + 80 / 3))
+p63_33 = round(np.percentile(routes, 10 + 2 * 80 / 3))
+p90 = round(np.percentile(routes, 90))
 
 colors = []
 for spec in specs:
     nb_routes = chart_data[spec]["nb-routes"]
-    if nb_routes < 6:
+    if nb_routes <= p10:
         colors.append("tab:blue")
-    elif nb_routes < 21:
+    elif nb_routes <= p36_67:
         colors.append("tab:green")
-    elif nb_routes < 61:
+    elif nb_routes <= p63_33:
         colors.append("tab:olive")
-    elif nb_routes < 151:
+    elif nb_routes <= p90:
         colors.append("tab:orange")
     else:
         colors.append("tab:red")
@@ -200,7 +206,7 @@ rects = ax.bar(x, nb_avg, width, label="Average Violations per Route", color=col
 ax.set_xlabel("Specification Name", fontweight="bold", fontsize=16, labelpad=20)
 ax.set_ylabel("Average Violations per Route", fontweight="bold", fontsize=16, labelpad=20)
 ax.set_xticks(x)
-ax.set_xticklabels(specs, rotation=45, ha="right")
+ax.set_xticklabels(specs, rotation=45, ha="right", fontsize=11)
 
 ax.spines["top"].set_visible(False)
 ax.spines["right"].set_visible(False)
@@ -209,18 +215,18 @@ ax.yaxis.grid(True, color="gray", linestyle="--", linewidth=0.5, zorder=0)
 ax.set_axisbelow(True)
 
 legend_elements = [
-    Patch(facecolor="tab:blue", label="Micro: 1-5 routes"),
-    Patch(facecolor="tab:green", label="Small: 6-20 routes"),
-    Patch(facecolor="tab:olive", label="Medium: 21-60 routes"),
-    Patch(facecolor="tab:orange", label="Large: 61-150 routes"),
-    Patch(facecolor="tab:red", label="Very large: 150+ routes"),
+    Patch(facecolor="tab:blue", label=f"Micro (≤ {p10} routes)"),
+    Patch(facecolor="tab:green", label=f"Small ({p10}-{p36_67} routes)"),
+    Patch(facecolor="tab:olive", label=f"Medium ({p36_67 + 1}-{p63_33} routes)"),
+    Patch(facecolor="tab:orange", label=f"Large ({p63_33 + 1}-{p90} routes)"),
+    Patch(facecolor="tab:red", label=f"Very large (> {p90} routes)"),
 ]
 
 ax.legend(
     handles=legend_elements,
-    title="Number of Routes",
-    title_fontsize=14,
-    fontsize=12,
+    title="API Size Based on Number of Routes",
+    title_fontsize=15,
+    fontsize=14,
     loc="upper left"
 )
 

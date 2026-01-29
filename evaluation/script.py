@@ -2,6 +2,7 @@ import os
 import json
 import matplotlib.pyplot as plt
 import numpy as np
+from matplotlib.patches import Patch
 from pathlib import Path
 
 
@@ -155,7 +156,6 @@ ax.set_xticks(x)
 ax.set_xticklabels(specs, rotation=45, ha="right")
 ax.legend(fontsize=16)
 
-ax = plt.gca()
 ax.spines["top"].set_visible(False)
 ax.spines["right"].set_visible(False)
 
@@ -176,23 +176,53 @@ chart_data = dict(sorted(evaluation_data["results-per-spec"].items(), key=lambda
 specs = list(chart_data.keys())
 nb_avg = [chart_data[spec]["avg-violations-per-route"] for spec in specs]
 
+
+colors = []
+for spec in specs:
+    nb_routes = chart_data[spec]["nb-routes"]
+    if nb_routes < 6:
+        colors.append("tab:blue")
+    elif nb_routes < 21:
+        colors.append("tab:green")
+    elif nb_routes < 61:
+        colors.append("tab:olive")
+    elif nb_routes < 151:
+        colors.append("tab:orange")
+    else:
+        colors.append("tab:red")
+
 x = np.arange(len(specs))
 width = 0.35
 
 fig, ax = plt.subplots(figsize=(20, 12))
-rects = ax.bar(x, nb_avg, width, label="Average Violations per Route", color="skyblue")
+rects = ax.bar(x, nb_avg, width, label="Average Violations per Route", color=colors)
 
 ax.set_xlabel("Specification Name", fontweight="bold", fontsize=16, labelpad=20)
 ax.set_ylabel("Average Violations per Route", fontweight="bold", fontsize=16, labelpad=20)
 ax.set_xticks(x)
 ax.set_xticklabels(specs, rotation=45, ha="right")
 
-ax = plt.gca()
 ax.spines["top"].set_visible(False)
 ax.spines["right"].set_visible(False)
 
 ax.yaxis.grid(True, color="gray", linestyle="--", linewidth=0.5, zorder=0)
 ax.set_axisbelow(True)
+
+legend_elements = [
+    Patch(facecolor="tab:blue", label="Micro: 1-5 routes"),
+    Patch(facecolor="tab:green", label="Small: 6-20 routes"),
+    Patch(facecolor="tab:olive", label="Medium: 21-60 routes"),
+    Patch(facecolor="tab:orange", label="Large: 61-150 routes"),
+    Patch(facecolor="tab:red", label="Very large: 150+ routes"),
+]
+
+ax.legend(
+    handles=legend_elements,
+    title="Number of Routes",
+    title_fontsize=14,
+    fontsize=12,
+    loc="upper left"
+)
 
 plt.tight_layout()
 

@@ -21,8 +21,10 @@ class Has204IfNoContent(Rule):
 
                 if response_data:
                     content = response_data.get("content", {})
+                    # fallback if the OAS version is Swagger 2
+                    schema = response_data.get("schema", {})
 
-                    if not content and code != "204":
+                    if not (content or schema) and code != "204":
                         return False
                     
         return True

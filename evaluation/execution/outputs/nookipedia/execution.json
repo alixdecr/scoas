@@ -1,0 +1,2850 @@
+{
+    "name": "nookipedia",
+    "timestamp": "2026-01-29-11-30",
+    "nb-routes": 30,
+    "nb-routes-without-violations": 0,
+    "status-codes": {
+        "total": 94,
+        "by-code": {
+            "200": 30,
+            "401": 30,
+            "500": 30,
+            "404": 3,
+            "400": 1
+        }
+    },
+    "rule-violations": {
+        "total": 130,
+        "average-per-route": 4.33,
+        "by-rule": {
+            "has-400-if-params": 29,
+            "has-406-if-accept": 30,
+            "has-422-if-params": 30,
+            "no-401-if-no-auth": 30,
+            "has-404-if-path": 11
+        },
+        "list": [
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /nh/art",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "hasfake (query)",
+                    "excludedetails (query)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /nh/art",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "hasfake (query)",
+                    "excludedetails (query)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /nh/art",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "hasfake (query)",
+                    "excludedetails (query)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /nh/art",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "hasfake (query)",
+                    "excludedetails (query)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /nh/art/{artwork}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "artwork (path)",
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /nh/art/{artwork}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "artwork (path)",
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /nh/art/{artwork}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "artwork (path)",
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /nh/art/{artwork}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "artwork (path)",
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /nh/art/{artwork}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "artwork (path)",
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /nh/bugs",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "month (query)",
+                    "excludedetails (query)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /nh/bugs",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "month (query)",
+                    "excludedetails (query)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /nh/bugs",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "month (query)",
+                    "excludedetails (query)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /nh/bugs",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "month (query)",
+                    "excludedetails (query)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /nh/bugs/{bug}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "404",
+                    "500"
+                ],
+                "parameters": [
+                    "bug (path)",
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /nh/bugs/{bug}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "404",
+                    "500"
+                ],
+                "parameters": [
+                    "bug (path)",
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /nh/bugs/{bug}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "404",
+                    "500"
+                ],
+                "parameters": [
+                    "bug (path)",
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /nh/bugs/{bug}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "404",
+                    "500"
+                ],
+                "parameters": [
+                    "bug (path)",
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /nh/clothing",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "category (query)",
+                    "color (query)",
+                    "style (query)",
+                    "labeltheme (query)",
+                    "excludedetails (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /nh/clothing",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "category (query)",
+                    "color (query)",
+                    "style (query)",
+                    "labeltheme (query)",
+                    "excludedetails (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /nh/clothing",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "category (query)",
+                    "color (query)",
+                    "style (query)",
+                    "labeltheme (query)",
+                    "excludedetails (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /nh/clothing",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "category (query)",
+                    "color (query)",
+                    "style (query)",
+                    "labeltheme (query)",
+                    "excludedetails (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /nh/clothing/{clothing}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "clothing (path)",
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /nh/clothing/{clothing}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "clothing (path)",
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /nh/clothing/{clothing}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "clothing (path)",
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /nh/clothing/{clothing}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "clothing (path)",
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /nh/clothing/{clothing}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "clothing (path)",
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /nh/events",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "date (query)",
+                    "year (query)",
+                    "month (query)",
+                    "day (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /nh/events",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "date (query)",
+                    "year (query)",
+                    "month (query)",
+                    "day (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /nh/events",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "date (query)",
+                    "year (query)",
+                    "month (query)",
+                    "day (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /nh/events",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "date (query)",
+                    "year (query)",
+                    "month (query)",
+                    "day (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /nh/fish",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "month (query)",
+                    "excludedetails (query)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /nh/fish",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "month (query)",
+                    "excludedetails (query)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /nh/fish",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "month (query)",
+                    "excludedetails (query)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /nh/fish",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "month (query)",
+                    "excludedetails (query)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /nh/fish/{fish}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "404",
+                    "500"
+                ],
+                "parameters": [
+                    "fish (path)",
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /nh/fish/{fish}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "404",
+                    "500"
+                ],
+                "parameters": [
+                    "fish (path)",
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /nh/fish/{fish}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "404",
+                    "500"
+                ],
+                "parameters": [
+                    "fish (path)",
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /nh/fish/{fish}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "404",
+                    "500"
+                ],
+                "parameters": [
+                    "fish (path)",
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /nh/fossils/all",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /nh/fossils/all",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /nh/fossils/all",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /nh/fossils/all",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /nh/fossils/all/{fossil}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "fossil (path)",
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /nh/fossils/all/{fossil}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "fossil (path)",
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /nh/fossils/all/{fossil}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "fossil (path)",
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /nh/fossils/all/{fossil}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "fossil (path)",
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /nh/fossils/all/{fossil}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "fossil (path)",
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /nh/fossils/groups",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /nh/fossils/groups",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /nh/fossils/groups",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /nh/fossils/groups",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /nh/fossils/groups/{fossil_group}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "fossil_group (path)",
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /nh/fossils/groups/{fossil_group}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "fossil_group (path)",
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /nh/fossils/groups/{fossil_group}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "fossil_group (path)",
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /nh/fossils/groups/{fossil_group}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "fossil_group (path)",
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /nh/fossils/groups/{fossil_group}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "fossil_group (path)",
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /nh/fossils/individuals",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /nh/fossils/individuals",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /nh/fossils/individuals",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /nh/fossils/individuals",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /nh/fossils/individuals/{fossil}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "fossil (path)",
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /nh/fossils/individuals/{fossil}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "fossil (path)",
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /nh/fossils/individuals/{fossil}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "fossil (path)",
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /nh/fossils/individuals/{fossil}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "fossil (path)",
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /nh/fossils/individuals/{fossil}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "fossil (path)",
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /nh/furniture",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "category (query)",
+                    "color (query)",
+                    "excludedetails (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /nh/furniture",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "category (query)",
+                    "color (query)",
+                    "excludedetails (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /nh/furniture",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "category (query)",
+                    "color (query)",
+                    "excludedetails (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /nh/furniture",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "category (query)",
+                    "color (query)",
+                    "excludedetails (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /nh/furniture/{furniture}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "furniture (path)",
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /nh/furniture/{furniture}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "furniture (path)",
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /nh/furniture/{furniture}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "furniture (path)",
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /nh/furniture/{furniture}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "furniture (path)",
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /nh/furniture/{furniture}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "furniture (path)",
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /nh/interior",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "color (query)",
+                    "excludedetails (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /nh/interior",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "color (query)",
+                    "excludedetails (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /nh/interior",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "color (query)",
+                    "excludedetails (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /nh/interior",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "color (query)",
+                    "excludedetails (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /nh/interior/{item}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "item (path)",
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "color (query)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /nh/interior/{item}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "item (path)",
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "color (query)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /nh/interior/{item}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "item (path)",
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "color (query)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /nh/interior/{item}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "item (path)",
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "color (query)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /nh/interior/{item}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "item (path)",
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "color (query)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /nh/items",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "excludedetails (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /nh/items",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "excludedetails (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /nh/items",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "excludedetails (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /nh/items",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "excludedetails (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /nh/items/{item}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "item (path)",
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /nh/items/{item}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "item (path)",
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /nh/items/{item}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "item (path)",
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /nh/items/{item}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "item (path)",
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /nh/items/{item}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "item (path)",
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /nh/photos",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "excludedetails (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /nh/photos",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "excludedetails (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /nh/photos",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "excludedetails (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /nh/photos",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "excludedetails (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /nh/photos/{item}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "item (path)",
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /nh/photos/{item}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "item (path)",
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /nh/photos/{item}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "item (path)",
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /nh/photos/{item}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "item (path)",
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /nh/photos/{item}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "item (path)",
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /nh/recipes",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "material (query)",
+                    "excludedetails (query)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /nh/recipes",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "material (query)",
+                    "excludedetails (query)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /nh/recipes",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "material (query)",
+                    "excludedetails (query)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /nh/recipes",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "material (query)",
+                    "excludedetails (query)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /nh/recipes/{item}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "item (path)",
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /nh/recipes/{item}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "item (path)",
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /nh/recipes/{item}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "item (path)",
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /nh/recipes/{item}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "item (path)",
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /nh/recipes/{item}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "item (path)",
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /nh/sea",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "month (query)",
+                    "excludedetails (query)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /nh/sea",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "month (query)",
+                    "excludedetails (query)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /nh/sea",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "month (query)",
+                    "excludedetails (query)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /nh/sea",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "month (query)",
+                    "excludedetails (query)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /nh/sea/{sea_creature}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "404",
+                    "500"
+                ],
+                "parameters": [
+                    "sea_creature (path)",
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /nh/sea/{sea_creature}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "404",
+                    "500"
+                ],
+                "parameters": [
+                    "sea_creature (path)",
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /nh/sea/{sea_creature}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "404",
+                    "500"
+                ],
+                "parameters": [
+                    "sea_creature (path)",
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /nh/sea/{sea_creature}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "404",
+                    "500"
+                ],
+                "parameters": [
+                    "sea_creature (path)",
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /nh/tools",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "excludedetails (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /nh/tools",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "excludedetails (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /nh/tools",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "excludedetails (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /nh/tools",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "excludedetails (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /nh/tools/{tool}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "tool (path)",
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /nh/tools/{tool}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "tool (path)",
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /nh/tools/{tool}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "tool (path)",
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /nh/tools/{tool}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "tool (path)",
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /nh/tools/{tool}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "tool (path)",
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /villagers",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "name (query)",
+                    "species (query)",
+                    "personality (query)",
+                    "game (query)",
+                    "birthmonth (query)",
+                    "birthday (query)",
+                    "nhdetails (query)",
+                    "excludedetails (query)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /villagers",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "name (query)",
+                    "species (query)",
+                    "personality (query)",
+                    "game (query)",
+                    "birthmonth (query)",
+                    "birthday (query)",
+                    "nhdetails (query)",
+                    "excludedetails (query)",
+                    "thumbsize (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /villagers",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "500"
+                ],
+                "parameters": [
+                    "X-API-KEY (header)",
+                    "Accept-Version (header)",
+                    "name (query)",
+                    "species (query)",
+                    "personality (query)",
+                    "game (query)",
+                    "birthmonth (query)",
+                    "birthday (query)",
+                    "nhdetails (query)",
+                    "excludedetails (query)",
+                    "thumbsize (query)"
+                ]
+            }
+        ]
+    }
+}

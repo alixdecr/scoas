@@ -1,0 +1,288 @@
+{
+    "name": "refuge-restrooms",
+    "timestamp": "2026-01-29-11-30",
+    "nb-routes": 4,
+    "nb-routes-without-violations": 0,
+    "status-codes": {
+        "total": 4,
+        "by-code": {
+            "200": 4
+        }
+    },
+    "rule-violations": {
+        "total": 12,
+        "average-per-route": 3.0,
+        "by-rule": {
+            "has-204-if-no-content": 4,
+            "has-400-if-params": 4,
+            "has-422-if-params": 4
+        },
+        "list": [
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /v1/restrooms/by_date",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "page (query)",
+                    "per_page (query)",
+                    "offset (query)",
+                    "ada (query)",
+                    "unisex (query)",
+                    "updated (query)",
+                    "day (query)",
+                    "month (query)",
+                    "year (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v1/restrooms/by_date",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "page (query)",
+                    "per_page (query)",
+                    "offset (query)",
+                    "ada (query)",
+                    "unisex (query)",
+                    "updated (query)",
+                    "day (query)",
+                    "month (query)",
+                    "year (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v1/restrooms/by_date",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "page (query)",
+                    "per_page (query)",
+                    "offset (query)",
+                    "ada (query)",
+                    "unisex (query)",
+                    "updated (query)",
+                    "day (query)",
+                    "month (query)",
+                    "year (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /v1/restrooms/by_location",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "page (query)",
+                    "per_page (query)",
+                    "offset (query)",
+                    "ada (query)",
+                    "unisex (query)",
+                    "lat (query)",
+                    "lng (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v1/restrooms/by_location",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "page (query)",
+                    "per_page (query)",
+                    "offset (query)",
+                    "ada (query)",
+                    "unisex (query)",
+                    "lat (query)",
+                    "lng (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v1/restrooms/by_location",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "page (query)",
+                    "per_page (query)",
+                    "offset (query)",
+                    "ada (query)",
+                    "unisex (query)",
+                    "lat (query)",
+                    "lng (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /v1/restrooms/search",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "page (query)",
+                    "per_page (query)",
+                    "offset (query)",
+                    "ada (query)",
+                    "unisex (query)",
+                    "query (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v1/restrooms/search",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "page (query)",
+                    "per_page (query)",
+                    "offset (query)",
+                    "ada (query)",
+                    "unisex (query)",
+                    "query (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v1/restrooms/search",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "page (query)",
+                    "per_page (query)",
+                    "offset (query)",
+                    "ada (query)",
+                    "unisex (query)",
+                    "query (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /v1/restrooms",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "page (query)",
+                    "per_page (query)",
+                    "offset (query)",
+                    "ada (query)",
+                    "unisex (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v1/restrooms",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "page (query)",
+                    "per_page (query)",
+                    "offset (query)",
+                    "ada (query)",
+                    "unisex (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v1/restrooms",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "page (query)",
+                    "per_page (query)",
+                    "offset (query)",
+                    "ada (query)",
+                    "unisex (query)"
+                ]
+            }
+        ]
+    }
+}

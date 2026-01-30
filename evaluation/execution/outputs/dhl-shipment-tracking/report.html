@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCOAS Execution Report - dhl-shipment-tracking</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            margin-bottom: 2rem;
+            margin-top: 2rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+        h1 {
+            border-bottom: 1px solid gray;
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+        }
+        h2 {
+            font-size: 1.2rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        h3 {
+            font-size: 1rem;
+        }
+        ul {
+            margin-left: 2rem;
+        }
+        p {
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+        code {
+            color: blueviolet;
+        }
+        .info-container {
+            background-color: rgb(202, 223, 255);
+            color: rgb(0, 80, 146);
+            padding: 0.5rem;
+        }
+        .rule-container {
+            background-color: rgb(247, 247, 247);
+            margin-bottom: 1rem;
+            margin-top: 1rem;
+            padding: 1rem;
+        }
+        .rule-id {
+            color: rgb(197, 118, 0);
+        }
+        .violation-color {
+            color: rgb(212, 0, 0);
+        }
+        .ok-color {
+            color: rgb(0, 136, 0);
+        }
+        .source-color {
+            color: rgb(0, 89, 255);
+        }
+        .summary-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: flex-start;
+            margin: 1rem;
+        }
+        .summary-card {
+            text-align: center;
+            padding: 0.5rem;
+        }
+        .summary-number {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        .summary-title {
+            font-size: 1rem;
+            margin-top: 0.1rem;
+        }
+    </style>
+</head>
+<body>
+    <h1>SCOAS Execution Report - dhl-shipment-tracking</h1>
+
+    <p><b>Timestamp:</b> 2026-01-29-11-30</p>
+
+    <h2>Summary</h2>
+
+    <div class="summary-container">
+        <div class="summary-card">
+            <div class="summary-number violation-color">1</div>
+            <div class="summary-title violation-color">Rule Violations</div>
+        </div>
+        <div class="summary-card">
+            <div class="summary-number violation-color">1.0</div>
+            <div class="summary-title violation-color">Average Violations/Route</div>
+        </div>
+        <div class="summary-card">
+            <div class="summary-number ok-color">0</div>
+            <div class="summary-title ok-color">Routes Without Violations</div>
+        </div>
+        <div class="summary-card">
+            <div class="summary-number">1</div>
+            <div class="summary-title">Routes Analyzed</div>
+        </div>
+        <div class="summary-card">
+            <div class="summary-number">2</div>
+            <div class="summary-title">Responses Analyzed</div>
+        </div>
+    </div>
+
+    <div class="info-container">If your OpenAPI Specification file contains status code misuses, they should be fixed based on the rule descriptions that are provided. The rule sources provide references to the standards (RFCs) that were used to define the rules.</div>
+
+    <h2>Details</h2>
+
+    <ul>
+        
+            <li><b class="violation-color">1</b> violations of the rule <code class="rule-id">has-406-if-accept</code></li>
+        
+    </ul>
+
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #1</h3>
+            <p><b>Route:</b> <code>GET /shipments</code></p>
+            <p><b>Responses:</b> <code>200 OK, 404 Not Found</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-406-if-accept</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>406 Not Acceptable</code> in case the sever does not support the <code>Accept</code> header specified in the request. Only applies to routes that respond with content.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.7 (406 Not Acceptable) | RFC 9110, Section 12.5.1 (Accept)</code></p>
+        </div>
+    
+</body>
+</html>

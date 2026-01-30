@@ -1,0 +1,1654 @@
+{
+    "name": "features-service",
+    "timestamp": "2026-01-29-11-30",
+    "nb-routes": 18,
+    "nb-routes-without-violations": 1,
+    "status-codes": {
+        "total": 18,
+        "by-code": {
+            "200": 7,
+            "default": 11
+        }
+    },
+    "rule-violations": {
+        "total": 90,
+        "average-per-route": 5.0,
+        "by-rule": {
+            "has-400-if-params": 17,
+            "has-404-if-path": 17,
+            "has-422-if-params": 17,
+            "has-200-or-201-or-204-if-post": 6,
+            "has-400-if-payload": 7,
+            "has-413-if-content-length": 7,
+            "has-415-if-content-type": 7,
+            "has-422-if-payload": 7,
+            "has-200-or-204-if-delete": 5
+        },
+        "list": [
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /products/{productName}/features",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "productName (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /products/{productName}/features",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "productName (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /products/{productName}/features",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "productName (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-200-or-201-or-204-if-post",
+                    "description": "Always implement a response with the status code '200 OK', '201 Created', or '204 No Content' in a 'POST' method.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.1 (200 OK)",
+                        "RFC 9110, Section 15.3.2 (201 Created)",
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 9.3.3 (POST)"
+                    ]
+                },
+                "route": "POST /products/{productName}/features/{featureName}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "productName (path)",
+                    "featureName (path)",
+                    "description (formData)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /products/{productName}/features/{featureName}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "productName (path)",
+                    "featureName (path)",
+                    "description (formData)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-payload",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /products/{productName}/features/{featureName}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "productName (path)",
+                    "featureName (path)",
+                    "description (formData)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "POST /products/{productName}/features/{featureName}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "productName (path)",
+                    "featureName (path)",
+                    "description (formData)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /products/{productName}/features/{featureName}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "productName (path)",
+                    "featureName (path)",
+                    "description (formData)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /products/{productName}/features/{featureName}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "productName (path)",
+                    "featureName (path)",
+                    "description (formData)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /products/{productName}/features/{featureName}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "productName (path)",
+                    "featureName (path)",
+                    "description (formData)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /products/{productName}/features/{featureName}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "productName (path)",
+                    "featureName (path)",
+                    "description (formData)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "PUT /products/{productName}/features/{featureName}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "productName (path)",
+                    "featureName (path)",
+                    "description (formData)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-payload",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "PUT /products/{productName}/features/{featureName}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "productName (path)",
+                    "featureName (path)",
+                    "description (formData)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "PUT /products/{productName}/features/{featureName}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "productName (path)",
+                    "featureName (path)",
+                    "description (formData)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "PUT /products/{productName}/features/{featureName}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "productName (path)",
+                    "featureName (path)",
+                    "description (formData)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "PUT /products/{productName}/features/{featureName}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "productName (path)",
+                    "featureName (path)",
+                    "description (formData)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "PUT /products/{productName}/features/{featureName}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "productName (path)",
+                    "featureName (path)",
+                    "description (formData)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "PUT /products/{productName}/features/{featureName}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "productName (path)",
+                    "featureName (path)",
+                    "description (formData)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-200-or-204-if-delete",
+                    "description": "Always implement a response with the status code '200 OK' or '204 No Content' in a 'DELETE' method.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.1 (200 OK)",
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 9.3.5 (DELETE)"
+                    ]
+                },
+                "route": "DELETE /products/{productName}/features/{featureName}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "productName (path)",
+                    "featureName (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "DELETE /products/{productName}/features/{featureName}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "productName (path)",
+                    "featureName (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "DELETE /products/{productName}/features/{featureName}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "productName (path)",
+                    "featureName (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "DELETE /products/{productName}/features/{featureName}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "productName (path)",
+                    "featureName (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-200-or-201-or-204-if-post",
+                    "description": "Always implement a response with the status code '200 OK', '201 Created', or '204 No Content' in a 'POST' method.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.1 (200 OK)",
+                        "RFC 9110, Section 15.3.2 (201 Created)",
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 9.3.3 (POST)"
+                    ]
+                },
+                "route": "POST /products/{productName}/configurations/{configurationName}/features/{featureName}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "productName (path)",
+                    "configurationName (path)",
+                    "featureName (path)",
+                    "productName (path)",
+                    "configurationName (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /products/{productName}/configurations/{configurationName}/features/{featureName}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "productName (path)",
+                    "configurationName (path)",
+                    "featureName (path)",
+                    "productName (path)",
+                    "configurationName (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-payload",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /products/{productName}/configurations/{configurationName}/features/{featureName}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "productName (path)",
+                    "configurationName (path)",
+                    "featureName (path)",
+                    "productName (path)",
+                    "configurationName (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "POST /products/{productName}/configurations/{configurationName}/features/{featureName}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "productName (path)",
+                    "configurationName (path)",
+                    "featureName (path)",
+                    "productName (path)",
+                    "configurationName (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /products/{productName}/configurations/{configurationName}/features/{featureName}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "productName (path)",
+                    "configurationName (path)",
+                    "featureName (path)",
+                    "productName (path)",
+                    "configurationName (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /products/{productName}/configurations/{configurationName}/features/{featureName}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "productName (path)",
+                    "configurationName (path)",
+                    "featureName (path)",
+                    "productName (path)",
+                    "configurationName (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /products/{productName}/configurations/{configurationName}/features/{featureName}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "productName (path)",
+                    "configurationName (path)",
+                    "featureName (path)",
+                    "productName (path)",
+                    "configurationName (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /products/{productName}/configurations/{configurationName}/features/{featureName}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "productName (path)",
+                    "configurationName (path)",
+                    "featureName (path)",
+                    "productName (path)",
+                    "configurationName (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-200-or-204-if-delete",
+                    "description": "Always implement a response with the status code '200 OK' or '204 No Content' in a 'DELETE' method.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.1 (200 OK)",
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 9.3.5 (DELETE)"
+                    ]
+                },
+                "route": "DELETE /products/{productName}/configurations/{configurationName}/features/{featureName}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "productName (path)",
+                    "configurationName (path)",
+                    "featureName (path)",
+                    "productName (path)",
+                    "configurationName (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "DELETE /products/{productName}/configurations/{configurationName}/features/{featureName}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "productName (path)",
+                    "configurationName (path)",
+                    "featureName (path)",
+                    "productName (path)",
+                    "configurationName (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "DELETE /products/{productName}/configurations/{configurationName}/features/{featureName}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "productName (path)",
+                    "configurationName (path)",
+                    "featureName (path)",
+                    "productName (path)",
+                    "configurationName (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "DELETE /products/{productName}/configurations/{configurationName}/features/{featureName}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "productName (path)",
+                    "configurationName (path)",
+                    "featureName (path)",
+                    "productName (path)",
+                    "configurationName (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /products/{productName}/configurations/{configurationName}/features",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "productName (path)",
+                    "configurationName (path)",
+                    "productName (path)",
+                    "configurationName (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /products/{productName}/configurations/{configurationName}/features",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "productName (path)",
+                    "configurationName (path)",
+                    "productName (path)",
+                    "configurationName (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /products/{productName}/configurations/{configurationName}/features",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "productName (path)",
+                    "configurationName (path)",
+                    "productName (path)",
+                    "configurationName (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /products/{productName}/configurations",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "productName (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /products/{productName}/configurations",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "productName (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /products/{productName}/configurations",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "productName (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /products/{productName}/configurations/{configurationName}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "productName (path)",
+                    "configurationName (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /products/{productName}/configurations/{configurationName}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "productName (path)",
+                    "configurationName (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /products/{productName}/configurations/{configurationName}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "productName (path)",
+                    "configurationName (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-200-or-201-or-204-if-post",
+                    "description": "Always implement a response with the status code '200 OK', '201 Created', or '204 No Content' in a 'POST' method.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.1 (200 OK)",
+                        "RFC 9110, Section 15.3.2 (201 Created)",
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 9.3.3 (POST)"
+                    ]
+                },
+                "route": "POST /products/{productName}/configurations/{configurationName}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "productName (path)",
+                    "configurationName (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /products/{productName}/configurations/{configurationName}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "productName (path)",
+                    "configurationName (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-payload",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /products/{productName}/configurations/{configurationName}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "productName (path)",
+                    "configurationName (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "POST /products/{productName}/configurations/{configurationName}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "productName (path)",
+                    "configurationName (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /products/{productName}/configurations/{configurationName}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "productName (path)",
+                    "configurationName (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /products/{productName}/configurations/{configurationName}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "productName (path)",
+                    "configurationName (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /products/{productName}/configurations/{configurationName}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "productName (path)",
+                    "configurationName (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /products/{productName}/configurations/{configurationName}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "productName (path)",
+                    "configurationName (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-200-or-204-if-delete",
+                    "description": "Always implement a response with the status code '200 OK' or '204 No Content' in a 'DELETE' method.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.1 (200 OK)",
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 9.3.5 (DELETE)"
+                    ]
+                },
+                "route": "DELETE /products/{productName}/configurations/{configurationName}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "productName (path)",
+                    "configurationName (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "DELETE /products/{productName}/configurations/{configurationName}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "productName (path)",
+                    "configurationName (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "DELETE /products/{productName}/configurations/{configurationName}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "productName (path)",
+                    "configurationName (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "DELETE /products/{productName}/configurations/{configurationName}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "productName (path)",
+                    "configurationName (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-200-or-201-or-204-if-post",
+                    "description": "Always implement a response with the status code '200 OK', '201 Created', or '204 No Content' in a 'POST' method.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.1 (200 OK)",
+                        "RFC 9110, Section 15.3.2 (201 Created)",
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 9.3.3 (POST)"
+                    ]
+                },
+                "route": "POST /products/{productName}/constraints/requires",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "productName (path)",
+                    "sourceFeature (formData)",
+                    "requiredFeature (formData)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /products/{productName}/constraints/requires",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "productName (path)",
+                    "sourceFeature (formData)",
+                    "requiredFeature (formData)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-payload",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /products/{productName}/constraints/requires",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "productName (path)",
+                    "sourceFeature (formData)",
+                    "requiredFeature (formData)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "POST /products/{productName}/constraints/requires",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "productName (path)",
+                    "sourceFeature (formData)",
+                    "requiredFeature (formData)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /products/{productName}/constraints/requires",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "productName (path)",
+                    "sourceFeature (formData)",
+                    "requiredFeature (formData)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /products/{productName}/constraints/requires",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "productName (path)",
+                    "sourceFeature (formData)",
+                    "requiredFeature (formData)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /products/{productName}/constraints/requires",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "productName (path)",
+                    "sourceFeature (formData)",
+                    "requiredFeature (formData)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /products/{productName}/constraints/requires",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "productName (path)",
+                    "sourceFeature (formData)",
+                    "requiredFeature (formData)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-200-or-201-or-204-if-post",
+                    "description": "Always implement a response with the status code '200 OK', '201 Created', or '204 No Content' in a 'POST' method.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.1 (200 OK)",
+                        "RFC 9110, Section 15.3.2 (201 Created)",
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 9.3.3 (POST)"
+                    ]
+                },
+                "route": "POST /products/{productName}/constraints/excludes",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "productName (path)",
+                    "sourceFeature (formData)",
+                    "excludedFeature (formData)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /products/{productName}/constraints/excludes",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "productName (path)",
+                    "sourceFeature (formData)",
+                    "excludedFeature (formData)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-payload",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /products/{productName}/constraints/excludes",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "productName (path)",
+                    "sourceFeature (formData)",
+                    "excludedFeature (formData)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "POST /products/{productName}/constraints/excludes",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "productName (path)",
+                    "sourceFeature (formData)",
+                    "excludedFeature (formData)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /products/{productName}/constraints/excludes",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "productName (path)",
+                    "sourceFeature (formData)",
+                    "excludedFeature (formData)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /products/{productName}/constraints/excludes",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "productName (path)",
+                    "sourceFeature (formData)",
+                    "excludedFeature (formData)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /products/{productName}/constraints/excludes",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "productName (path)",
+                    "sourceFeature (formData)",
+                    "excludedFeature (formData)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /products/{productName}/constraints/excludes",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "productName (path)",
+                    "sourceFeature (formData)",
+                    "excludedFeature (formData)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-200-or-204-if-delete",
+                    "description": "Always implement a response with the status code '200 OK' or '204 No Content' in a 'DELETE' method.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.1 (200 OK)",
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 9.3.5 (DELETE)"
+                    ]
+                },
+                "route": "DELETE /products/{productName}/constraints/{constraintId}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "productName (path)",
+                    "constraintId (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "DELETE /products/{productName}/constraints/{constraintId}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "productName (path)",
+                    "constraintId (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "DELETE /products/{productName}/constraints/{constraintId}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "productName (path)",
+                    "constraintId (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "DELETE /products/{productName}/constraints/{constraintId}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "productName (path)",
+                    "constraintId (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /products/{productName}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "productName (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /products/{productName}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "productName (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /products/{productName}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "productName (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-200-or-201-or-204-if-post",
+                    "description": "Always implement a response with the status code '200 OK', '201 Created', or '204 No Content' in a 'POST' method.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.1 (200 OK)",
+                        "RFC 9110, Section 15.3.2 (201 Created)",
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 9.3.3 (POST)"
+                    ]
+                },
+                "route": "POST /products/{productName}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "productName (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /products/{productName}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "productName (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-payload",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /products/{productName}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "productName (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "POST /products/{productName}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "productName (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /products/{productName}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "productName (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /products/{productName}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "productName (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /products/{productName}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "productName (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /products/{productName}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "productName (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-200-or-204-if-delete",
+                    "description": "Always implement a response with the status code '200 OK' or '204 No Content' in a 'DELETE' method.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.1 (200 OK)",
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 9.3.5 (DELETE)"
+                    ]
+                },
+                "route": "DELETE /products/{productName}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "productName (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "DELETE /products/{productName}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "productName (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "DELETE /products/{productName}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "productName (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "DELETE /products/{productName}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "productName (path)"
+                ]
+            }
+        ]
+    }
+}

@@ -1,0 +1,1437 @@
+{
+    "name": "genome-nexus",
+    "timestamp": "2026-01-29-11-30",
+    "nb-routes": 23,
+    "nb-routes-without-violations": 1,
+    "status-codes": {
+        "total": 23,
+        "by-code": {
+            "200": 23
+        }
+    },
+    "rule-violations": {
+        "total": 81,
+        "average-per-route": 3.52,
+        "by-rule": {
+            "has-400-if-params": 16,
+            "has-400-if-payload": 10,
+            "has-413-if-content-length": 10,
+            "has-415-if-content-type": 10,
+            "has-422-if-params": 16,
+            "has-422-if-payload": 10,
+            "has-404-if-path": 9
+        },
+        "list": [
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /annotation",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "variants (body)",
+                    "isoformOverrideSource (query)",
+                    "token (query)",
+                    "fields (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-payload",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /annotation",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "variants (body)",
+                    "isoformOverrideSource (query)",
+                    "token (query)",
+                    "fields (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /annotation",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "variants (body)",
+                    "isoformOverrideSource (query)",
+                    "token (query)",
+                    "fields (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /annotation",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "variants (body)",
+                    "isoformOverrideSource (query)",
+                    "token (query)",
+                    "fields (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /annotation",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "variants (body)",
+                    "isoformOverrideSource (query)",
+                    "token (query)",
+                    "fields (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /annotation",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "variants (body)",
+                    "isoformOverrideSource (query)",
+                    "token (query)",
+                    "fields (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /annotation/dbsnp/",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "variantIds (body)",
+                    "isoformOverrideSource (query)",
+                    "token (query)",
+                    "fields (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-payload",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /annotation/dbsnp/",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "variantIds (body)",
+                    "isoformOverrideSource (query)",
+                    "token (query)",
+                    "fields (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /annotation/dbsnp/",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "variantIds (body)",
+                    "isoformOverrideSource (query)",
+                    "token (query)",
+                    "fields (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /annotation/dbsnp/",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "variantIds (body)",
+                    "isoformOverrideSource (query)",
+                    "token (query)",
+                    "fields (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /annotation/dbsnp/",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "variantIds (body)",
+                    "isoformOverrideSource (query)",
+                    "token (query)",
+                    "fields (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /annotation/dbsnp/",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "variantIds (body)",
+                    "isoformOverrideSource (query)",
+                    "token (query)",
+                    "fields (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /annotation/dbsnp/{variantId}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "variantId (path)",
+                    "isoformOverrideSource (query)",
+                    "token (query)",
+                    "fields (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /annotation/dbsnp/{variantId}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "variantId (path)",
+                    "isoformOverrideSource (query)",
+                    "token (query)",
+                    "fields (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /annotation/dbsnp/{variantId}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "variantId (path)",
+                    "isoformOverrideSource (query)",
+                    "token (query)",
+                    "fields (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /annotation/genomic",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "genomicLocations (body)",
+                    "isoformOverrideSource (query)",
+                    "token (query)",
+                    "fields (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-payload",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /annotation/genomic",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "genomicLocations (body)",
+                    "isoformOverrideSource (query)",
+                    "token (query)",
+                    "fields (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /annotation/genomic",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "genomicLocations (body)",
+                    "isoformOverrideSource (query)",
+                    "token (query)",
+                    "fields (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /annotation/genomic",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "genomicLocations (body)",
+                    "isoformOverrideSource (query)",
+                    "token (query)",
+                    "fields (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /annotation/genomic",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "genomicLocations (body)",
+                    "isoformOverrideSource (query)",
+                    "token (query)",
+                    "fields (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /annotation/genomic",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "genomicLocations (body)",
+                    "isoformOverrideSource (query)",
+                    "token (query)",
+                    "fields (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /annotation/genomic/{genomicLocation}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "genomicLocation (path)",
+                    "isoformOverrideSource (query)",
+                    "token (query)",
+                    "fields (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /annotation/genomic/{genomicLocation}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "genomicLocation (path)",
+                    "isoformOverrideSource (query)",
+                    "token (query)",
+                    "fields (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /annotation/genomic/{genomicLocation}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "genomicLocation (path)",
+                    "isoformOverrideSource (query)",
+                    "token (query)",
+                    "fields (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /annotation/{variant}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "variant (path)",
+                    "isoformOverrideSource (query)",
+                    "token (query)",
+                    "fields (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /annotation/{variant}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "variant (path)",
+                    "isoformOverrideSource (query)",
+                    "token (query)",
+                    "fields (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /annotation/{variant}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "variant (path)",
+                    "isoformOverrideSource (query)",
+                    "token (query)",
+                    "fields (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-payload",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /ensembl/canonical-gene/entrez",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "entrezGeneIds (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /ensembl/canonical-gene/entrez",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "entrezGeneIds (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /ensembl/canonical-gene/entrez",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "entrezGeneIds (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /ensembl/canonical-gene/entrez",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "entrezGeneIds (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /ensembl/canonical-gene/entrez/{entrezGeneId}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "entrezGeneId (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /ensembl/canonical-gene/entrez/{entrezGeneId}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "entrezGeneId (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /ensembl/canonical-gene/entrez/{entrezGeneId}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "entrezGeneId (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-payload",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /ensembl/canonical-gene/hgnc",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "hugoSymbols (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /ensembl/canonical-gene/hgnc",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "hugoSymbols (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /ensembl/canonical-gene/hgnc",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "hugoSymbols (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /ensembl/canonical-gene/hgnc",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "hugoSymbols (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /ensembl/canonical-gene/hgnc/{hugoSymbol}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "hugoSymbol (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /ensembl/canonical-gene/hgnc/{hugoSymbol}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "hugoSymbol (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /ensembl/canonical-gene/hgnc/{hugoSymbol}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "hugoSymbol (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /ensembl/canonical-transcript/hgnc",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "hugoSymbols (body)",
+                    "isoformOverrideSource (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-payload",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /ensembl/canonical-transcript/hgnc",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "hugoSymbols (body)",
+                    "isoformOverrideSource (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /ensembl/canonical-transcript/hgnc",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "hugoSymbols (body)",
+                    "isoformOverrideSource (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /ensembl/canonical-transcript/hgnc",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "hugoSymbols (body)",
+                    "isoformOverrideSource (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /ensembl/canonical-transcript/hgnc",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "hugoSymbols (body)",
+                    "isoformOverrideSource (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /ensembl/canonical-transcript/hgnc",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "hugoSymbols (body)",
+                    "isoformOverrideSource (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /ensembl/canonical-transcript/hgnc/{hugoSymbol}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "hugoSymbol (path)",
+                    "isoformOverrideSource (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /ensembl/canonical-transcript/hgnc/{hugoSymbol}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "hugoSymbol (path)",
+                    "isoformOverrideSource (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /ensembl/canonical-transcript/hgnc/{hugoSymbol}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "hugoSymbol (path)",
+                    "isoformOverrideSource (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /ensembl/transcript",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "geneId (query)",
+                    "proteinId (query)",
+                    "hugoSymbol (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /ensembl/transcript",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "geneId (query)",
+                    "proteinId (query)",
+                    "hugoSymbol (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-payload",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /ensembl/transcript",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "ensemblFilter (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /ensembl/transcript",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "ensemblFilter (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /ensembl/transcript",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "ensemblFilter (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /ensembl/transcript",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "ensemblFilter (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /ensembl/transcript/{transcriptId}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "transcriptId (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /ensembl/transcript/{transcriptId}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "transcriptId (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /ensembl/transcript/{transcriptId}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "transcriptId (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /ensembl/xrefs",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "accession (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /ensembl/xrefs",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "accession (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-payload",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /pdb/header",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "pdbIds (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /pdb/header",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "pdbIds (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /pdb/header",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "pdbIds (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /pdb/header",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "pdbIds (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /pdb/header/{pdbId}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "pdbId (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /pdb/header/{pdbId}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "pdbId (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /pdb/header/{pdbId}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "pdbId (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-payload",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /pfam/domain",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "pfamAccessions (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /pfam/domain",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "pfamAccessions (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /pfam/domain",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "pfamAccessions (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /pfam/domain",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "pfamAccessions (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /pfam/domain/{pfamAccession}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "pfamAccession (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /pfam/domain/{pfamAccession}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "pfamAccession (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /pfam/domain/{pfamAccession}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "pfamAccession (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /ptm/experimental",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "ensemblTranscriptId (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /ptm/experimental",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "ensemblTranscriptId (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-payload",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /ptm/experimental",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "ptmFilter (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /ptm/experimental",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "ptmFilter (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /ptm/experimental",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "ptmFilter (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /ptm/experimental",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "ptmFilter (body)"
+                ]
+            }
+        ]
+    }
+}

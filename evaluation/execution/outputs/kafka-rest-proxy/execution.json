@@ -1,0 +1,4976 @@
+{
+    "name": "kafka-rest-proxy",
+    "timestamp": "2026-01-29-11-30",
+    "nb-routes": 49,
+    "nb-routes-without-violations": 0,
+    "status-codes": {
+        "total": 315,
+        "by-code": {
+            "200": 36,
+            "400": 49,
+            "401": 49,
+            "403": 49,
+            "429": 49,
+            "5XX": 49,
+            "201": 3,
+            "204": 10,
+            "404": 16,
+            "413": 1,
+            "415": 2,
+            "422": 1,
+            "207": 1
+        }
+    },
+    "rule-violations": {
+        "total": 249,
+        "average-per-route": 5.08,
+        "by-rule": {
+            "has-204-if-no-content": 39,
+            "no-401-if-no-auth": 49,
+            "no-non-standard-codes": 49,
+            "has-404-if-path": 32,
+            "has-422-if-params": 47,
+            "has-413-if-content-length": 11,
+            "has-415-if-content-type": 10,
+            "has-422-if-payload": 11,
+            "has-200-or-201-or-204-if-post": 1
+        },
+        "list": [
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /clusters",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /clusters",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /clusters",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "POST /clusters/{cluster_id}/acls:batch",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "POST /clusters/{cluster_id}/acls:batch",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /clusters/{cluster_id}/acls:batch",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /clusters/{cluster_id}/acls:batch",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /clusters/{cluster_id}/acls:batch",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /clusters/{cluster_id}/acls:batch",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "POST /clusters/{cluster_id}/acls:batch",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "POST /clusters/{cluster_id}/acls:batch",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/acls",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/acls",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/acls",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/acls",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/acls",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "POST /clusters/{cluster_id}/acls",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "POST /clusters/{cluster_id}/acls",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /clusters/{cluster_id}/acls",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /clusters/{cluster_id}/acls",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /clusters/{cluster_id}/acls",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /clusters/{cluster_id}/acls",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "POST /clusters/{cluster_id}/acls",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "POST /clusters/{cluster_id}/acls",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "DELETE /clusters/{cluster_id}/acls",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "DELETE /clusters/{cluster_id}/acls",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "DELETE /clusters/{cluster_id}/acls",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "DELETE /clusters/{cluster_id}/acls",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "DELETE /clusters/{cluster_id}/acls",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/broker-configs",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/broker-configs",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/broker-configs",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/broker-configs",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/broker-configs",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "POST /clusters/{cluster_id}/broker-configs:alter",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /clusters/{cluster_id}/broker-configs:alter",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /clusters/{cluster_id}/broker-configs:alter",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /clusters/{cluster_id}/broker-configs:alter",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /clusters/{cluster_id}/broker-configs:alter",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "POST /clusters/{cluster_id}/broker-configs:alter",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "POST /clusters/{cluster_id}/broker-configs:alter",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/broker-configs/{name}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/broker-configs/{name}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/broker-configs/{name}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/broker-configs/{name}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/broker-configs/{name}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "PUT /clusters/{cluster_id}/broker-configs/{name}",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "PUT /clusters/{cluster_id}/broker-configs/{name}",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "PUT /clusters/{cluster_id}/broker-configs/{name}",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "PUT /clusters/{cluster_id}/broker-configs/{name}",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "PUT /clusters/{cluster_id}/broker-configs/{name}",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "PUT /clusters/{cluster_id}/broker-configs/{name}",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "PUT /clusters/{cluster_id}/broker-configs/{name}",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "DELETE /clusters/{cluster_id}/broker-configs/{name}",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "DELETE /clusters/{cluster_id}/broker-configs/{name}",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "DELETE /clusters/{cluster_id}/broker-configs/{name}",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "DELETE /clusters/{cluster_id}/broker-configs/{name}",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/brokers",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/brokers",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/brokers",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/brokers",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/brokers",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/brokers/{broker_id}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/brokers/{broker_id}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/brokers/{broker_id}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/brokers/{broker_id}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/brokers/{broker_id}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/brokers/-/configs",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/brokers/-/configs",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/brokers/-/configs",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/brokers/-/configs",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/brokers/-/configs",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/brokers/{broker_id}/configs",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/brokers/{broker_id}/configs",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/brokers/{broker_id}/configs",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/brokers/{broker_id}/configs",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/brokers/{broker_id}/configs",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "POST /clusters/{cluster_id}/brokers/{broker_id}/configs:alter",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /clusters/{cluster_id}/brokers/{broker_id}/configs:alter",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /clusters/{cluster_id}/brokers/{broker_id}/configs:alter",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /clusters/{cluster_id}/brokers/{broker_id}/configs:alter",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /clusters/{cluster_id}/brokers/{broker_id}/configs:alter",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "POST /clusters/{cluster_id}/brokers/{broker_id}/configs:alter",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "POST /clusters/{cluster_id}/brokers/{broker_id}/configs:alter",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/brokers/{broker_id}/configs/{name}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/brokers/{broker_id}/configs/{name}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/brokers/{broker_id}/configs/{name}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/brokers/{broker_id}/configs/{name}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/brokers/{broker_id}/configs/{name}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "PUT /clusters/{cluster_id}/brokers/{broker_id}/configs/{name}",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "PUT /clusters/{cluster_id}/brokers/{broker_id}/configs/{name}",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "PUT /clusters/{cluster_id}/brokers/{broker_id}/configs/{name}",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "PUT /clusters/{cluster_id}/brokers/{broker_id}/configs/{name}",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "PUT /clusters/{cluster_id}/brokers/{broker_id}/configs/{name}",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "PUT /clusters/{cluster_id}/brokers/{broker_id}/configs/{name}",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "PUT /clusters/{cluster_id}/brokers/{broker_id}/configs/{name}",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "DELETE /clusters/{cluster_id}/brokers/{broker_id}/configs/{name}",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "DELETE /clusters/{cluster_id}/brokers/{broker_id}/configs/{name}",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "DELETE /clusters/{cluster_id}/brokers/{broker_id}/configs/{name}",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "DELETE /clusters/{cluster_id}/brokers/{broker_id}/configs/{name}",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/brokers/{broker_id}/partition-replicas",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/brokers/{broker_id}/partition-replicas",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/brokers/{broker_id}/partition-replicas",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/brokers/{broker_id}/partition-replicas",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/brokers/{broker_id}/partition-replicas",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/consumer-groups",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/consumer-groups",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/consumer-groups",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/consumer-groups",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/consumer-groups",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/consumer-groups/{consumer_group_id}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/consumer-groups/{consumer_group_id}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/consumer-groups/{consumer_group_id}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/consumer-groups/{consumer_group_id}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/consumer-groups/{consumer_group_id}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/consumer-groups/{consumer_group_id}/consumers",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/consumer-groups/{consumer_group_id}/consumers",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/consumer-groups/{consumer_group_id}/consumers",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/consumer-groups/{consumer_group_id}/consumers",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/consumer-groups/{consumer_group_id}/consumers",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/consumer-groups/{consumer_group_id}/lag-summary",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/consumer-groups/{consumer_group_id}/lag-summary",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/consumer-groups/{consumer_group_id}/lag-summary",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/consumer-groups/{consumer_group_id}/lag-summary",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/consumer-groups/{consumer_group_id}/lag-summary",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/consumer-groups/{consumer_group_id}/lags",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/consumer-groups/{consumer_group_id}/lags",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/consumer-groups/{consumer_group_id}/lags",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/consumer-groups/{consumer_group_id}/lags",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/consumer-groups/{consumer_group_id}/lags",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/consumer-groups/{consumer_group_id}/lags/{topic_name}/partitions/{partition_id}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/consumer-groups/{consumer_group_id}/lags/{topic_name}/partitions/{partition_id}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/consumer-groups/{consumer_group_id}/lags/{topic_name}/partitions/{partition_id}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/consumer-groups/{consumer_group_id}/lags/{topic_name}/partitions/{partition_id}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/consumer-groups/{consumer_group_id}/lags/{topic_name}/partitions/{partition_id}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/consumer-groups/{consumer_group_id}/consumers/{consumer_id}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/consumer-groups/{consumer_group_id}/consumers/{consumer_id}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/consumer-groups/{consumer_group_id}/consumers/{consumer_id}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/consumer-groups/{consumer_group_id}/consumers/{consumer_id}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/consumer-groups/{consumer_group_id}/consumers/{consumer_id}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/consumer-groups/{consumer_group_id}/consumers/{consumer_id}/assignments",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/consumer-groups/{consumer_group_id}/consumers/{consumer_id}/assignments",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/consumer-groups/{consumer_group_id}/consumers/{consumer_id}/assignments",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/consumer-groups/{consumer_group_id}/consumers/{consumer_id}/assignments",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/consumer-groups/{consumer_group_id}/consumers/{consumer_id}/assignments",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/consumer-groups/{consumer_group_id}/consumers/{consumer_id}/assignments/{topic_name}/partitions/{partition_id}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/consumer-groups/{consumer_group_id}/consumers/{consumer_id}/assignments/{topic_name}/partitions/{partition_id}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/consumer-groups/{consumer_group_id}/consumers/{consumer_id}/assignments/{topic_name}/partitions/{partition_id}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/consumer-groups/{consumer_group_id}/consumers/{consumer_id}/assignments/{topic_name}/partitions/{partition_id}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/consumer-groups/{consumer_group_id}/consumers/{consumer_id}/assignments/{topic_name}/partitions/{partition_id}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/topics",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/topics",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/topics",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/topics",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/topics",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "POST /clusters/{cluster_id}/topics",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "POST /clusters/{cluster_id}/topics",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /clusters/{cluster_id}/topics",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /clusters/{cluster_id}/topics",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /clusters/{cluster_id}/topics",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /clusters/{cluster_id}/topics",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "POST /clusters/{cluster_id}/topics",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "POST /clusters/{cluster_id}/topics",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/topics/{topic_name}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/topics/{topic_name}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/topics/{topic_name}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/topics/{topic_name}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "PATCH /clusters/{cluster_id}/topics/{topic_name}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "PATCH /clusters/{cluster_id}/topics/{topic_name}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "PATCH /clusters/{cluster_id}/topics/{topic_name}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "PATCH /clusters/{cluster_id}/topics/{topic_name}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "PATCH /clusters/{cluster_id}/topics/{topic_name}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "PATCH /clusters/{cluster_id}/topics/{topic_name}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "PATCH /clusters/{cluster_id}/topics/{topic_name}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "PATCH /clusters/{cluster_id}/topics/{topic_name}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "DELETE /clusters/{cluster_id}/topics/{topic_name}",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "DELETE /clusters/{cluster_id}/topics/{topic_name}",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "DELETE /clusters/{cluster_id}/topics/{topic_name}",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/topics/{topic_name}/configs",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/topics/{topic_name}/configs",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/topics/{topic_name}/configs",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/topics/{topic_name}/configs",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /clusters/{cluster_id}/topics/{topic_name}/configs:alter",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /clusters/{cluster_id}/topics/{topic_name}/configs:alter",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /clusters/{cluster_id}/topics/{topic_name}/configs:alter",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /clusters/{cluster_id}/topics/{topic_name}/configs:alter",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "POST /clusters/{cluster_id}/topics/{topic_name}/configs:alter",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "POST /clusters/{cluster_id}/topics/{topic_name}/configs:alter",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/topics/{topic_name}/configs/{name}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/topics/{topic_name}/configs/{name}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/topics/{topic_name}/configs/{name}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/topics/{topic_name}/configs/{name}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "PUT /clusters/{cluster_id}/topics/{topic_name}/configs/{name}",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "PUT /clusters/{cluster_id}/topics/{topic_name}/configs/{name}",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "PUT /clusters/{cluster_id}/topics/{topic_name}/configs/{name}",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "PUT /clusters/{cluster_id}/topics/{topic_name}/configs/{name}",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "PUT /clusters/{cluster_id}/topics/{topic_name}/configs/{name}",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "PUT /clusters/{cluster_id}/topics/{topic_name}/configs/{name}",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "DELETE /clusters/{cluster_id}/topics/{topic_name}/configs/{name}",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "DELETE /clusters/{cluster_id}/topics/{topic_name}/configs/{name}",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "DELETE /clusters/{cluster_id}/topics/{topic_name}/configs/{name}",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/topics/{topic_name}/partitions",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/topics/{topic_name}/partitions",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/topics/{topic_name}/partitions",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/topics/{topic_name}/partitions",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/topics/{topic_name}/partitions/{partition_id}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/topics/{topic_name}/partitions/{partition_id}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/topics/{topic_name}/partitions/{partition_id}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/topics/{topic_name}/partitions/{partition_id}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/topics/-/partitions/-/reassignment",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/topics/-/partitions/-/reassignment",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/topics/-/partitions/-/reassignment",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/topics/-/partitions/-/reassignment",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/topics/{topic_name}/partitions/-/reassignment",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/topics/{topic_name}/partitions/-/reassignment",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/topics/{topic_name}/partitions/-/reassignment",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/topics/{topic_name}/partitions/-/reassignment",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/topics/{topic_name}/partitions/{partition_id}/reassignment",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/topics/{topic_name}/partitions/{partition_id}/reassignment",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/topics/{topic_name}/partitions/{partition_id}/reassignment",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/topics/{topic_name}/partitions/{partition_id}/reassignment",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/topics/{topic_name}/partitions/{partition_id}/replicas",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/topics/{topic_name}/partitions/{partition_id}/replicas",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/topics/{topic_name}/partitions/{partition_id}/replicas",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/topics/{topic_name}/partitions/{partition_id}/replicas",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/topics/{topic_name}/partitions/{partition_id}/replicas/{broker_id}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/topics/{topic_name}/partitions/{partition_id}/replicas/{broker_id}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/topics/{topic_name}/partitions/{partition_id}/replicas/{broker_id}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/topics/{topic_name}/partitions/{partition_id}/replicas/{broker_id}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/topics/-/configs",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/topics/-/configs",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/topics/-/configs",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/topics/-/configs",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /clusters/{cluster_id}/topics/-/configs",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "POST /clusters/{cluster_id}/topics/{topic_name}/records",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "413",
+                    "415",
+                    "422",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "POST /clusters/{cluster_id}/topics/{topic_name}/records",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "413",
+                    "415",
+                    "422",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "POST /clusters/{cluster_id}/topics/{topic_name}/records",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "413",
+                    "415",
+                    "422",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-200-or-201-or-204-if-post",
+                    "description": "Always implement a response with the status code '200 OK', '201 Created', or '204 No Content' in a 'POST' method.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.1 (200 OK)",
+                        "RFC 9110, Section 15.3.2 (201 Created)",
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 9.3.3 (POST)"
+                    ]
+                },
+                "route": "POST /clusters/{cluster_id}/topics/{topic_name}/records:batch",
+                "status-codes": [
+                    "207",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "415",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "POST /clusters/{cluster_id}/topics/{topic_name}/records:batch",
+                "status-codes": [
+                    "207",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "415",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /clusters/{cluster_id}/topics/{topic_name}/records:batch",
+                "status-codes": [
+                    "207",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "415",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /clusters/{cluster_id}/topics/{topic_name}/records:batch",
+                "status-codes": [
+                    "207",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "415",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /clusters/{cluster_id}/topics/{topic_name}/records:batch",
+                "status-codes": [
+                    "207",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "415",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "POST /clusters/{cluster_id}/topics/{topic_name}/records:batch",
+                "status-codes": [
+                    "207",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "415",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "POST /clusters/{cluster_id}/topics/{topic_name}/records:batch",
+                "status-codes": [
+                    "207",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "415",
+                    "429",
+                    "5XX"
+                ],
+                "parameters": []
+            }
+        ]
+    }
+}

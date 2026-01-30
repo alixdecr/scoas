@@ -1,0 +1,3244 @@
+{
+    "name": "amadeus-hotel",
+    "timestamp": "2026-01-29-11-30",
+    "nb-routes": 51,
+    "nb-routes-without-violations": 0,
+    "status-codes": {
+        "total": 51,
+        "by-code": {
+            "200": 49,
+            "201": 1,
+            "204": 1
+        }
+    },
+    "rule-violations": {
+        "total": 183,
+        "average-per-route": 3.59,
+        "by-rule": {
+            "has-400-if-payload": 13,
+            "has-406-if-accept": 51,
+            "has-413-if-content-length": 13,
+            "has-415-if-content-type": 13,
+            "has-422-if-payload": 13,
+            "has-400-if-params": 37,
+            "has-404-if-path": 5,
+            "has-422-if-params": 37,
+            "no-204-if-content": 1
+        },
+        "list": [
+            {
+                "rule": {
+                    "id": "has-400-if-payload",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /v1/security/oauth2/token",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "POST /v1/security/oauth2/token",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /v1/security/oauth2/token",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /v1/security/oauth2/token",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /v1/security/oauth2/token",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v1/security/oauth2/token/{access_token}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "access_token (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /v1/security/oauth2/token/{access_token}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "access_token (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /v1/security/oauth2/token/{access_token}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "access_token (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v1/security/oauth2/token/{access_token}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "access_token (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v2/shopping/flight-offers",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "originLocationCode (query)",
+                    "destinationLocationCode (query)",
+                    "departureDate (query)",
+                    "returnDate (query)",
+                    "adults (query)",
+                    "max (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /v2/shopping/flight-offers",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "originLocationCode (query)",
+                    "destinationLocationCode (query)",
+                    "departureDate (query)",
+                    "returnDate (query)",
+                    "adults (query)",
+                    "max (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v2/shopping/flight-offers",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "originLocationCode (query)",
+                    "destinationLocationCode (query)",
+                    "departureDate (query)",
+                    "returnDate (query)",
+                    "adults (query)",
+                    "max (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-payload",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /v2/shopping/flight-offers",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "Content-Type (header)",
+                    "X-HTTP-Method-Override (header)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "POST /v2/shopping/flight-offers",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "Content-Type (header)",
+                    "X-HTTP-Method-Override (header)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /v2/shopping/flight-offers",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "Content-Type (header)",
+                    "X-HTTP-Method-Override (header)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /v2/shopping/flight-offers",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "Content-Type (header)",
+                    "X-HTTP-Method-Override (header)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /v2/shopping/flight-offers",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "Content-Type (header)",
+                    "X-HTTP-Method-Override (header)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-payload",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /v1/shopping/flight-offers/pricing",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "Content-Type (header)",
+                    "X-HTTP-Method-Override (header)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "POST /v1/shopping/flight-offers/pricing",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "Content-Type (header)",
+                    "X-HTTP-Method-Override (header)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /v1/shopping/flight-offers/pricing",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "Content-Type (header)",
+                    "X-HTTP-Method-Override (header)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /v1/shopping/flight-offers/pricing",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "Content-Type (header)",
+                    "X-HTTP-Method-Override (header)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /v1/shopping/flight-offers/pricing",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "Content-Type (header)",
+                    "X-HTTP-Method-Override (header)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-payload",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /v1/booking/flight-orders",
+                "status-codes": [
+                    "201"
+                ],
+                "parameters": [
+                    "Content-Type (header)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "POST /v1/booking/flight-orders",
+                "status-codes": [
+                    "201"
+                ],
+                "parameters": [
+                    "Content-Type (header)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /v1/booking/flight-orders",
+                "status-codes": [
+                    "201"
+                ],
+                "parameters": [
+                    "Content-Type (header)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /v1/booking/flight-orders",
+                "status-codes": [
+                    "201"
+                ],
+                "parameters": [
+                    "Content-Type (header)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /v1/booking/flight-orders",
+                "status-codes": [
+                    "201"
+                ],
+                "parameters": [
+                    "Content-Type (header)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v1/booking/flight-orders/{flightOrderId}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "flightOrderId (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /v1/booking/flight-orders/{flightOrderId}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "flightOrderId (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /v1/booking/flight-orders/{flightOrderId}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "flightOrderId (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v1/booking/flight-orders/{flightOrderId}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "flightOrderId (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "DELETE /v1/booking/flight-orders/{flightOrderId}",
+                "status-codes": [
+                    "204"
+                ],
+                "parameters": [
+                    "flightOrderId (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "DELETE /v1/booking/flight-orders/{flightOrderId}",
+                "status-codes": [
+                    "204"
+                ],
+                "parameters": [
+                    "flightOrderId (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "DELETE /v1/booking/flight-orders/{flightOrderId}",
+                "status-codes": [
+                    "204"
+                ],
+                "parameters": [
+                    "flightOrderId (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "DELETE /v1/booking/flight-orders/{flightOrderId}",
+                "status-codes": [
+                    "204"
+                ],
+                "parameters": [
+                    "flightOrderId (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "no-204-if-content",
+                    "description": "Never implement a response with the status code '204 No Content' if its content is not empty. In the case of an OAS file, the response should not have a 'content' field.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)"
+                    ]
+                },
+                "route": "DELETE /v1/booking/flight-orders/{flightOrderId}",
+                "status-codes": [
+                    "204"
+                ],
+                "parameters": [
+                    "flightOrderId (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v1/shopping/seatmaps",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "flight-orderId (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /v1/shopping/seatmaps",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "flight-orderId (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v1/shopping/seatmaps",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "flight-orderId (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-payload",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /v1/shopping/seatmaps",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "Content-Type (header)",
+                    "X-HTTP-Method-Override (header)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "POST /v1/shopping/seatmaps",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "Content-Type (header)",
+                    "X-HTTP-Method-Override (header)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /v1/shopping/seatmaps",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "Content-Type (header)",
+                    "X-HTTP-Method-Override (header)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /v1/shopping/seatmaps",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "Content-Type (header)",
+                    "X-HTTP-Method-Override (header)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /v1/shopping/seatmaps",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "Content-Type (header)",
+                    "X-HTTP-Method-Override (header)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-payload",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /v1/shopping/flight-offers/upselling",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "Content-Type (header)",
+                    "X-HTTP-Method-Override (header)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "POST /v1/shopping/flight-offers/upselling",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "Content-Type (header)",
+                    "X-HTTP-Method-Override (header)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /v1/shopping/flight-offers/upselling",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "Content-Type (header)",
+                    "X-HTTP-Method-Override (header)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /v1/shopping/flight-offers/upselling",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "Content-Type (header)",
+                    "X-HTTP-Method-Override (header)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /v1/shopping/flight-offers/upselling",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "Content-Type (header)",
+                    "X-HTTP-Method-Override (header)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v1/analytics/itinerary-price-metrics",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "originIataCode (query)",
+                    "destinationIataCode (query)",
+                    "departureDate (query)",
+                    "currencyCode (query)",
+                    "oneWay (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /v1/analytics/itinerary-price-metrics",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "originIataCode (query)",
+                    "destinationIataCode (query)",
+                    "departureDate (query)",
+                    "currencyCode (query)",
+                    "oneWay (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v1/analytics/itinerary-price-metrics",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "originIataCode (query)",
+                    "destinationIataCode (query)",
+                    "departureDate (query)",
+                    "currencyCode (query)",
+                    "oneWay (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-payload",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /v2/shopping/flight-offers/prediction",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "Content-Type (header)",
+                    "X-HTTP-Method-Override (header)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "POST /v2/shopping/flight-offers/prediction",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "Content-Type (header)",
+                    "X-HTTP-Method-Override (header)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /v2/shopping/flight-offers/prediction",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "Content-Type (header)",
+                    "X-HTTP-Method-Override (header)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /v2/shopping/flight-offers/prediction",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "Content-Type (header)",
+                    "X-HTTP-Method-Override (header)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /v2/shopping/flight-offers/prediction",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "Content-Type (header)",
+                    "X-HTTP-Method-Override (header)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v1/shopping/flight-destinations",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "departureDate (query)",
+                    "origin (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /v1/shopping/flight-destinations",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "departureDate (query)",
+                    "origin (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v1/shopping/flight-destinations",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "departureDate (query)",
+                    "origin (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v1/shopping/flight-dates",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "origin (query)",
+                    "destination (query)",
+                    "departureDate (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /v1/shopping/flight-dates",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "origin (query)",
+                    "destination (query)",
+                    "departureDate (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v1/shopping/flight-dates",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "origin (query)",
+                    "destination (query)",
+                    "departureDate (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-payload",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /v1/shopping/availability/flight-availabilities",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "Content-Type (header)",
+                    "X-HTTP-Method-Override (header)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "POST /v1/shopping/availability/flight-availabilities",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "Content-Type (header)",
+                    "X-HTTP-Method-Override (header)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /v1/shopping/availability/flight-availabilities",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "Content-Type (header)",
+                    "X-HTTP-Method-Override (header)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /v1/shopping/availability/flight-availabilities",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "Content-Type (header)",
+                    "X-HTTP-Method-Override (header)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /v1/shopping/availability/flight-availabilities",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "Content-Type (header)",
+                    "X-HTTP-Method-Override (header)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v1/reference-data/recommended-locations",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "cityCodes (query)",
+                    "travelerCountryCode (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /v1/reference-data/recommended-locations",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "cityCodes (query)",
+                    "travelerCountryCode (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v1/reference-data/recommended-locations",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "cityCodes (query)",
+                    "travelerCountryCode (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v2/schedule/flights",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "carrierCode (query)",
+                    "flightNumber (query)",
+                    "scheduledDepartureDate (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /v2/schedule/flights",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "carrierCode (query)",
+                    "flightNumber (query)",
+                    "scheduledDepartureDate (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v2/schedule/flights",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "carrierCode (query)",
+                    "flightNumber (query)",
+                    "scheduledDepartureDate (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v1/travel/predictions/flight-delay",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "originLocationCode (query)",
+                    "destinationLocationCode (query)",
+                    "departureDate (query)",
+                    "departureTime (query)",
+                    "arrivalDate (query)",
+                    "arrivalTime (query)",
+                    "aircraftCode (query)",
+                    "carrierCode (query)",
+                    "flightNumber (query)",
+                    "duration (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /v1/travel/predictions/flight-delay",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "originLocationCode (query)",
+                    "destinationLocationCode (query)",
+                    "departureDate (query)",
+                    "departureTime (query)",
+                    "arrivalDate (query)",
+                    "arrivalTime (query)",
+                    "aircraftCode (query)",
+                    "carrierCode (query)",
+                    "flightNumber (query)",
+                    "duration (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v1/travel/predictions/flight-delay",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "originLocationCode (query)",
+                    "destinationLocationCode (query)",
+                    "departureDate (query)",
+                    "departureTime (query)",
+                    "arrivalDate (query)",
+                    "arrivalTime (query)",
+                    "aircraftCode (query)",
+                    "carrierCode (query)",
+                    "flightNumber (query)",
+                    "duration (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v1/airport/predictions/on-time",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "airportCode (query)",
+                    "date (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /v1/airport/predictions/on-time",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "airportCode (query)",
+                    "date (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v1/airport/predictions/on-time",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "airportCode (query)",
+                    "date (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v1/reference-data/locations",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "subType (query)",
+                    "keyword (query)",
+                    "countryCode (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /v1/reference-data/locations",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "subType (query)",
+                    "keyword (query)",
+                    "countryCode (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v1/reference-data/locations",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "subType (query)",
+                    "keyword (query)",
+                    "countryCode (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /v1/reference-data/locations/CMUC",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v1/reference-data/locations/airports",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    " (header)",
+                    "latitude (query)",
+                    "longitude (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /v1/reference-data/locations/airports",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    " (header)",
+                    "latitude (query)",
+                    "longitude (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v1/reference-data/locations/airports",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    " (header)",
+                    "latitude (query)",
+                    "longitude (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v1/airport/direct-destinations",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "departureAirportCode (query)",
+                    "max (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /v1/airport/direct-destinations",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "departureAirportCode (query)",
+                    "max (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v1/airport/direct-destinations",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "departureAirportCode (query)",
+                    "max (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v2/reference-data/urls/checkin-links",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "airlineCode (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /v2/reference-data/urls/checkin-links",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "airlineCode (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v2/reference-data/urls/checkin-links",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "airlineCode (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v1/reference-data/airlines",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "airlineCodes (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /v1/reference-data/airlines",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "airlineCodes (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v1/reference-data/airlines",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "airlineCodes (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v1/airline/destinations",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "airlineCode (query)",
+                    "max (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /v1/airline/destinations",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "airlineCode (query)",
+                    "max (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v1/airline/destinations",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "airlineCode (query)",
+                    "max (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v1/reference-data/locations/pois",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "latitude (query)",
+                    "longitude (query)",
+                    "radius (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /v1/reference-data/locations/pois",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "latitude (query)",
+                    "longitude (query)",
+                    "radius (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v1/reference-data/locations/pois",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "latitude (query)",
+                    "longitude (query)",
+                    "radius (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v1/reference-data/locations/pois/by-square",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "north (query)",
+                    "west (query)",
+                    "south (query)",
+                    "east (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /v1/reference-data/locations/pois/by-square",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "north (query)",
+                    "west (query)",
+                    "south (query)",
+                    "east (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v1/reference-data/locations/pois/by-square",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "north (query)",
+                    "west (query)",
+                    "south (query)",
+                    "east (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /v1/reference-data/locations/pois/9CB40CB5D0",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v1/shopping/activities",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "latitude (query)",
+                    "longitude (query)",
+                    "radius (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /v1/shopping/activities",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "latitude (query)",
+                    "longitude (query)",
+                    "radius (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v1/shopping/activities",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "latitude (query)",
+                    "longitude (query)",
+                    "radius (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /v1/shopping/activities/4615",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v1/shopping/activities/by-square",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "north (query)",
+                    "west (query)",
+                    "south (query)",
+                    "east (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /v1/shopping/activities/by-square",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "north (query)",
+                    "west (query)",
+                    "south (query)",
+                    "east (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v1/shopping/activities/by-square",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "north (query)",
+                    "west (query)",
+                    "south (query)",
+                    "east (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v1/reference-data/locations/cities",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "countryCode (query)",
+                    "keyword (query)",
+                    "max (query)",
+                    "include (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /v1/reference-data/locations/cities",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "countryCode (query)",
+                    "keyword (query)",
+                    "max (query)",
+                    "include (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v1/reference-data/locations/cities",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "countryCode (query)",
+                    "keyword (query)",
+                    "max (query)",
+                    "include (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-payload",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /v1/shopping/transfer-offers",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "Content-Type (header)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "POST /v1/shopping/transfer-offers",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "Content-Type (header)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /v1/shopping/transfer-offers",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "Content-Type (header)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /v1/shopping/transfer-offers",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "Content-Type (header)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /v1/shopping/transfer-offers",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "Content-Type (header)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /v1/ordering/transfer-orders",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "Content-Type (header)",
+                    "offerId (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-payload",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /v1/ordering/transfer-orders",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "Content-Type (header)",
+                    "offerId (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "POST /v1/ordering/transfer-orders",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "Content-Type (header)",
+                    "offerId (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /v1/ordering/transfer-orders",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "Content-Type (header)",
+                    "offerId (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /v1/ordering/transfer-orders",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "Content-Type (header)",
+                    "offerId (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /v1/ordering/transfer-orders",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "Content-Type (header)",
+                    "offerId (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /v1/ordering/transfer-orders",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "Content-Type (header)",
+                    "offerId (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /v1/ordering/transfer-orders/{transferOrderId}/transfers/cancellation",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "Content-Type (header)",
+                    "confirmNbr (query)",
+                    "transferOrderId (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-payload",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /v1/ordering/transfer-orders/{transferOrderId}/transfers/cancellation",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "Content-Type (header)",
+                    "confirmNbr (query)",
+                    "transferOrderId (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "POST /v1/ordering/transfer-orders/{transferOrderId}/transfers/cancellation",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "Content-Type (header)",
+                    "confirmNbr (query)",
+                    "transferOrderId (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "POST /v1/ordering/transfer-orders/{transferOrderId}/transfers/cancellation",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "Content-Type (header)",
+                    "confirmNbr (query)",
+                    "transferOrderId (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /v1/ordering/transfer-orders/{transferOrderId}/transfers/cancellation",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "Content-Type (header)",
+                    "confirmNbr (query)",
+                    "transferOrderId (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /v1/ordering/transfer-orders/{transferOrderId}/transfers/cancellation",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "Content-Type (header)",
+                    "confirmNbr (query)",
+                    "transferOrderId (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /v1/ordering/transfer-orders/{transferOrderId}/transfers/cancellation",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "Content-Type (header)",
+                    "confirmNbr (query)",
+                    "transferOrderId (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /v1/ordering/transfer-orders/{transferOrderId}/transfers/cancellation",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "Content-Type (header)",
+                    "confirmNbr (query)",
+                    "transferOrderId (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v1/travel/analytics/air-traffic/traveled",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "originCityCode (query)",
+                    "period (query)",
+                    "sort (query)",
+                    "max (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /v1/travel/analytics/air-traffic/traveled",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "originCityCode (query)",
+                    "period (query)",
+                    "sort (query)",
+                    "max (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v1/travel/analytics/air-traffic/traveled",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "originCityCode (query)",
+                    "period (query)",
+                    "sort (query)",
+                    "max (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v1/travel/analytics/air-traffic/booked",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "originCityCode (query)",
+                    "period (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /v1/travel/analytics/air-traffic/booked",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "originCityCode (query)",
+                    "period (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v1/travel/analytics/air-traffic/booked",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "originCityCode (query)",
+                    "period (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v1/travel/analytics/air-traffic/busiest-period",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "cityCode (query)",
+                    "period (query)",
+                    "direction (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /v1/travel/analytics/air-traffic/busiest-period",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "cityCode (query)",
+                    "period (query)",
+                    "direction (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v1/travel/analytics/air-traffic/busiest-period",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "cityCode (query)",
+                    "period (query)",
+                    "direction (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v1/location/analytics/category-rated-areas",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "latitude (query)",
+                    "longitude (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /v1/location/analytics/category-rated-areas",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "latitude (query)",
+                    "longitude (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v1/location/analytics/category-rated-areas",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "latitude (query)",
+                    "longitude (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v1/reference-data/locations/hotels/by-city",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "cityCode (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /v1/reference-data/locations/hotels/by-city",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "cityCode (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v1/reference-data/locations/hotels/by-city",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "cityCode (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v3/shopping/hotel-offers",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "hotelIds (query)",
+                    "adults (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /v3/shopping/hotel-offers",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "hotelIds (query)",
+                    "adults (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v3/shopping/hotel-offers",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "hotelIds (query)",
+                    "adults (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-payload",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /v1/booking/hotel-bookings",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "Content-Type (header)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "POST /v1/booking/hotel-bookings",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "Content-Type (header)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /v1/booking/hotel-bookings",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "Content-Type (header)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /v1/booking/hotel-bookings",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "Content-Type (header)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /v1/booking/hotel-bookings",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "Content-Type (header)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v1/reference-data/locations/hotels/by-hotels",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "hotelIds (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /v1/reference-data/locations/hotels/by-hotels",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "hotelIds (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v1/reference-data/locations/hotels/by-hotels",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "hotelIds (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v1/reference-data/locations/hotels/by-geocode",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "latitude (query)",
+                    "longitude (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /v1/reference-data/locations/hotels/by-geocode",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "latitude (query)",
+                    "longitude (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v1/reference-data/locations/hotels/by-geocode",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "latitude (query)",
+                    "longitude (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v3/shopping/hotel-offers/{hotelOfferId}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "hotelOfferId (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /v3/shopping/hotel-offers/{hotelOfferId}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "hotelOfferId (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /v3/shopping/hotel-offers/{hotelOfferId}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "hotelOfferId (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v3/shopping/hotel-offers/{hotelOfferId}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "hotelOfferId (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-payload",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /v2/booking/hotel-orders",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "Content-Type (header)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "POST /v2/booking/hotel-orders",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "Content-Type (header)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /v2/booking/hotel-orders",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "Content-Type (header)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /v2/booking/hotel-orders",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "Content-Type (header)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /v2/booking/hotel-orders",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "Content-Type (header)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v2/e-reputation/hotel-sentiments",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "hotelIds (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /v2/e-reputation/hotel-sentiments",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "hotelIds (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v2/e-reputation/hotel-sentiments",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "hotelIds (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v1/reference-data/locations/hotel",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "keyword (query)",
+                    "subType (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /v1/reference-data/locations/hotel",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "keyword (query)",
+                    "subType (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v1/reference-data/locations/hotel",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "keyword (query)",
+                    "subType (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v1/travel/predictions/trip-purpose",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "originLocationCode (query)",
+                    "destinationLocationCode (query)",
+                    "departureDate (query)",
+                    "returnDate (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /v1/travel/predictions/trip-purpose",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "originLocationCode (query)",
+                    "destinationLocationCode (query)",
+                    "departureDate (query)",
+                    "returnDate (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v1/travel/predictions/trip-purpose",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "originLocationCode (query)",
+                    "destinationLocationCode (query)",
+                    "departureDate (query)",
+                    "returnDate (query)"
+                ]
+            }
+        ]
+    }
+}

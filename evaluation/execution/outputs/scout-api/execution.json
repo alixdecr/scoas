@@ -1,0 +1,3714 @@
+{
+    "name": "scout-api",
+    "timestamp": "2026-01-29-11-30",
+    "nb-routes": 49,
+    "nb-routes-without-violations": 3,
+    "status-codes": {
+        "total": 49,
+        "by-code": {
+            "default": 30,
+            "200": 19
+        }
+    },
+    "rule-violations": {
+        "total": 210,
+        "average-per-route": 4.29,
+        "by-rule": {
+            "has-200-if-get": 18,
+            "has-400-if-params": 37,
+            "has-404-if-path": 30,
+            "has-422-if-params": 37,
+            "has-400-if-payload": 19,
+            "has-413-if-content-length": 19,
+            "has-415-if-content-type": 19,
+            "has-422-if-payload": 19,
+            "has-200-or-204-if-delete": 9,
+            "has-200-or-201-or-204-if-post": 3
+        },
+        "list": [
+            {
+                "rule": {
+                    "id": "has-200-if-get",
+                    "description": "Always implement a response with the status code '200 OK' in a 'GET' method.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.1 (200 OK)",
+                        "RFC 9110, Section 9.3.1 (GET)"
+                    ]
+                },
+                "route": "GET /v2/activities/{id}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "attrs (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v2/activities/{id}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "attrs (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /v2/activities/{id}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "attrs (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v2/activities/{id}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "attrs (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "PUT /v2/activities/{id}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-payload",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "PUT /v2/activities/{id}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "PUT /v2/activities/{id}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "PUT /v2/activities/{id}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "PUT /v2/activities/{id}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "PUT /v2/activities/{id}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "PUT /v2/activities/{id}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-200-or-204-if-delete",
+                    "description": "Always implement a response with the status code '200 OK' or '204 No Content' in a 'DELETE' method.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.1 (200 OK)",
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 9.3.5 (DELETE)"
+                    ]
+                },
+                "route": "DELETE /v2/activities/{id}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "DELETE /v2/activities/{id}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "DELETE /v2/activities/{id}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "DELETE /v2/activities/{id}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "PATCH /v2/activities/{id}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-payload",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "PATCH /v2/activities/{id}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "PATCH /v2/activities/{id}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "PATCH /v2/activities/{id}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "PATCH /v2/activities/{id}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "PATCH /v2/activities/{id}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "PATCH /v2/activities/{id}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-200-if-get",
+                    "description": "Always implement a response with the status code '200 OK' in a 'GET' method.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.1 (200 OK)",
+                        "RFC 9110, Section 9.3.1 (GET)"
+                    ]
+                },
+                "route": "GET /v2/activities",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "attrs (query)",
+                    "name (query)",
+                    "text (query)",
+                    "featured (query)",
+                    "categories (query)",
+                    "ages (query)",
+                    "participants (query)",
+                    "durations (query)",
+                    "id (query)",
+                    "my_favourites (query)",
+                    "ratings_count_min (query)",
+                    "ratings_average_min (query)",
+                    "random (query)",
+                    "favourites (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v2/activities",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "attrs (query)",
+                    "name (query)",
+                    "text (query)",
+                    "featured (query)",
+                    "categories (query)",
+                    "ages (query)",
+                    "participants (query)",
+                    "durations (query)",
+                    "id (query)",
+                    "my_favourites (query)",
+                    "ratings_count_min (query)",
+                    "ratings_average_min (query)",
+                    "random (query)",
+                    "favourites (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v2/activities",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "attrs (query)",
+                    "name (query)",
+                    "text (query)",
+                    "featured (query)",
+                    "categories (query)",
+                    "ages (query)",
+                    "participants (query)",
+                    "durations (query)",
+                    "id (query)",
+                    "my_favourites (query)",
+                    "ratings_count_min (query)",
+                    "ratings_average_min (query)",
+                    "random (query)",
+                    "favourites (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-payload",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /v2/activities",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /v2/activities",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /v2/activities",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /v2/activities",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-200-if-get",
+                    "description": "Always implement a response with the status code '200 OK' in a 'GET' method.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.1 (200 OK)",
+                        "RFC 9110, Section 9.3.1 (GET)"
+                    ]
+                },
+                "route": "GET /v2/activities/{id}/rating",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "attrs (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v2/activities/{id}/rating",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "attrs (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /v2/activities/{id}/rating",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "attrs (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v2/activities/{id}/rating",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "attrs (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-200-or-201-or-204-if-post",
+                    "description": "Always implement a response with the status code '200 OK', '201 Created', or '204 No Content' in a 'POST' method.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.1 (200 OK)",
+                        "RFC 9110, Section 15.3.2 (201 Created)",
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 9.3.3 (POST)"
+                    ]
+                },
+                "route": "POST /v2/activities/{id}/rating",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /v2/activities/{id}/rating",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-payload",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /v2/activities/{id}/rating",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "POST /v2/activities/{id}/rating",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /v2/activities/{id}/rating",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /v2/activities/{id}/rating",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /v2/activities/{id}/rating",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /v2/activities/{id}/rating",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-200-or-204-if-delete",
+                    "description": "Always implement a response with the status code '200 OK' or '204 No Content' in a 'DELETE' method.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.1 (200 OK)",
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 9.3.5 (DELETE)"
+                    ]
+                },
+                "route": "DELETE /v2/activities/{id}/rating",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "DELETE /v2/activities/{id}/rating",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "DELETE /v2/activities/{id}/rating",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "DELETE /v2/activities/{id}/rating",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-200-if-get",
+                    "description": "Always implement a response with the status code '200 OK' in a 'GET' method.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.1 (200 OK)",
+                        "RFC 9110, Section 9.3.1 (GET)"
+                    ]
+                },
+                "route": "GET /v1/media_files/{id}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "attrs (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v1/media_files/{id}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "attrs (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /v1/media_files/{id}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "attrs (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v1/media_files/{id}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "attrs (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "PUT /v1/media_files/{id}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-payload",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "PUT /v1/media_files/{id}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "PUT /v1/media_files/{id}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "PUT /v1/media_files/{id}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "PUT /v1/media_files/{id}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "PUT /v1/media_files/{id}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "PUT /v1/media_files/{id}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-200-or-204-if-delete",
+                    "description": "Always implement a response with the status code '200 OK' or '204 No Content' in a 'DELETE' method.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.1 (200 OK)",
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 9.3.5 (DELETE)"
+                    ]
+                },
+                "route": "DELETE /v1/media_files/{id}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "verify_unused (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "DELETE /v1/media_files/{id}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "verify_unused (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "DELETE /v1/media_files/{id}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "verify_unused (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "DELETE /v1/media_files/{id}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "verify_unused (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-200-if-get",
+                    "description": "Always implement a response with the status code '200 OK' in a 'GET' method.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.1 (200 OK)",
+                        "RFC 9110, Section 9.3.1 (GET)"
+                    ]
+                },
+                "route": "GET /v1/media_files",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "uri (query)",
+                    "attrs (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v1/media_files",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "uri (query)",
+                    "attrs (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v1/media_files",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "uri (query)",
+                    "attrs (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-payload",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /v1/media_files",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /v1/media_files",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /v1/media_files",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /v1/media_files",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-200-if-get",
+                    "description": "Always implement a response with the status code '200 OK' in a 'GET' method.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.1 (200 OK)",
+                        "RFC 9110, Section 9.3.1 (GET)"
+                    ]
+                },
+                "route": "GET /v1/media_files/{id}/file",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "size (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v1/media_files/{id}/file",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "size (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /v1/media_files/{id}/file",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "size (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v1/media_files/{id}/file",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "size (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-200-if-get",
+                    "description": "Always implement a response with the status code '200 OK' in a 'GET' method.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.1 (200 OK)",
+                        "RFC 9110, Section 9.3.1 (GET)"
+                    ]
+                },
+                "route": "GET /v1/system_messages/{id}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "attrs (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v1/system_messages/{id}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "attrs (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /v1/system_messages/{id}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "attrs (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v1/system_messages/{id}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "attrs (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "PUT /v1/system_messages/{id}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-payload",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "PUT /v1/system_messages/{id}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "PUT /v1/system_messages/{id}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "PUT /v1/system_messages/{id}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "PUT /v1/system_messages/{id}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "PUT /v1/system_messages/{id}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "PUT /v1/system_messages/{id}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-200-or-204-if-delete",
+                    "description": "Always implement a response with the status code '200 OK' or '204 No Content' in a 'DELETE' method.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.1 (200 OK)",
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 9.3.5 (DELETE)"
+                    ]
+                },
+                "route": "DELETE /v1/system_messages/{id}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "DELETE /v1/system_messages/{id}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "DELETE /v1/system_messages/{id}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "DELETE /v1/system_messages/{id}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-200-if-get",
+                    "description": "Always implement a response with the status code '200 OK' in a 'GET' method.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.1 (200 OK)",
+                        "RFC 9110, Section 9.3.1 (GET)"
+                    ]
+                },
+                "route": "GET /v1/system_messages",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "key (query)",
+                    "valid (query)",
+                    "attrs (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v1/system_messages",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "key (query)",
+                    "valid (query)",
+                    "attrs (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v1/system_messages",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "key (query)",
+                    "valid (query)",
+                    "attrs (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-payload",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /v1/system_messages",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /v1/system_messages",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /v1/system_messages",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /v1/system_messages",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-200-if-get",
+                    "description": "Always implement a response with the status code '200 OK' in a 'GET' method.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.1 (200 OK)",
+                        "RFC 9110, Section 9.3.1 (GET)"
+                    ]
+                },
+                "route": "GET /v1/system/ping",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-200-if-get",
+                    "description": "Always implement a response with the status code '200 OK' in a 'GET' method.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.1 (200 OK)",
+                        "RFC 9110, Section 9.3.1 (GET)"
+                    ]
+                },
+                "route": "GET /v2/tags/{id}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "attrs (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v2/tags/{id}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "attrs (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /v2/tags/{id}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "attrs (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v2/tags/{id}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "attrs (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "PUT /v2/tags/{id}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-payload",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "PUT /v2/tags/{id}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "PUT /v2/tags/{id}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "PUT /v2/tags/{id}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "PUT /v2/tags/{id}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "PUT /v2/tags/{id}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "PUT /v2/tags/{id}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-200-or-204-if-delete",
+                    "description": "Always implement a response with the status code '200 OK' or '204 No Content' in a 'DELETE' method.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.1 (200 OK)",
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 9.3.5 (DELETE)"
+                    ]
+                },
+                "route": "DELETE /v2/tags/{id}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "DELETE /v2/tags/{id}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "DELETE /v2/tags/{id}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "DELETE /v2/tags/{id}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-200-if-get",
+                    "description": "Always implement a response with the status code '200 OK' in a 'GET' method.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.1 (200 OK)",
+                        "RFC 9110, Section 9.3.1 (GET)"
+                    ]
+                },
+                "route": "GET /v2/tags",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "group (query)",
+                    "name (query)",
+                    "min_activities_count (query)",
+                    "attrs (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v2/tags",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "group (query)",
+                    "name (query)",
+                    "min_activities_count (query)",
+                    "attrs (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v2/tags",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "group (query)",
+                    "name (query)",
+                    "min_activities_count (query)",
+                    "attrs (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-payload",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /v2/tags",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /v2/tags",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /v2/tags",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /v2/tags",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-200-if-get",
+                    "description": "Always implement a response with the status code '200 OK' in a 'GET' method.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.1 (200 OK)",
+                        "RFC 9110, Section 9.3.1 (GET)"
+                    ]
+                },
+                "route": "GET /v1/users/{id}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "attrs (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v1/users/{id}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "attrs (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /v1/users/{id}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "attrs (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v1/users/{id}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "attrs (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "PUT /v1/users/{id}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-payload",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "PUT /v1/users/{id}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "PUT /v1/users/{id}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "PUT /v1/users/{id}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "PUT /v1/users/{id}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "PUT /v1/users/{id}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "PUT /v1/users/{id}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-200-or-204-if-delete",
+                    "description": "Always implement a response with the status code '200 OK' or '204 No Content' in a 'DELETE' method.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.1 (200 OK)",
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 9.3.5 (DELETE)"
+                    ]
+                },
+                "route": "DELETE /v1/users/{id}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "DELETE /v1/users/{id}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "DELETE /v1/users/{id}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "DELETE /v1/users/{id}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-200-if-get",
+                    "description": "Always implement a response with the status code '200 OK' in a 'GET' method.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.1 (200 OK)",
+                        "RFC 9110, Section 9.3.1 (GET)"
+                    ]
+                },
+                "route": "GET /v1/users",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "name (query)",
+                    "attrs (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v1/users",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "name (query)",
+                    "attrs (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v1/users",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "name (query)",
+                    "attrs (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-payload",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /v1/users",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /v1/users",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /v1/users",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /v1/users",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-200-if-get",
+                    "description": "Always implement a response with the status code '200 OK' in a 'GET' method.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.1 (200 OK)",
+                        "RFC 9110, Section 9.3.1 (GET)"
+                    ]
+                },
+                "route": "GET /v1/activities/{id}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "attrs (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v1/activities/{id}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "attrs (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /v1/activities/{id}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "attrs (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v1/activities/{id}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "attrs (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "PUT /v1/activities/{id}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-payload",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "PUT /v1/activities/{id}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "PUT /v1/activities/{id}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "PUT /v1/activities/{id}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "PUT /v1/activities/{id}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "PUT /v1/activities/{id}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "PUT /v1/activities/{id}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-200-or-204-if-delete",
+                    "description": "Always implement a response with the status code '200 OK' or '204 No Content' in a 'DELETE' method.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.1 (200 OK)",
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 9.3.5 (DELETE)"
+                    ]
+                },
+                "route": "DELETE /v1/activities/{id}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "DELETE /v1/activities/{id}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "DELETE /v1/activities/{id}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "DELETE /v1/activities/{id}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "PATCH /v1/activities/{id}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-payload",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "PATCH /v1/activities/{id}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "PATCH /v1/activities/{id}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "PATCH /v1/activities/{id}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "PATCH /v1/activities/{id}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "PATCH /v1/activities/{id}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "PATCH /v1/activities/{id}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-200-if-get",
+                    "description": "Always implement a response with the status code '200 OK' in a 'GET' method.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.1 (200 OK)",
+                        "RFC 9110, Section 9.3.1 (GET)"
+                    ]
+                },
+                "route": "GET /v1/activities",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "attrs (query)",
+                    "name (query)",
+                    "text (query)",
+                    "featured (query)",
+                    "categories (query)",
+                    "age_1 (query)",
+                    "age_2 (query)",
+                    "participants (query)",
+                    "time_1 (query)",
+                    "time_2 (query)",
+                    "id (query)",
+                    "my_favourites (query)",
+                    "ratings_count_min (query)",
+                    "ratings_average_min (query)",
+                    "random (query)",
+                    "favourites (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v1/activities",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "attrs (query)",
+                    "name (query)",
+                    "text (query)",
+                    "featured (query)",
+                    "categories (query)",
+                    "age_1 (query)",
+                    "age_2 (query)",
+                    "participants (query)",
+                    "time_1 (query)",
+                    "time_2 (query)",
+                    "id (query)",
+                    "my_favourites (query)",
+                    "ratings_count_min (query)",
+                    "ratings_average_min (query)",
+                    "random (query)",
+                    "favourites (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v1/activities",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "attrs (query)",
+                    "name (query)",
+                    "text (query)",
+                    "featured (query)",
+                    "categories (query)",
+                    "age_1 (query)",
+                    "age_2 (query)",
+                    "participants (query)",
+                    "time_1 (query)",
+                    "time_2 (query)",
+                    "id (query)",
+                    "my_favourites (query)",
+                    "ratings_count_min (query)",
+                    "ratings_average_min (query)",
+                    "random (query)",
+                    "favourites (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-payload",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /v1/activities",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /v1/activities",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /v1/activities",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /v1/activities",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-200-if-get",
+                    "description": "Always implement a response with the status code '200 OK' in a 'GET' method.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.1 (200 OK)",
+                        "RFC 9110, Section 9.3.1 (GET)"
+                    ]
+                },
+                "route": "GET /v1/activities/{id}/rating",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "attrs (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v1/activities/{id}/rating",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "attrs (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /v1/activities/{id}/rating",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "attrs (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v1/activities/{id}/rating",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "attrs (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-200-or-201-or-204-if-post",
+                    "description": "Always implement a response with the status code '200 OK', '201 Created', or '204 No Content' in a 'POST' method.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.1 (200 OK)",
+                        "RFC 9110, Section 15.3.2 (201 Created)",
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 9.3.3 (POST)"
+                    ]
+                },
+                "route": "POST /v1/activities/{id}/rating",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /v1/activities/{id}/rating",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-payload",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /v1/activities/{id}/rating",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "POST /v1/activities/{id}/rating",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /v1/activities/{id}/rating",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /v1/activities/{id}/rating",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /v1/activities/{id}/rating",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /v1/activities/{id}/rating",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-200-or-204-if-delete",
+                    "description": "Always implement a response with the status code '200 OK' or '204 No Content' in a 'DELETE' method.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.1 (200 OK)",
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 9.3.5 (DELETE)"
+                    ]
+                },
+                "route": "DELETE /v1/activities/{id}/rating",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "DELETE /v1/activities/{id}/rating",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "DELETE /v1/activities/{id}/rating",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "DELETE /v1/activities/{id}/rating",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-200-if-get",
+                    "description": "Always implement a response with the status code '200 OK' in a 'GET' method.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.1 (200 OK)",
+                        "RFC 9110, Section 9.3.1 (GET)"
+                    ]
+                },
+                "route": "GET /v1/categories/{id}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "attrs (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v1/categories/{id}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "attrs (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /v1/categories/{id}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "attrs (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v1/categories/{id}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "attrs (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "PUT /v1/categories/{id}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-payload",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "PUT /v1/categories/{id}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "PUT /v1/categories/{id}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "PUT /v1/categories/{id}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "PUT /v1/categories/{id}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "PUT /v1/categories/{id}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "PUT /v1/categories/{id}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-200-or-204-if-delete",
+                    "description": "Always implement a response with the status code '200 OK' or '204 No Content' in a 'DELETE' method.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.1 (200 OK)",
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 9.3.5 (DELETE)"
+                    ]
+                },
+                "route": "DELETE /v1/categories/{id}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "DELETE /v1/categories/{id}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "DELETE /v1/categories/{id}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "DELETE /v1/categories/{id}",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-200-if-get",
+                    "description": "Always implement a response with the status code '200 OK' in a 'GET' method.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.1 (200 OK)",
+                        "RFC 9110, Section 9.3.1 (GET)"
+                    ]
+                },
+                "route": "GET /v1/categories",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "group (query)",
+                    "name (query)",
+                    "min_activities_count (query)",
+                    "attrs (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v1/categories",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "group (query)",
+                    "name (query)",
+                    "min_activities_count (query)",
+                    "attrs (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v1/categories",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "group (query)",
+                    "name (query)",
+                    "min_activities_count (query)",
+                    "attrs (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-payload",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /v1/categories",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /v1/categories",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /v1/categories",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /v1/categories",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-200-or-201-or-204-if-post",
+                    "description": "Always implement a response with the status code '200 OK', '201 Created', or '204 No Content' in a 'POST' method.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.1 (200 OK)",
+                        "RFC 9110, Section 15.3.2 (201 Created)",
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 9.3.3 (POST)"
+                    ]
+                },
+                "route": "POST /v1/favourites",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-payload",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /v1/favourites",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /v1/favourites",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /v1/favourites",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /v1/favourites",
+                "status-codes": [
+                    "default"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "body (body)"
+                ]
+            }
+        ]
+    }
+}

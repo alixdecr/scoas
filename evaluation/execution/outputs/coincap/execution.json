@@ -1,0 +1,524 @@
+{
+    "name": "coincap",
+    "timestamp": "2026-01-29-11-30",
+    "nb-routes": 9,
+    "nb-routes-without-violations": 0,
+    "status-codes": {
+        "total": 26,
+        "by-code": {
+            "200": 9,
+            "500": 9,
+            "404": 6,
+            "400": 2
+        }
+    },
+    "rule-violations": {
+        "total": 25,
+        "average-per-route": 2.78,
+        "by-rule": {
+            "has-400-if-params": 7,
+            "has-406-if-accept": 9,
+            "has-422-if-params": 9
+        },
+        "list": [
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v3/assets",
+                "status-codes": [
+                    "200",
+                    "500"
+                ],
+                "parameters": [
+                    "search (query)",
+                    "ids (query)",
+                    "limit (query)",
+                    "offset (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /v3/assets",
+                "status-codes": [
+                    "200",
+                    "500"
+                ],
+                "parameters": [
+                    "search (query)",
+                    "ids (query)",
+                    "limit (query)",
+                    "offset (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v3/assets",
+                "status-codes": [
+                    "200",
+                    "500"
+                ],
+                "parameters": [
+                    "search (query)",
+                    "ids (query)",
+                    "limit (query)",
+                    "offset (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v3/assets/{slug}",
+                "status-codes": [
+                    "200",
+                    "404",
+                    "500"
+                ],
+                "parameters": [
+                    "slug (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /v3/assets/{slug}",
+                "status-codes": [
+                    "200",
+                    "404",
+                    "500"
+                ],
+                "parameters": [
+                    "slug (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v3/assets/{slug}",
+                "status-codes": [
+                    "200",
+                    "404",
+                    "500"
+                ],
+                "parameters": [
+                    "slug (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v3/assets/{slug}/markets",
+                "status-codes": [
+                    "200",
+                    "404",
+                    "500"
+                ],
+                "parameters": [
+                    "slug (path)",
+                    "limit (query)",
+                    "offset (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /v3/assets/{slug}/markets",
+                "status-codes": [
+                    "200",
+                    "404",
+                    "500"
+                ],
+                "parameters": [
+                    "slug (path)",
+                    "limit (query)",
+                    "offset (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v3/assets/{slug}/markets",
+                "status-codes": [
+                    "200",
+                    "404",
+                    "500"
+                ],
+                "parameters": [
+                    "slug (path)",
+                    "limit (query)",
+                    "offset (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v3/assets/{slug}/history",
+                "status-codes": [
+                    "200",
+                    "404",
+                    "500"
+                ],
+                "parameters": [
+                    "slug (path)",
+                    "interval (query)",
+                    "start (query)",
+                    "end (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /v3/assets/{slug}/history",
+                "status-codes": [
+                    "200",
+                    "404",
+                    "500"
+                ],
+                "parameters": [
+                    "slug (path)",
+                    "interval (query)",
+                    "start (query)",
+                    "end (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v3/assets/{slug}/history",
+                "status-codes": [
+                    "200",
+                    "404",
+                    "500"
+                ],
+                "parameters": [
+                    "slug (path)",
+                    "interval (query)",
+                    "start (query)",
+                    "end (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /v3/exchanges",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "500"
+                ],
+                "parameters": [
+                    "limit (query)",
+                    "offset (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v3/exchanges",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "500"
+                ],
+                "parameters": [
+                    "limit (query)",
+                    "offset (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v3/exchanges/{exchange}",
+                "status-codes": [
+                    "200",
+                    "404",
+                    "500"
+                ],
+                "parameters": [
+                    "exchange (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /v3/exchanges/{exchange}",
+                "status-codes": [
+                    "200",
+                    "404",
+                    "500"
+                ],
+                "parameters": [
+                    "exchange (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v3/exchanges/{exchange}",
+                "status-codes": [
+                    "200",
+                    "404",
+                    "500"
+                ],
+                "parameters": [
+                    "exchange (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /v3/markets",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "500"
+                ],
+                "parameters": [
+                    "exchangeId (query)",
+                    "baseSymbol (query)",
+                    "baseId (query)",
+                    "quoteSymbol (query)",
+                    "quoteId (query)",
+                    "assetSymbol (query)",
+                    "assetId (query)",
+                    "limit (query)",
+                    "offset (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v3/markets",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "500"
+                ],
+                "parameters": [
+                    "exchangeId (query)",
+                    "baseSymbol (query)",
+                    "baseId (query)",
+                    "quoteSymbol (query)",
+                    "quoteId (query)",
+                    "assetSymbol (query)",
+                    "assetId (query)",
+                    "limit (query)",
+                    "offset (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v3/rates",
+                "status-codes": [
+                    "200",
+                    "404",
+                    "500"
+                ],
+                "parameters": [
+                    "ids (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /v3/rates",
+                "status-codes": [
+                    "200",
+                    "404",
+                    "500"
+                ],
+                "parameters": [
+                    "ids (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v3/rates",
+                "status-codes": [
+                    "200",
+                    "404",
+                    "500"
+                ],
+                "parameters": [
+                    "ids (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v3/rates/{slug}",
+                "status-codes": [
+                    "200",
+                    "404",
+                    "500"
+                ],
+                "parameters": [
+                    "slug (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /v3/rates/{slug}",
+                "status-codes": [
+                    "200",
+                    "404",
+                    "500"
+                ],
+                "parameters": [
+                    "slug (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v3/rates/{slug}",
+                "status-codes": [
+                    "200",
+                    "404",
+                    "500"
+                ],
+                "parameters": [
+                    "slug (path)"
+                ]
+            }
+        ]
+    }
+}

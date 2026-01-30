@@ -1,0 +1,130 @@
+{
+    "name": "languagetool",
+    "timestamp": "2026-01-29-11-30",
+    "nb-routes": 2,
+    "nb-routes-without-violations": 1,
+    "status-codes": {
+        "total": 2,
+        "by-code": {
+            "200": 2
+        }
+    },
+    "rule-violations": {
+        "total": 4,
+        "average-per-route": 2.0,
+        "by-rule": {
+            "has-400-if-payload": 1,
+            "has-413-if-content-length": 1,
+            "has-415-if-content-type": 1,
+            "has-422-if-payload": 1
+        },
+        "list": [
+            {
+                "rule": {
+                    "id": "has-400-if-payload",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /check",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "text (formData)",
+                    "data (formData)",
+                    "language (formData)",
+                    "altLanguages (formData)",
+                    "motherTongue (formData)",
+                    "preferredVariants (formData)",
+                    "enabledRules (formData)",
+                    "disabledRules (formData)",
+                    "enabledCategories (formData)",
+                    "disabledCategories (formData)",
+                    "enabledOnly (formData)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /check",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "text (formData)",
+                    "data (formData)",
+                    "language (formData)",
+                    "altLanguages (formData)",
+                    "motherTongue (formData)",
+                    "preferredVariants (formData)",
+                    "enabledRules (formData)",
+                    "disabledRules (formData)",
+                    "enabledCategories (formData)",
+                    "disabledCategories (formData)",
+                    "enabledOnly (formData)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /check",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "text (formData)",
+                    "data (formData)",
+                    "language (formData)",
+                    "altLanguages (formData)",
+                    "motherTongue (formData)",
+                    "preferredVariants (formData)",
+                    "enabledRules (formData)",
+                    "disabledRules (formData)",
+                    "enabledCategories (formData)",
+                    "disabledCategories (formData)",
+                    "enabledOnly (formData)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /check",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "text (formData)",
+                    "data (formData)",
+                    "language (formData)",
+                    "altLanguages (formData)",
+                    "motherTongue (formData)",
+                    "preferredVariants (formData)",
+                    "enabledRules (formData)",
+                    "disabledRules (formData)",
+                    "enabledCategories (formData)",
+                    "disabledCategories (formData)",
+                    "enabledOnly (formData)"
+                ]
+            }
+        ]
+    }
+}

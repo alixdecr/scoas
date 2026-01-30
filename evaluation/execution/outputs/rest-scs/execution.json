@@ -1,0 +1,698 @@
+{
+    "name": "rest-scs",
+    "timestamp": "2026-01-29-11-30",
+    "nb-routes": 11,
+    "nb-routes-without-violations": 0,
+    "status-codes": {
+        "total": 44,
+        "by-code": {
+            "200": 11,
+            "401": 11,
+            "403": 11,
+            "404": 11
+        }
+    },
+    "rule-violations": {
+        "total": 33,
+        "average-per-route": 3.0,
+        "by-rule": {
+            "has-400-if-params": 11,
+            "has-422-if-params": 11,
+            "no-401-if-no-auth": 11
+        },
+        "list": [
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /api/calc/{op}/{arg1}/{arg2}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "arg1 (path)",
+                    "arg2 (path)",
+                    "op (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /api/calc/{op}/{arg1}/{arg2}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "arg1 (path)",
+                    "arg2 (path)",
+                    "op (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /api/calc/{op}/{arg1}/{arg2}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "arg1 (path)",
+                    "arg2 (path)",
+                    "op (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /api/cookie/{name}/{val}/{site}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "name (path)",
+                    "site (path)",
+                    "val (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /api/cookie/{name}/{val}/{site}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "name (path)",
+                    "site (path)",
+                    "val (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /api/cookie/{name}/{val}/{site}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "name (path)",
+                    "site (path)",
+                    "val (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /api/costfuns/{i}/{s}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "i (path)",
+                    "s (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /api/costfuns/{i}/{s}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "i (path)",
+                    "s (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /api/costfuns/{i}/{s}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "i (path)",
+                    "s (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /api/dateparse/{dayname}/{monthname}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "dayname (path)",
+                    "monthname (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /api/dateparse/{dayname}/{monthname}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "dayname (path)",
+                    "monthname (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /api/dateparse/{dayname}/{monthname}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "dayname (path)",
+                    "monthname (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /api/filesuffix/{directory}/{file}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "directory (path)",
+                    "file (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /api/filesuffix/{directory}/{file}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "directory (path)",
+                    "file (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /api/filesuffix/{directory}/{file}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "directory (path)",
+                    "file (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /api/notypevar/{i}/{s}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "i (path)",
+                    "s (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /api/notypevar/{i}/{s}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "i (path)",
+                    "s (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /api/notypevar/{i}/{s}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "i (path)",
+                    "s (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /api/ordered4/{w}/{x}/{z}/{y}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "w (path)",
+                    "x (path)",
+                    "y (path)",
+                    "z (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /api/ordered4/{w}/{x}/{z}/{y}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "w (path)",
+                    "x (path)",
+                    "y (path)",
+                    "z (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /api/ordered4/{w}/{x}/{z}/{y}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "w (path)",
+                    "x (path)",
+                    "y (path)",
+                    "z (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /api/pat/{txt}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "txt (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /api/pat/{txt}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "txt (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /api/pat/{txt}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "txt (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /api/pat/{txt}/{pat}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "pat (path)",
+                    "txt (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /api/pat/{txt}/{pat}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "pat (path)",
+                    "txt (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /api/pat/{txt}/{pat}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "pat (path)",
+                    "txt (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /api/text2txt/{word1}/{word2}/{word3}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "word1 (path)",
+                    "word2 (path)",
+                    "word3 (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /api/text2txt/{word1}/{word2}/{word3}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "word1 (path)",
+                    "word2 (path)",
+                    "word3 (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /api/text2txt/{word1}/{word2}/{word3}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "word1 (path)",
+                    "word2 (path)",
+                    "word3 (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /api/title/{sex}/{title}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "sex (path)",
+                    "title (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /api/title/{sex}/{title}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "sex (path)",
+                    "title (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /api/title/{sex}/{title}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "sex (path)",
+                    "title (path)"
+                ]
+            }
+        ]
+    }
+}

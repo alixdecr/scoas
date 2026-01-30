@@ -1,0 +1,1310 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCOAS Execution Report - disease-sh</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            margin-bottom: 2rem;
+            margin-top: 2rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+        h1 {
+            border-bottom: 1px solid gray;
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+        }
+        h2 {
+            font-size: 1.2rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        h3 {
+            font-size: 1rem;
+        }
+        ul {
+            margin-left: 2rem;
+        }
+        p {
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+        code {
+            color: blueviolet;
+        }
+        .info-container {
+            background-color: rgb(202, 223, 255);
+            color: rgb(0, 80, 146);
+            padding: 0.5rem;
+        }
+        .rule-container {
+            background-color: rgb(247, 247, 247);
+            margin-bottom: 1rem;
+            margin-top: 1rem;
+            padding: 1rem;
+        }
+        .rule-id {
+            color: rgb(197, 118, 0);
+        }
+        .violation-color {
+            color: rgb(212, 0, 0);
+        }
+        .ok-color {
+            color: rgb(0, 136, 0);
+        }
+        .source-color {
+            color: rgb(0, 89, 255);
+        }
+        .summary-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: flex-start;
+            margin: 1rem;
+        }
+        .summary-card {
+            text-align: center;
+            padding: 0.5rem;
+        }
+        .summary-number {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        .summary-title {
+            font-size: 1rem;
+            margin-top: 0.1rem;
+        }
+    </style>
+</head>
+<body>
+    <h1>SCOAS Execution Report - disease-sh</h1>
+
+    <p><b>Timestamp:</b> 2026-01-29-11-30</p>
+
+    <h2>Summary</h2>
+
+    <div class="summary-container">
+        <div class="summary-card">
+            <div class="summary-number violation-color">117</div>
+            <div class="summary-title violation-color">Rule Violations</div>
+        </div>
+        <div class="summary-card">
+            <div class="summary-number violation-color">2.85</div>
+            <div class="summary-title violation-color">Average Violations/Route</div>
+        </div>
+        <div class="summary-card">
+            <div class="summary-number ok-color">0</div>
+            <div class="summary-title ok-color">Routes Without Violations</div>
+        </div>
+        <div class="summary-card">
+            <div class="summary-number">41</div>
+            <div class="summary-title">Routes Analyzed</div>
+        </div>
+        <div class="summary-card">
+            <div class="summary-number">41</div>
+            <div class="summary-title">Responses Analyzed</div>
+        </div>
+    </div>
+
+    <div class="info-container">If your OpenAPI Specification file contains status code misuses, they should be fixed based on the rule descriptions that are provided. The rule sources provide references to the standards (RFCs) that were used to define the rules.</div>
+
+    <h2>Details</h2>
+
+    <ul>
+        
+            <li><b class="violation-color">40</b> violations of the rule <code class="rule-id">has-406-if-accept</code></li>
+        
+            <li><b class="violation-color">29</b> violations of the rule <code class="rule-id">has-400-if-params</code></li>
+        
+            <li><b class="violation-color">29</b> violations of the rule <code class="rule-id">has-422-if-params</code></li>
+        
+            <li><b class="violation-color">18</b> violations of the rule <code class="rule-id">has-404-if-path</code></li>
+        
+            <li><b class="violation-color">1</b> violations of the rule <code class="rule-id">has-204-if-no-content</code></li>
+        
+    </ul>
+
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #1</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/all</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>yesterday (query), twoDaysAgo (query), allowNull (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-400-if-params</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>400 Bad Request</code> if the method contains parameters (in case of invalid syntax).</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.1 (400 Bad Request)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #2</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/all</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>yesterday (query), twoDaysAgo (query), allowNull (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-406-if-accept</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>406 Not Acceptable</code> in case the sever does not support the <code>Accept</code> header specified in the request. Only applies to routes that respond with content.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.7 (406 Not Acceptable) | RFC 9110, Section 12.5.1 (Accept)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #3</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/all</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>yesterday (query), twoDaysAgo (query), allowNull (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-422-if-params</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>422 Unprocessable Content</code> if the method contains parameters (in case of invalid semantics).</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.21 (422 Unprocessable Content)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #4</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/states</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>sort (query), yesterday (query), allowNull (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-400-if-params</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>400 Bad Request</code> if the method contains parameters (in case of invalid syntax).</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.1 (400 Bad Request)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #5</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/states</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>sort (query), yesterday (query), allowNull (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-406-if-accept</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>406 Not Acceptable</code> in case the sever does not support the <code>Accept</code> header specified in the request. Only applies to routes that respond with content.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.7 (406 Not Acceptable) | RFC 9110, Section 12.5.1 (Accept)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #6</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/states</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>sort (query), yesterday (query), allowNull (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-422-if-params</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>422 Unprocessable Content</code> if the method contains parameters (in case of invalid semantics).</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.21 (422 Unprocessable Content)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #7</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/states/{states}</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>states (path), yesterday (query), allowNull (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-400-if-params</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>400 Bad Request</code> if the method contains parameters (in case of invalid syntax).</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.1 (400 Bad Request)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #8</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/states/{states}</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>states (path), yesterday (query), allowNull (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-404-if-path</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>404 Not Found</code> if the method contains path parameters.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.5 (404 Not Found)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #9</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/states/{states}</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>states (path), yesterday (query), allowNull (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-406-if-accept</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>406 Not Acceptable</code> in case the sever does not support the <code>Accept</code> header specified in the request. Only applies to routes that respond with content.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.7 (406 Not Acceptable) | RFC 9110, Section 12.5.1 (Accept)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #10</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/states/{states}</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>states (path), yesterday (query), allowNull (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-422-if-params</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>422 Unprocessable Content</code> if the method contains parameters (in case of invalid semantics).</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.21 (422 Unprocessable Content)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #11</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/continents</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>yesterday (query), twoDaysAgo (query), sort (query), allowNull (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-400-if-params</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>400 Bad Request</code> if the method contains parameters (in case of invalid syntax).</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.1 (400 Bad Request)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #12</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/continents</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>yesterday (query), twoDaysAgo (query), sort (query), allowNull (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-406-if-accept</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>406 Not Acceptable</code> in case the sever does not support the <code>Accept</code> header specified in the request. Only applies to routes that respond with content.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.7 (406 Not Acceptable) | RFC 9110, Section 12.5.1 (Accept)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #13</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/continents</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>yesterday (query), twoDaysAgo (query), sort (query), allowNull (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-422-if-params</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>422 Unprocessable Content</code> if the method contains parameters (in case of invalid semantics).</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.21 (422 Unprocessable Content)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #14</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/continents/{continent}</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>continent (path), yesterday (query), twoDaysAgo (query), strict (query), allowNull (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-400-if-params</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>400 Bad Request</code> if the method contains parameters (in case of invalid syntax).</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.1 (400 Bad Request)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #15</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/continents/{continent}</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>continent (path), yesterday (query), twoDaysAgo (query), strict (query), allowNull (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-404-if-path</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>404 Not Found</code> if the method contains path parameters.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.5 (404 Not Found)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #16</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/continents/{continent}</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>continent (path), yesterday (query), twoDaysAgo (query), strict (query), allowNull (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-406-if-accept</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>406 Not Acceptable</code> in case the sever does not support the <code>Accept</code> header specified in the request. Only applies to routes that respond with content.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.7 (406 Not Acceptable) | RFC 9110, Section 12.5.1 (Accept)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #17</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/continents/{continent}</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>continent (path), yesterday (query), twoDaysAgo (query), strict (query), allowNull (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-422-if-params</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>422 Unprocessable Content</code> if the method contains parameters (in case of invalid semantics).</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.21 (422 Unprocessable Content)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #18</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/countries</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>yesterday (query), twoDaysAgo (query), sort (query), allowNull (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-400-if-params</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>400 Bad Request</code> if the method contains parameters (in case of invalid syntax).</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.1 (400 Bad Request)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #19</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/countries</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>yesterday (query), twoDaysAgo (query), sort (query), allowNull (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-406-if-accept</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>406 Not Acceptable</code> in case the sever does not support the <code>Accept</code> header specified in the request. Only applies to routes that respond with content.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.7 (406 Not Acceptable) | RFC 9110, Section 12.5.1 (Accept)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #20</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/countries</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>yesterday (query), twoDaysAgo (query), sort (query), allowNull (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-422-if-params</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>422 Unprocessable Content</code> if the method contains parameters (in case of invalid semantics).</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.21 (422 Unprocessable Content)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #21</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/countries/{country}</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>country (path), yesterday (query), twoDaysAgo (query), strict (query), allowNull (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-400-if-params</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>400 Bad Request</code> if the method contains parameters (in case of invalid syntax).</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.1 (400 Bad Request)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #22</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/countries/{country}</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>country (path), yesterday (query), twoDaysAgo (query), strict (query), allowNull (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-404-if-path</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>404 Not Found</code> if the method contains path parameters.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.5 (404 Not Found)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #23</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/countries/{country}</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>country (path), yesterday (query), twoDaysAgo (query), strict (query), allowNull (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-406-if-accept</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>406 Not Acceptable</code> in case the sever does not support the <code>Accept</code> header specified in the request. Only applies to routes that respond with content.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.7 (406 Not Acceptable) | RFC 9110, Section 12.5.1 (Accept)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #24</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/countries/{country}</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>country (path), yesterday (query), twoDaysAgo (query), strict (query), allowNull (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-422-if-params</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>422 Unprocessable Content</code> if the method contains parameters (in case of invalid semantics).</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.21 (422 Unprocessable Content)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #25</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/countries/{countries}</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>countries (path), yesterday (query), twoDaysAgo (query), allowNull (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-400-if-params</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>400 Bad Request</code> if the method contains parameters (in case of invalid syntax).</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.1 (400 Bad Request)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #26</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/countries/{countries}</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>countries (path), yesterday (query), twoDaysAgo (query), allowNull (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-404-if-path</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>404 Not Found</code> if the method contains path parameters.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.5 (404 Not Found)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #27</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/countries/{countries}</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>countries (path), yesterday (query), twoDaysAgo (query), allowNull (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-406-if-accept</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>406 Not Acceptable</code> in case the sever does not support the <code>Accept</code> header specified in the request. Only applies to routes that respond with content.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.7 (406 Not Acceptable) | RFC 9110, Section 12.5.1 (Accept)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #28</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/countries/{countries}</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>countries (path), yesterday (query), twoDaysAgo (query), allowNull (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-422-if-params</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>422 Unprocessable Content</code> if the method contains parameters (in case of invalid semantics).</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.21 (422 Unprocessable Content)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #29</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/jhucsse</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-406-if-accept</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>406 Not Acceptable</code> in case the sever does not support the <code>Accept</code> header specified in the request. Only applies to routes that respond with content.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.7 (406 Not Acceptable) | RFC 9110, Section 12.5.1 (Accept)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #30</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/jhucsse/counties</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-406-if-accept</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>406 Not Acceptable</code> in case the sever does not support the <code>Accept</code> header specified in the request. Only applies to routes that respond with content.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.7 (406 Not Acceptable) | RFC 9110, Section 12.5.1 (Accept)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #31</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/jhucsse/counties/{county}</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>county (path)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-400-if-params</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>400 Bad Request</code> if the method contains parameters (in case of invalid syntax).</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.1 (400 Bad Request)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #32</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/jhucsse/counties/{county}</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>county (path)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-404-if-path</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>404 Not Found</code> if the method contains path parameters.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.5 (404 Not Found)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #33</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/jhucsse/counties/{county}</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>county (path)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-406-if-accept</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>406 Not Acceptable</code> in case the sever does not support the <code>Accept</code> header specified in the request. Only applies to routes that respond with content.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.7 (406 Not Acceptable) | RFC 9110, Section 12.5.1 (Accept)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #34</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/jhucsse/counties/{county}</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>county (path)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-422-if-params</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>422 Unprocessable Content</code> if the method contains parameters (in case of invalid semantics).</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.21 (422 Unprocessable Content)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #35</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/historical</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>lastdays (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-400-if-params</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>400 Bad Request</code> if the method contains parameters (in case of invalid syntax).</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.1 (400 Bad Request)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #36</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/historical</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>lastdays (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-406-if-accept</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>406 Not Acceptable</code> in case the sever does not support the <code>Accept</code> header specified in the request. Only applies to routes that respond with content.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.7 (406 Not Acceptable) | RFC 9110, Section 12.5.1 (Accept)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #37</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/historical</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>lastdays (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-422-if-params</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>422 Unprocessable Content</code> if the method contains parameters (in case of invalid semantics).</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.21 (422 Unprocessable Content)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #38</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/historical/all</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>lastdays (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-400-if-params</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>400 Bad Request</code> if the method contains parameters (in case of invalid syntax).</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.1 (400 Bad Request)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #39</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/historical/all</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>lastdays (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-406-if-accept</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>406 Not Acceptable</code> in case the sever does not support the <code>Accept</code> header specified in the request. Only applies to routes that respond with content.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.7 (406 Not Acceptable) | RFC 9110, Section 12.5.1 (Accept)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #40</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/historical/all</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>lastdays (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-422-if-params</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>422 Unprocessable Content</code> if the method contains parameters (in case of invalid semantics).</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.21 (422 Unprocessable Content)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #41</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/historical/{country}</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>country (path), lastdays (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-400-if-params</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>400 Bad Request</code> if the method contains parameters (in case of invalid syntax).</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.1 (400 Bad Request)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #42</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/historical/{country}</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>country (path), lastdays (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-404-if-path</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>404 Not Found</code> if the method contains path parameters.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.5 (404 Not Found)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #43</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/historical/{country}</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>country (path), lastdays (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-406-if-accept</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>406 Not Acceptable</code> in case the sever does not support the <code>Accept</code> header specified in the request. Only applies to routes that respond with content.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.7 (406 Not Acceptable) | RFC 9110, Section 12.5.1 (Accept)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #44</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/historical/{country}</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>country (path), lastdays (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-422-if-params</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>422 Unprocessable Content</code> if the method contains parameters (in case of invalid semantics).</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.21 (422 Unprocessable Content)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #45</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/historical/{countries}</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>countries (path), lastdays (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-400-if-params</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>400 Bad Request</code> if the method contains parameters (in case of invalid syntax).</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.1 (400 Bad Request)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #46</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/historical/{countries}</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>countries (path), lastdays (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-404-if-path</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>404 Not Found</code> if the method contains path parameters.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.5 (404 Not Found)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #47</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/historical/{countries}</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>countries (path), lastdays (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-406-if-accept</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>406 Not Acceptable</code> in case the sever does not support the <code>Accept</code> header specified in the request. Only applies to routes that respond with content.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.7 (406 Not Acceptable) | RFC 9110, Section 12.5.1 (Accept)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #48</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/historical/{countries}</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>countries (path), lastdays (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-422-if-params</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>422 Unprocessable Content</code> if the method contains parameters (in case of invalid semantics).</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.21 (422 Unprocessable Content)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #49</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/historical/{country}/{province}</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>country (path), province (path), lastdays (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-400-if-params</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>400 Bad Request</code> if the method contains parameters (in case of invalid syntax).</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.1 (400 Bad Request)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #50</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/historical/{country}/{province}</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>country (path), province (path), lastdays (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-404-if-path</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>404 Not Found</code> if the method contains path parameters.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.5 (404 Not Found)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #51</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/historical/{country}/{province}</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>country (path), province (path), lastdays (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-406-if-accept</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>406 Not Acceptable</code> in case the sever does not support the <code>Accept</code> header specified in the request. Only applies to routes that respond with content.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.7 (406 Not Acceptable) | RFC 9110, Section 12.5.1 (Accept)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #52</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/historical/{country}/{province}</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>country (path), province (path), lastdays (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-422-if-params</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>422 Unprocessable Content</code> if the method contains parameters (in case of invalid semantics).</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.21 (422 Unprocessable Content)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #53</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/historical/{country}/{provinces}</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>country (path), provinces (path), lastdays (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-400-if-params</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>400 Bad Request</code> if the method contains parameters (in case of invalid syntax).</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.1 (400 Bad Request)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #54</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/historical/{country}/{provinces}</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>country (path), provinces (path), lastdays (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-404-if-path</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>404 Not Found</code> if the method contains path parameters.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.5 (404 Not Found)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #55</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/historical/{country}/{provinces}</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>country (path), provinces (path), lastdays (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-406-if-accept</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>406 Not Acceptable</code> in case the sever does not support the <code>Accept</code> header specified in the request. Only applies to routes that respond with content.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.7 (406 Not Acceptable) | RFC 9110, Section 12.5.1 (Accept)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #56</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/historical/{country}/{provinces}</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>country (path), provinces (path), lastdays (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-422-if-params</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>422 Unprocessable Content</code> if the method contains parameters (in case of invalid semantics).</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.21 (422 Unprocessable Content)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #57</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/historical/usacounties</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-406-if-accept</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>406 Not Acceptable</code> in case the sever does not support the <code>Accept</code> header specified in the request. Only applies to routes that respond with content.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.7 (406 Not Acceptable) | RFC 9110, Section 12.5.1 (Accept)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #58</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/historical/usacounties/{state}</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>state (path), lastdays (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-400-if-params</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>400 Bad Request</code> if the method contains parameters (in case of invalid syntax).</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.1 (400 Bad Request)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #59</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/historical/usacounties/{state}</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>state (path), lastdays (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-404-if-path</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>404 Not Found</code> if the method contains path parameters.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.5 (404 Not Found)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #60</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/historical/usacounties/{state}</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>state (path), lastdays (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-406-if-accept</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>406 Not Acceptable</code> in case the sever does not support the <code>Accept</code> header specified in the request. Only applies to routes that respond with content.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.7 (406 Not Acceptable) | RFC 9110, Section 12.5.1 (Accept)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #61</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/historical/usacounties/{state}</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>state (path), lastdays (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-422-if-params</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>422 Unprocessable Content</code> if the method contains parameters (in case of invalid semantics).</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.21 (422 Unprocessable Content)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #62</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/nyt/states</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>lastdays (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-400-if-params</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>400 Bad Request</code> if the method contains parameters (in case of invalid syntax).</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.1 (400 Bad Request)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #63</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/nyt/states</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>lastdays (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-406-if-accept</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>406 Not Acceptable</code> in case the sever does not support the <code>Accept</code> header specified in the request. Only applies to routes that respond with content.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.7 (406 Not Acceptable) | RFC 9110, Section 12.5.1 (Accept)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #64</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/nyt/states</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>lastdays (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-422-if-params</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>422 Unprocessable Content</code> if the method contains parameters (in case of invalid semantics).</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.21 (422 Unprocessable Content)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #65</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/nyt/states/{state}</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>state (path), lastdays (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-400-if-params</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>400 Bad Request</code> if the method contains parameters (in case of invalid syntax).</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.1 (400 Bad Request)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #66</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/nyt/states/{state}</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>state (path), lastdays (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-404-if-path</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>404 Not Found</code> if the method contains path parameters.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.5 (404 Not Found)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #67</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/nyt/states/{state}</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>state (path), lastdays (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-406-if-accept</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>406 Not Acceptable</code> in case the sever does not support the <code>Accept</code> header specified in the request. Only applies to routes that respond with content.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.7 (406 Not Acceptable) | RFC 9110, Section 12.5.1 (Accept)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #68</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/nyt/states/{state}</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>state (path), lastdays (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-422-if-params</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>422 Unprocessable Content</code> if the method contains parameters (in case of invalid semantics).</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.21 (422 Unprocessable Content)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #69</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/nyt/counties</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>lastdays (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-400-if-params</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>400 Bad Request</code> if the method contains parameters (in case of invalid syntax).</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.1 (400 Bad Request)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #70</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/nyt/counties</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>lastdays (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-406-if-accept</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>406 Not Acceptable</code> in case the sever does not support the <code>Accept</code> header specified in the request. Only applies to routes that respond with content.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.7 (406 Not Acceptable) | RFC 9110, Section 12.5.1 (Accept)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #71</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/nyt/counties</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>lastdays (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-422-if-params</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>422 Unprocessable Content</code> if the method contains parameters (in case of invalid semantics).</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.21 (422 Unprocessable Content)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #72</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/nyt/counties/{county}</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>county (path), lastdays (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-400-if-params</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>400 Bad Request</code> if the method contains parameters (in case of invalid syntax).</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.1 (400 Bad Request)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #73</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/nyt/counties/{county}</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>county (path), lastdays (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-404-if-path</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>404 Not Found</code> if the method contains path parameters.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.5 (404 Not Found)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #74</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/nyt/counties/{county}</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>county (path), lastdays (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-406-if-accept</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>406 Not Acceptable</code> in case the sever does not support the <code>Accept</code> header specified in the request. Only applies to routes that respond with content.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.7 (406 Not Acceptable) | RFC 9110, Section 12.5.1 (Accept)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #75</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/nyt/counties/{county}</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>county (path), lastdays (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-422-if-params</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>422 Unprocessable Content</code> if the method contains parameters (in case of invalid semantics).</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.21 (422 Unprocessable Content)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #76</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/nyt/usa</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-406-if-accept</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>406 Not Acceptable</code> in case the sever does not support the <code>Accept</code> header specified in the request. Only applies to routes that respond with content.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.7 (406 Not Acceptable) | RFC 9110, Section 12.5.1 (Accept)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #77</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/apple/countries</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-406-if-accept</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>406 Not Acceptable</code> in case the sever does not support the <code>Accept</code> header specified in the request. Only applies to routes that respond with content.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.7 (406 Not Acceptable) | RFC 9110, Section 12.5.1 (Accept)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #78</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/apple/countries/{country}</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>country (path)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-400-if-params</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>400 Bad Request</code> if the method contains parameters (in case of invalid syntax).</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.1 (400 Bad Request)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #79</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/apple/countries/{country}</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>country (path)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-404-if-path</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>404 Not Found</code> if the method contains path parameters.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.5 (404 Not Found)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #80</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/apple/countries/{country}</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>country (path)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-406-if-accept</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>406 Not Acceptable</code> in case the sever does not support the <code>Accept</code> header specified in the request. Only applies to routes that respond with content.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.7 (406 Not Acceptable) | RFC 9110, Section 12.5.1 (Accept)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #81</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/apple/countries/{country}</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>country (path)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-422-if-params</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>422 Unprocessable Content</code> if the method contains parameters (in case of invalid semantics).</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.21 (422 Unprocessable Content)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #82</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/apple/countries/{country}/{subregions}</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>country (path), subregions (path)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-400-if-params</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>400 Bad Request</code> if the method contains parameters (in case of invalid syntax).</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.1 (400 Bad Request)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #83</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/apple/countries/{country}/{subregions}</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>country (path), subregions (path)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-404-if-path</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>404 Not Found</code> if the method contains path parameters.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.5 (404 Not Found)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #84</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/apple/countries/{country}/{subregions}</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>country (path), subregions (path)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-406-if-accept</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>406 Not Acceptable</code> in case the sever does not support the <code>Accept</code> header specified in the request. Only applies to routes that respond with content.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.7 (406 Not Acceptable) | RFC 9110, Section 12.5.1 (Accept)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #85</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/apple/countries/{country}/{subregions}</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>country (path), subregions (path)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-422-if-params</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>422 Unprocessable Content</code> if the method contains parameters (in case of invalid semantics).</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.21 (422 Unprocessable Content)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #86</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/gov/</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-406-if-accept</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>406 Not Acceptable</code> in case the sever does not support the <code>Accept</code> header specified in the request. Only applies to routes that respond with content.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.7 (406 Not Acceptable) | RFC 9110, Section 12.5.1 (Accept)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #87</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/gov/{country}</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>country (path), allowNull (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-204-if-no-content</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>204 No Content</code> if a response in the <code>2xx Successful</code> range does not have content.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.3.5 (204 No Content) | RFC 9110, Section 15.3 (Successful 2xx)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #88</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/gov/{country}</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>country (path), allowNull (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-400-if-params</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>400 Bad Request</code> if the method contains parameters (in case of invalid syntax).</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.1 (400 Bad Request)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #89</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/gov/{country}</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>country (path), allowNull (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-404-if-path</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>404 Not Found</code> if the method contains path parameters.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.5 (404 Not Found)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #90</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/gov/{country}</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>country (path), allowNull (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-422-if-params</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>422 Unprocessable Content</code> if the method contains parameters (in case of invalid semantics).</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.21 (422 Unprocessable Content)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #91</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/vaccine</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-406-if-accept</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>406 Not Acceptable</code> in case the sever does not support the <code>Accept</code> header specified in the request. Only applies to routes that respond with content.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.7 (406 Not Acceptable) | RFC 9110, Section 12.5.1 (Accept)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #92</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/vaccine/coverage</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>lastdays (query), fullData (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-400-if-params</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>400 Bad Request</code> if the method contains parameters (in case of invalid syntax).</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.1 (400 Bad Request)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #93</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/vaccine/coverage</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>lastdays (query), fullData (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-406-if-accept</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>406 Not Acceptable</code> in case the sever does not support the <code>Accept</code> header specified in the request. Only applies to routes that respond with content.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.7 (406 Not Acceptable) | RFC 9110, Section 12.5.1 (Accept)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #94</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/vaccine/coverage</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>lastdays (query), fullData (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-422-if-params</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>422 Unprocessable Content</code> if the method contains parameters (in case of invalid semantics).</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.21 (422 Unprocessable Content)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #95</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/vaccine/coverage/countries</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>lastdays (query), fullData (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-400-if-params</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>400 Bad Request</code> if the method contains parameters (in case of invalid syntax).</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.1 (400 Bad Request)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #96</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/vaccine/coverage/countries</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>lastdays (query), fullData (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-406-if-accept</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>406 Not Acceptable</code> in case the sever does not support the <code>Accept</code> header specified in the request. Only applies to routes that respond with content.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.7 (406 Not Acceptable) | RFC 9110, Section 12.5.1 (Accept)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #97</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/vaccine/coverage/countries</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>lastdays (query), fullData (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-422-if-params</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>422 Unprocessable Content</code> if the method contains parameters (in case of invalid semantics).</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.21 (422 Unprocessable Content)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #98</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/vaccine/coverage/countries/{country}</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>country (path), lastdays (query), fullData (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-400-if-params</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>400 Bad Request</code> if the method contains parameters (in case of invalid syntax).</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.1 (400 Bad Request)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #99</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/vaccine/coverage/countries/{country}</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>country (path), lastdays (query), fullData (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-404-if-path</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>404 Not Found</code> if the method contains path parameters.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.5 (404 Not Found)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #100</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/vaccine/coverage/countries/{country}</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>country (path), lastdays (query), fullData (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-406-if-accept</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>406 Not Acceptable</code> in case the sever does not support the <code>Accept</code> header specified in the request. Only applies to routes that respond with content.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.7 (406 Not Acceptable) | RFC 9110, Section 12.5.1 (Accept)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #101</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/vaccine/coverage/countries/{country}</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>country (path), lastdays (query), fullData (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-422-if-params</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>422 Unprocessable Content</code> if the method contains parameters (in case of invalid semantics).</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.21 (422 Unprocessable Content)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #102</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/vaccine/coverage/states</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>lastdays (query), fullData (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-400-if-params</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>400 Bad Request</code> if the method contains parameters (in case of invalid syntax).</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.1 (400 Bad Request)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #103</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/vaccine/coverage/states</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>lastdays (query), fullData (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-406-if-accept</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>406 Not Acceptable</code> in case the sever does not support the <code>Accept</code> header specified in the request. Only applies to routes that respond with content.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.7 (406 Not Acceptable) | RFC 9110, Section 12.5.1 (Accept)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #104</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/vaccine/coverage/states</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>lastdays (query), fullData (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-422-if-params</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>422 Unprocessable Content</code> if the method contains parameters (in case of invalid semantics).</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.21 (422 Unprocessable Content)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #105</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/vaccine/coverage/states/{state}</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>state (path), lastdays (query), fullData (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-400-if-params</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>400 Bad Request</code> if the method contains parameters (in case of invalid syntax).</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.1 (400 Bad Request)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #106</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/vaccine/coverage/states/{state}</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>state (path), lastdays (query), fullData (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-404-if-path</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>404 Not Found</code> if the method contains path parameters.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.5 (404 Not Found)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #107</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/vaccine/coverage/states/{state}</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>state (path), lastdays (query), fullData (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-406-if-accept</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>406 Not Acceptable</code> in case the sever does not support the <code>Accept</code> header specified in the request. Only applies to routes that respond with content.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.7 (406 Not Acceptable) | RFC 9110, Section 12.5.1 (Accept)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #108</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/vaccine/coverage/states/{state}</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>state (path), lastdays (query), fullData (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-422-if-params</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>422 Unprocessable Content</code> if the method contains parameters (in case of invalid semantics).</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.21 (422 Unprocessable Content)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #109</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/therapeutics</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-406-if-accept</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>406 Not Acceptable</code> in case the sever does not support the <code>Accept</code> header specified in the request. Only applies to routes that respond with content.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.7 (406 Not Acceptable) | RFC 9110, Section 12.5.1 (Accept)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #110</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/variants/countries/</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-406-if-accept</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>406 Not Acceptable</code> in case the sever does not support the <code>Accept</code> header specified in the request. Only applies to routes that respond with content.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.7 (406 Not Acceptable) | RFC 9110, Section 12.5.1 (Accept)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #111</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/variants/countries/{country}</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>country (path), allowNull (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-400-if-params</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>400 Bad Request</code> if the method contains parameters (in case of invalid syntax).</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.1 (400 Bad Request)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #112</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/variants/countries/{country}</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>country (path), allowNull (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-404-if-path</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>404 Not Found</code> if the method contains path parameters.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.5 (404 Not Found)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #113</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/variants/countries/{country}</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>country (path), allowNull (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-406-if-accept</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>406 Not Acceptable</code> in case the sever does not support the <code>Accept</code> header specified in the request. Only applies to routes that respond with content.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.7 (406 Not Acceptable) | RFC 9110, Section 12.5.1 (Accept)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #114</h3>
+            <p><b>Route:</b> <code>GET /v3/covid-19/variants/countries/{country}</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>country (path), allowNull (query)</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-422-if-params</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>422 Unprocessable Content</code> if the method contains parameters (in case of invalid semantics).</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.21 (422 Unprocessable Content)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #115</h3>
+            <p><b>Route:</b> <code>GET /v3/influenza/cdc/ILINet</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-406-if-accept</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>406 Not Acceptable</code> in case the sever does not support the <code>Accept</code> header specified in the request. Only applies to routes that respond with content.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.7 (406 Not Acceptable) | RFC 9110, Section 12.5.1 (Accept)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #116</h3>
+            <p><b>Route:</b> <code>GET /v3/influenza/cdc/USCL</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-406-if-accept</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>406 Not Acceptable</code> in case the sever does not support the <code>Accept</code> header specified in the request. Only applies to routes that respond with content.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.7 (406 Not Acceptable) | RFC 9110, Section 12.5.1 (Accept)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #117</h3>
+            <p><b>Route:</b> <code>GET /v3/influenza/cdc/USPHL</code></p>
+            <p><b>Responses:</b> <code>200 OK</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-406-if-accept</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>406 Not Acceptable</code> in case the sever does not support the <code>Accept</code> header specified in the request. Only applies to routes that respond with content.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.7 (406 Not Acceptable) | RFC 9110, Section 12.5.1 (Accept)</code></p>
+        </div>
+    
+</body>
+</html>

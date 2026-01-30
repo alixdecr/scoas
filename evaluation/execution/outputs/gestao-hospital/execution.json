@@ -1,0 +1,2079 @@
+{
+    "name": "gestao-hospital",
+    "timestamp": "2026-01-29-11-30",
+    "nb-routes": 20,
+    "nb-routes-without-violations": 0,
+    "status-codes": {
+        "total": 88,
+        "by-code": {
+            "200": 20,
+            "401": 20,
+            "403": 20,
+            "404": 18,
+            "201": 8,
+            "204": 2
+        }
+    },
+    "rule-violations": {
+        "total": 98,
+        "average-per-route": 4.9,
+        "by-rule": {
+            "no-401-if-no-auth": 20,
+            "has-204-if-no-content": 8,
+            "has-400-if-payload": 8,
+            "has-413-if-content-length": 8,
+            "has-415-if-content-type": 8,
+            "has-422-if-payload": 8,
+            "has-400-if-params": 18,
+            "has-422-if-params": 18,
+            "has-404-if-path": 2
+        },
+        "list": [
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /v1/hospitais/",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "POST /v1/hospitais/",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "objDTO (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-payload",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /v1/hospitais/",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "objDTO (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /v1/hospitais/",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "objDTO (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /v1/hospitais/",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "objDTO (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /v1/hospitais/",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "objDTO (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "POST /v1/hospitais/",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "objDTO (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v1/hospitais/maisProximo",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "lat (query)",
+                    "lon (query)",
+                    "raioMaximo (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v1/hospitais/maisProximo",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "lat (query)",
+                    "lon (query)",
+                    "raioMaximo (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /v1/hospitais/maisProximo",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "lat (query)",
+                    "lon (query)",
+                    "raioMaximo (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v1/hospitais/{hospital_id}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "hospital_id (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v1/hospitais/{hospital_id}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "hospital_id (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /v1/hospitais/{hospital_id}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "hospital_id (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "PUT /v1/hospitais/{hospital_id}",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "objDTO (body)",
+                    "hospital_id (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "PUT /v1/hospitais/{hospital_id}",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "objDTO (body)",
+                    "hospital_id (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-payload",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "PUT /v1/hospitais/{hospital_id}",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "objDTO (body)",
+                    "hospital_id (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "PUT /v1/hospitais/{hospital_id}",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "objDTO (body)",
+                    "hospital_id (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "PUT /v1/hospitais/{hospital_id}",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "objDTO (body)",
+                    "hospital_id (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "PUT /v1/hospitais/{hospital_id}",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "objDTO (body)",
+                    "hospital_id (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "PUT /v1/hospitais/{hospital_id}",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "objDTO (body)",
+                    "hospital_id (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "PUT /v1/hospitais/{hospital_id}",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "objDTO (body)",
+                    "hospital_id (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "DELETE /v1/hospitais/{hospital_id}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "204",
+                    "403"
+                ],
+                "parameters": [
+                    "hospital_id (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "DELETE /v1/hospitais/{hospital_id}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "204",
+                    "403"
+                ],
+                "parameters": [
+                    "hospital_id (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "DELETE /v1/hospitais/{hospital_id}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "204",
+                    "403"
+                ],
+                "parameters": [
+                    "hospital_id (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "DELETE /v1/hospitais/{hospital_id}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "204",
+                    "403"
+                ],
+                "parameters": [
+                    "hospital_id (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v1/hospitais/{hospital_id}/estoque",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "hospital_id (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v1/hospitais/{hospital_id}/estoque",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "hospital_id (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /v1/hospitais/{hospital_id}/estoque",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "hospital_id (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "POST /v1/hospitais/{hospital_id}/estoque",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "hospital_id (path)",
+                    "productDTO (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /v1/hospitais/{hospital_id}/estoque",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "hospital_id (path)",
+                    "productDTO (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-payload",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /v1/hospitais/{hospital_id}/estoque",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "hospital_id (path)",
+                    "productDTO (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /v1/hospitais/{hospital_id}/estoque",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "hospital_id (path)",
+                    "productDTO (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /v1/hospitais/{hospital_id}/estoque",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "hospital_id (path)",
+                    "productDTO (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /v1/hospitais/{hospital_id}/estoque",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "hospital_id (path)",
+                    "productDTO (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /v1/hospitais/{hospital_id}/estoque",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "hospital_id (path)",
+                    "productDTO (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "POST /v1/hospitais/{hospital_id}/estoque",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "hospital_id (path)",
+                    "productDTO (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v1/hospitais/{hospital_id}/estoque/{produto_id}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "hospital_id (path)",
+                    "produto_id (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v1/hospitais/{hospital_id}/estoque/{produto_id}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "hospital_id (path)",
+                    "produto_id (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /v1/hospitais/{hospital_id}/estoque/{produto_id}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "hospital_id (path)",
+                    "produto_id (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "PUT /v1/hospitais/{hospital_id}/estoque/{produto_id}",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "productDTO (body)",
+                    "hospital_id (path)",
+                    "produto_id (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "PUT /v1/hospitais/{hospital_id}/estoque/{produto_id}",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "productDTO (body)",
+                    "hospital_id (path)",
+                    "produto_id (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-payload",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "PUT /v1/hospitais/{hospital_id}/estoque/{produto_id}",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "productDTO (body)",
+                    "hospital_id (path)",
+                    "produto_id (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "PUT /v1/hospitais/{hospital_id}/estoque/{produto_id}",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "productDTO (body)",
+                    "hospital_id (path)",
+                    "produto_id (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "PUT /v1/hospitais/{hospital_id}/estoque/{produto_id}",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "productDTO (body)",
+                    "hospital_id (path)",
+                    "produto_id (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "PUT /v1/hospitais/{hospital_id}/estoque/{produto_id}",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "productDTO (body)",
+                    "hospital_id (path)",
+                    "produto_id (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "PUT /v1/hospitais/{hospital_id}/estoque/{produto_id}",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "productDTO (body)",
+                    "hospital_id (path)",
+                    "produto_id (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "PUT /v1/hospitais/{hospital_id}/estoque/{produto_id}",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "productDTO (body)",
+                    "hospital_id (path)",
+                    "produto_id (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "DELETE /v1/hospitais/{hospital_id}/estoque/{produto_id}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "204",
+                    "403"
+                ],
+                "parameters": [
+                    "hospital_id (path)",
+                    "produto_id (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "DELETE /v1/hospitais/{hospital_id}/estoque/{produto_id}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "204",
+                    "403"
+                ],
+                "parameters": [
+                    "hospital_id (path)",
+                    "produto_id (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "DELETE /v1/hospitais/{hospital_id}/estoque/{produto_id}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "204",
+                    "403"
+                ],
+                "parameters": [
+                    "hospital_id (path)",
+                    "produto_id (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "DELETE /v1/hospitais/{hospital_id}/estoque/{produto_id}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "204",
+                    "403"
+                ],
+                "parameters": [
+                    "hospital_id (path)",
+                    "produto_id (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v1/hospitais/{hospital_id}/hospitaisProximos",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "hospital_id (path)",
+                    "raio (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v1/hospitais/{hospital_id}/hospitaisProximos",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "hospital_id (path)",
+                    "raio (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /v1/hospitais/{hospital_id}/hospitaisProximos",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "hospital_id (path)",
+                    "raio (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v1/hospitais/{hospital_id}/pacientes",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "hospital_id (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v1/hospitais/{hospital_id}/pacientes",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "hospital_id (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /v1/hospitais/{hospital_id}/pacientes",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "hospital_id (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "POST /v1/hospitais/{hospital_id}/pacientes/checkin",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "hospital_id (path)",
+                    "patient (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /v1/hospitais/{hospital_id}/pacientes/checkin",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "hospital_id (path)",
+                    "patient (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-payload",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /v1/hospitais/{hospital_id}/pacientes/checkin",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "hospital_id (path)",
+                    "patient (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /v1/hospitais/{hospital_id}/pacientes/checkin",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "hospital_id (path)",
+                    "patient (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /v1/hospitais/{hospital_id}/pacientes/checkin",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "hospital_id (path)",
+                    "patient (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /v1/hospitais/{hospital_id}/pacientes/checkin",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "hospital_id (path)",
+                    "patient (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /v1/hospitais/{hospital_id}/pacientes/checkin",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "hospital_id (path)",
+                    "patient (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "POST /v1/hospitais/{hospital_id}/pacientes/checkin",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "hospital_id (path)",
+                    "patient (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "POST /v1/hospitais/{hospital_id}/pacientes/checkout",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "hospital_id (path)",
+                    "idPatient (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /v1/hospitais/{hospital_id}/pacientes/checkout",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "hospital_id (path)",
+                    "idPatient (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-payload",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /v1/hospitais/{hospital_id}/pacientes/checkout",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "hospital_id (path)",
+                    "idPatient (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /v1/hospitais/{hospital_id}/pacientes/checkout",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "hospital_id (path)",
+                    "idPatient (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /v1/hospitais/{hospital_id}/pacientes/checkout",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "hospital_id (path)",
+                    "idPatient (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /v1/hospitais/{hospital_id}/pacientes/checkout",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "hospital_id (path)",
+                    "idPatient (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /v1/hospitais/{hospital_id}/pacientes/checkout",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "hospital_id (path)",
+                    "idPatient (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "POST /v1/hospitais/{hospital_id}/pacientes/checkout",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "hospital_id (path)",
+                    "idPatient (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v1/hospitais/{hospital_id}/pacientes/{patientId}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "hospital_id (path)",
+                    "patientId (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v1/hospitais/{hospital_id}/pacientes/{patientId}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "hospital_id (path)",
+                    "patientId (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /v1/hospitais/{hospital_id}/pacientes/{patientId}",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "hospital_id (path)",
+                    "patientId (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "PUT /v1/hospitais/{hospital_id}/pacientes/{patientId}",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "hospital_id (path)",
+                    "patientId (path)",
+                    "patient (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "PUT /v1/hospitais/{hospital_id}/pacientes/{patientId}",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "hospital_id (path)",
+                    "patientId (path)",
+                    "patient (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-payload",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "PUT /v1/hospitais/{hospital_id}/pacientes/{patientId}",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "hospital_id (path)",
+                    "patientId (path)",
+                    "patient (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "PUT /v1/hospitais/{hospital_id}/pacientes/{patientId}",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "hospital_id (path)",
+                    "patientId (path)",
+                    "patient (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "PUT /v1/hospitais/{hospital_id}/pacientes/{patientId}",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "hospital_id (path)",
+                    "patientId (path)",
+                    "patient (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "PUT /v1/hospitais/{hospital_id}/pacientes/{patientId}",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "hospital_id (path)",
+                    "patientId (path)",
+                    "patient (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "PUT /v1/hospitais/{hospital_id}/pacientes/{patientId}",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "hospital_id (path)",
+                    "patientId (path)",
+                    "patient (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "PUT /v1/hospitais/{hospital_id}/pacientes/{patientId}",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "hospital_id (path)",
+                    "patientId (path)",
+                    "patient (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v1/hospitais/{hospital_id}/proximidades",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "hospital_id (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v1/hospitais/{hospital_id}/proximidades",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "hospital_id (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /v1/hospitais/{hospital_id}/proximidades",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "hospital_id (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v1/hospitais/{id}/leitos",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "id (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v1/hospitais/{id}/leitos",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "id (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /v1/hospitais/{id}/leitos",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "id (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "POST /v1/hospitais/{id}/transferencia/{productId}",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "productId (path)",
+                    "quantidade (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /v1/hospitais/{id}/transferencia/{productId}",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "productId (path)",
+                    "quantidade (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-payload",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /v1/hospitais/{id}/transferencia/{productId}",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "productId (path)",
+                    "quantidade (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /v1/hospitais/{id}/transferencia/{productId}",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "productId (path)",
+                    "quantidade (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /v1/hospitais/{id}/transferencia/{productId}",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "productId (path)",
+                    "quantidade (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /v1/hospitais/{id}/transferencia/{productId}",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "productId (path)",
+                    "quantidade (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /v1/hospitais/{id}/transferencia/{productId}",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "productId (path)",
+                    "quantidade (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "POST /v1/hospitais/{id}/transferencia/{productId}",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "id (path)",
+                    "productId (path)",
+                    "quantidade (body)"
+                ]
+            }
+        ]
+    }
+}

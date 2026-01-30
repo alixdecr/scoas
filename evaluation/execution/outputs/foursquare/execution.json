@@ -1,0 +1,2519 @@
+{
+    "name": "foursquare",
+    "timestamp": "2026-01-29-11-30",
+    "nb-routes": 21,
+    "nb-routes-without-violations": 0,
+    "status-codes": {
+        "total": 21,
+        "by-code": {
+            "200": 21
+        }
+    },
+    "rule-violations": {
+        "total": 102,
+        "average-per-route": 4.86,
+        "by-rule": {
+            "has-204-if-no-content": 21,
+            "has-400-if-params": 21,
+            "has-422-if-params": 21,
+            "has-404-if-path": 15,
+            "has-400-if-payload": 6,
+            "has-413-if-content-length": 6,
+            "has-415-if-content-type": 6,
+            "has-422-if-payload": 6
+        },
+        "list": [
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /v2/venues/search",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)",
+                    "ll (query)",
+                    "name (query)",
+                    "intent (query)",
+                    "phone (query)",
+                    "address (query)",
+                    "city (query)",
+                    "state (query)",
+                    "zip (query)",
+                    "twitter (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v2/venues/search",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)",
+                    "ll (query)",
+                    "name (query)",
+                    "intent (query)",
+                    "phone (query)",
+                    "address (query)",
+                    "city (query)",
+                    "state (query)",
+                    "zip (query)",
+                    "twitter (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v2/venues/search",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)",
+                    "ll (query)",
+                    "name (query)",
+                    "intent (query)",
+                    "phone (query)",
+                    "address (query)",
+                    "city (query)",
+                    "state (query)",
+                    "zip (query)",
+                    "twitter (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /v2/venues/{VENUE_ID}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "VENUE_ID (path)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)",
+                    "locale (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v2/venues/{VENUE_ID}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "VENUE_ID (path)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)",
+                    "locale (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /v2/venues/{VENUE_ID}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "VENUE_ID (path)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)",
+                    "locale (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v2/venues/{VENUE_ID}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "VENUE_ID (path)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)",
+                    "locale (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /v2/venues/categories",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)",
+                    "locale (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v2/venues/categories",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)",
+                    "locale (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v2/venues/categories",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)",
+                    "locale (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /v2/venues/explore",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)",
+                    "ll (query)",
+                    "near (query)",
+                    "llAcc (query)",
+                    "alt (query)",
+                    "altAcc (query)",
+                    "radius (query)",
+                    "section (query)",
+                    "query (query)",
+                    "limit (query)",
+                    "offset (query)",
+                    "novelty (query)",
+                    "friendVisits (query)",
+                    "time (query)",
+                    "day (query)",
+                    "lastVenue (query)",
+                    "intent (query)",
+                    "openNow (query)",
+                    "sortByDistance (query)",
+                    "price (query)",
+                    "saved (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v2/venues/explore",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)",
+                    "ll (query)",
+                    "near (query)",
+                    "llAcc (query)",
+                    "alt (query)",
+                    "altAcc (query)",
+                    "radius (query)",
+                    "section (query)",
+                    "query (query)",
+                    "limit (query)",
+                    "offset (query)",
+                    "novelty (query)",
+                    "friendVisits (query)",
+                    "time (query)",
+                    "day (query)",
+                    "lastVenue (query)",
+                    "intent (query)",
+                    "openNow (query)",
+                    "sortByDistance (query)",
+                    "price (query)",
+                    "saved (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v2/venues/explore",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)",
+                    "ll (query)",
+                    "near (query)",
+                    "llAcc (query)",
+                    "alt (query)",
+                    "altAcc (query)",
+                    "radius (query)",
+                    "section (query)",
+                    "query (query)",
+                    "limit (query)",
+                    "offset (query)",
+                    "novelty (query)",
+                    "friendVisits (query)",
+                    "time (query)",
+                    "day (query)",
+                    "lastVenue (query)",
+                    "intent (query)",
+                    "openNow (query)",
+                    "sortByDistance (query)",
+                    "price (query)",
+                    "saved (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "POST /v2/venues/{VENUE_ID}/select",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "VENUE_ID (path)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)",
+                    "requestId (query)",
+                    "type (query)",
+                    "visitSignature (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /v2/venues/{VENUE_ID}/select",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "VENUE_ID (path)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)",
+                    "requestId (query)",
+                    "type (query)",
+                    "visitSignature (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-payload",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /v2/venues/{VENUE_ID}/select",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "VENUE_ID (path)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)",
+                    "requestId (query)",
+                    "type (query)",
+                    "visitSignature (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "POST /v2/venues/{VENUE_ID}/select",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "VENUE_ID (path)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)",
+                    "requestId (query)",
+                    "type (query)",
+                    "visitSignature (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /v2/venues/{VENUE_ID}/select",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "VENUE_ID (path)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)",
+                    "requestId (query)",
+                    "type (query)",
+                    "visitSignature (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /v2/venues/{VENUE_ID}/select",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "VENUE_ID (path)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)",
+                    "requestId (query)",
+                    "type (query)",
+                    "visitSignature (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /v2/venues/{VENUE_ID}/select",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "VENUE_ID (path)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)",
+                    "requestId (query)",
+                    "type (query)",
+                    "visitSignature (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /v2/venues/{VENUE_ID}/select",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "VENUE_ID (path)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)",
+                    "requestId (query)",
+                    "type (query)",
+                    "visitSignature (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /v2/venues/{VENUE_ID}/photos",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "VENUE_ID (path)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)",
+                    "group (query)",
+                    "limit (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v2/venues/{VENUE_ID}/photos",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "VENUE_ID (path)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)",
+                    "group (query)",
+                    "limit (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /v2/venues/{VENUE_ID}/photos",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "VENUE_ID (path)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)",
+                    "group (query)",
+                    "limit (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v2/venues/{VENUE_ID}/photos",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "VENUE_ID (path)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)",
+                    "group (query)",
+                    "limit (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /v2/venues/{VENUE_ID}/tips",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "VENUE_ID (path)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)",
+                    "sort (query)",
+                    "limit (query)",
+                    "offset (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v2/venues/{VENUE_ID}/tips",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "VENUE_ID (path)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)",
+                    "sort (query)",
+                    "limit (query)",
+                    "offset (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /v2/venues/{VENUE_ID}/tips",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "VENUE_ID (path)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)",
+                    "sort (query)",
+                    "limit (query)",
+                    "offset (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v2/venues/{VENUE_ID}/tips",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "VENUE_ID (path)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)",
+                    "sort (query)",
+                    "limit (query)",
+                    "offset (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /v2/venues/{VENUE_ID}/hours",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "VENUE_ID (path)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v2/venues/{VENUE_ID}/hours",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "VENUE_ID (path)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /v2/venues/{VENUE_ID}/hours",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "VENUE_ID (path)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v2/venues/{VENUE_ID}/hours",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "VENUE_ID (path)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /v2/venues/{VENUE_ID}/menu",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "VENUE_ID (path)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v2/venues/{VENUE_ID}/menu",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "VENUE_ID (path)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /v2/venues/{VENUE_ID}/menu",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "VENUE_ID (path)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v2/venues/{VENUE_ID}/menu",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "VENUE_ID (path)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /v2/venues/{VENUE_ID}/links",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "VENUE_ID (path)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v2/venues/{VENUE_ID}/links",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "VENUE_ID (path)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /v2/venues/{VENUE_ID}/links",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "VENUE_ID (path)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v2/venues/{VENUE_ID}/links",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "VENUE_ID (path)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /v2/venues/trending",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)",
+                    "ll (query)",
+                    "near (query)",
+                    "limit (query)",
+                    "radius (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v2/venues/trending",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)",
+                    "ll (query)",
+                    "near (query)",
+                    "limit (query)",
+                    "radius (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v2/venues/trending",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)",
+                    "ll (query)",
+                    "near (query)",
+                    "limit (query)",
+                    "radius (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /v2/venues/{VENUE_ID}/likes",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "VENUE_ID (path)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)",
+                    "oauth_token (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v2/venues/{VENUE_ID}/likes",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "VENUE_ID (path)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)",
+                    "oauth_token (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /v2/venues/{VENUE_ID}/likes",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "VENUE_ID (path)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)",
+                    "oauth_token (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v2/venues/{VENUE_ID}/likes",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "VENUE_ID (path)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)",
+                    "oauth_token (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /v2/venues/{VENUE_ID}/similar",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "VENUE_ID (path)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v2/venues/{VENUE_ID}/similar",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "VENUE_ID (path)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /v2/venues/{VENUE_ID}/similar",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "VENUE_ID (path)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v2/venues/{VENUE_ID}/similar",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "VENUE_ID (path)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /v2/venues/{VENUE_ID}/nextvenues",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "VENUE_ID (path)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v2/venues/{VENUE_ID}/nextvenues",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "VENUE_ID (path)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /v2/venues/{VENUE_ID}/nextvenues",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "VENUE_ID (path)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v2/venues/{VENUE_ID}/nextvenues",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "VENUE_ID (path)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "POST /v2/venues/{VENUE_ID}/like",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "VENUE_ID (path)",
+                    "oauth_token (query)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)",
+                    "set (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /v2/venues/{VENUE_ID}/like",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "VENUE_ID (path)",
+                    "oauth_token (query)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)",
+                    "set (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-payload",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /v2/venues/{VENUE_ID}/like",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "VENUE_ID (path)",
+                    "oauth_token (query)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)",
+                    "set (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "POST /v2/venues/{VENUE_ID}/like",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "VENUE_ID (path)",
+                    "oauth_token (query)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)",
+                    "set (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /v2/venues/{VENUE_ID}/like",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "VENUE_ID (path)",
+                    "oauth_token (query)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)",
+                    "set (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /v2/venues/{VENUE_ID}/like",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "VENUE_ID (path)",
+                    "oauth_token (query)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)",
+                    "set (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /v2/venues/{VENUE_ID}/like",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "VENUE_ID (path)",
+                    "oauth_token (query)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)",
+                    "set (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /v2/venues/{VENUE_ID}/like",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "VENUE_ID (path)",
+                    "oauth_token (query)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)",
+                    "set (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /v2/photos/{PHOTO_ID}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "PHOTO_ID (path)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v2/photos/{PHOTO_ID}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "PHOTO_ID (path)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /v2/photos/{PHOTO_ID}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "PHOTO_ID (path)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v2/photos/{PHOTO_ID}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "PHOTO_ID (path)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /v2/tips/{TIP_ID}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "TIP_ID (path)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v2/tips/{TIP_ID}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "TIP_ID (path)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /v2/tips/{TIP_ID}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "TIP_ID (path)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v2/tips/{TIP_ID}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "TIP_ID (path)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "POST /v2/lists/add",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "oauth_token (query)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)",
+                    "name (query)",
+                    "description (query)",
+                    "collaborative (query)",
+                    "photoId (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /v2/lists/add",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "oauth_token (query)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)",
+                    "name (query)",
+                    "description (query)",
+                    "collaborative (query)",
+                    "photoId (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-payload",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /v2/lists/add",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "oauth_token (query)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)",
+                    "name (query)",
+                    "description (query)",
+                    "collaborative (query)",
+                    "photoId (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /v2/lists/add",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "oauth_token (query)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)",
+                    "name (query)",
+                    "description (query)",
+                    "collaborative (query)",
+                    "photoId (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /v2/lists/add",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "oauth_token (query)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)",
+                    "name (query)",
+                    "description (query)",
+                    "collaborative (query)",
+                    "photoId (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /v2/lists/add",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "oauth_token (query)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)",
+                    "name (query)",
+                    "description (query)",
+                    "collaborative (query)",
+                    "photoId (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /v2/lists/add",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "oauth_token (query)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)",
+                    "name (query)",
+                    "description (query)",
+                    "collaborative (query)",
+                    "photoId (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "POST /v2/venues/add",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)",
+                    "name (query)",
+                    "ll (query)",
+                    "primaryCategoryId (query)",
+                    "oauth_token (query)",
+                    "address (query)",
+                    "crossStreet (query)",
+                    "city (query)",
+                    "state (query)",
+                    "zip (query)",
+                    "phone (query)",
+                    "allCategoryIds (query)",
+                    "parentId (query)",
+                    "cc (query)",
+                    "twitter (query)",
+                    "description (query)",
+                    "chainIds (query)",
+                    "url (query)",
+                    "ignoreDuplicates (query)",
+                    "ignoreDuplicatesKey (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /v2/venues/add",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)",
+                    "name (query)",
+                    "ll (query)",
+                    "primaryCategoryId (query)",
+                    "oauth_token (query)",
+                    "address (query)",
+                    "crossStreet (query)",
+                    "city (query)",
+                    "state (query)",
+                    "zip (query)",
+                    "phone (query)",
+                    "allCategoryIds (query)",
+                    "parentId (query)",
+                    "cc (query)",
+                    "twitter (query)",
+                    "description (query)",
+                    "chainIds (query)",
+                    "url (query)",
+                    "ignoreDuplicates (query)",
+                    "ignoreDuplicatesKey (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-payload",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /v2/venues/add",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)",
+                    "name (query)",
+                    "ll (query)",
+                    "primaryCategoryId (query)",
+                    "oauth_token (query)",
+                    "address (query)",
+                    "crossStreet (query)",
+                    "city (query)",
+                    "state (query)",
+                    "zip (query)",
+                    "phone (query)",
+                    "allCategoryIds (query)",
+                    "parentId (query)",
+                    "cc (query)",
+                    "twitter (query)",
+                    "description (query)",
+                    "chainIds (query)",
+                    "url (query)",
+                    "ignoreDuplicates (query)",
+                    "ignoreDuplicatesKey (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /v2/venues/add",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)",
+                    "name (query)",
+                    "ll (query)",
+                    "primaryCategoryId (query)",
+                    "oauth_token (query)",
+                    "address (query)",
+                    "crossStreet (query)",
+                    "city (query)",
+                    "state (query)",
+                    "zip (query)",
+                    "phone (query)",
+                    "allCategoryIds (query)",
+                    "parentId (query)",
+                    "cc (query)",
+                    "twitter (query)",
+                    "description (query)",
+                    "chainIds (query)",
+                    "url (query)",
+                    "ignoreDuplicates (query)",
+                    "ignoreDuplicatesKey (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /v2/venues/add",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)",
+                    "name (query)",
+                    "ll (query)",
+                    "primaryCategoryId (query)",
+                    "oauth_token (query)",
+                    "address (query)",
+                    "crossStreet (query)",
+                    "city (query)",
+                    "state (query)",
+                    "zip (query)",
+                    "phone (query)",
+                    "allCategoryIds (query)",
+                    "parentId (query)",
+                    "cc (query)",
+                    "twitter (query)",
+                    "description (query)",
+                    "chainIds (query)",
+                    "url (query)",
+                    "ignoreDuplicates (query)",
+                    "ignoreDuplicatesKey (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /v2/venues/add",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)",
+                    "name (query)",
+                    "ll (query)",
+                    "primaryCategoryId (query)",
+                    "oauth_token (query)",
+                    "address (query)",
+                    "crossStreet (query)",
+                    "city (query)",
+                    "state (query)",
+                    "zip (query)",
+                    "phone (query)",
+                    "allCategoryIds (query)",
+                    "parentId (query)",
+                    "cc (query)",
+                    "twitter (query)",
+                    "description (query)",
+                    "chainIds (query)",
+                    "url (query)",
+                    "ignoreDuplicates (query)",
+                    "ignoreDuplicatesKey (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /v2/venues/add",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)",
+                    "name (query)",
+                    "ll (query)",
+                    "primaryCategoryId (query)",
+                    "oauth_token (query)",
+                    "address (query)",
+                    "crossStreet (query)",
+                    "city (query)",
+                    "state (query)",
+                    "zip (query)",
+                    "phone (query)",
+                    "allCategoryIds (query)",
+                    "parentId (query)",
+                    "cc (query)",
+                    "twitter (query)",
+                    "description (query)",
+                    "chainIds (query)",
+                    "url (query)",
+                    "ignoreDuplicates (query)",
+                    "ignoreDuplicatesKey (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "POST /v2/venues/{EDIT_VENUE_ID}/flag",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "EDIT_VENUE_ID (path)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)",
+                    "oauth_token (query)",
+                    "problem (query)",
+                    "venueid (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /v2/venues/{EDIT_VENUE_ID}/flag",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "EDIT_VENUE_ID (path)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)",
+                    "oauth_token (query)",
+                    "problem (query)",
+                    "venueid (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-payload",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /v2/venues/{EDIT_VENUE_ID}/flag",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "EDIT_VENUE_ID (path)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)",
+                    "oauth_token (query)",
+                    "problem (query)",
+                    "venueid (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "POST /v2/venues/{EDIT_VENUE_ID}/flag",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "EDIT_VENUE_ID (path)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)",
+                    "oauth_token (query)",
+                    "problem (query)",
+                    "venueid (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /v2/venues/{EDIT_VENUE_ID}/flag",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "EDIT_VENUE_ID (path)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)",
+                    "oauth_token (query)",
+                    "problem (query)",
+                    "venueid (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /v2/venues/{EDIT_VENUE_ID}/flag",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "EDIT_VENUE_ID (path)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)",
+                    "oauth_token (query)",
+                    "problem (query)",
+                    "venueid (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /v2/venues/{EDIT_VENUE_ID}/flag",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "EDIT_VENUE_ID (path)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)",
+                    "oauth_token (query)",
+                    "problem (query)",
+                    "venueid (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /v2/venues/{EDIT_VENUE_ID}/flag",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "EDIT_VENUE_ID (path)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)",
+                    "oauth_token (query)",
+                    "problem (query)",
+                    "venueid (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "POST /v2/venues/{EDIT_VENUE_ID}/proposeedit",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "EDIT_VENUE_ID (path)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)",
+                    "oauth_token (query)",
+                    "name (query)",
+                    "address (query)",
+                    "crossStreet (query)",
+                    "city (query)",
+                    "state (query)",
+                    "zip (query)",
+                    "phone (query)",
+                    "twitter (query)",
+                    "description (query)",
+                    "url (query)",
+                    "menuUrl (query)",
+                    "facebookUrl (query)",
+                    "venuell (query)",
+                    "primaryCategoryId (query)",
+                    "addCategoryIds (query)",
+                    "removeCategoryIds (query)",
+                    "hours (query)",
+                    "creditCards (query)",
+                    "americanExpress (query)",
+                    "visa (query)",
+                    "mastercard (query)",
+                    "name:zh (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /v2/venues/{EDIT_VENUE_ID}/proposeedit",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "EDIT_VENUE_ID (path)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)",
+                    "oauth_token (query)",
+                    "name (query)",
+                    "address (query)",
+                    "crossStreet (query)",
+                    "city (query)",
+                    "state (query)",
+                    "zip (query)",
+                    "phone (query)",
+                    "twitter (query)",
+                    "description (query)",
+                    "url (query)",
+                    "menuUrl (query)",
+                    "facebookUrl (query)",
+                    "venuell (query)",
+                    "primaryCategoryId (query)",
+                    "addCategoryIds (query)",
+                    "removeCategoryIds (query)",
+                    "hours (query)",
+                    "creditCards (query)",
+                    "americanExpress (query)",
+                    "visa (query)",
+                    "mastercard (query)",
+                    "name:zh (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-payload",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /v2/venues/{EDIT_VENUE_ID}/proposeedit",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "EDIT_VENUE_ID (path)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)",
+                    "oauth_token (query)",
+                    "name (query)",
+                    "address (query)",
+                    "crossStreet (query)",
+                    "city (query)",
+                    "state (query)",
+                    "zip (query)",
+                    "phone (query)",
+                    "twitter (query)",
+                    "description (query)",
+                    "url (query)",
+                    "menuUrl (query)",
+                    "facebookUrl (query)",
+                    "venuell (query)",
+                    "primaryCategoryId (query)",
+                    "addCategoryIds (query)",
+                    "removeCategoryIds (query)",
+                    "hours (query)",
+                    "creditCards (query)",
+                    "americanExpress (query)",
+                    "visa (query)",
+                    "mastercard (query)",
+                    "name:zh (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "POST /v2/venues/{EDIT_VENUE_ID}/proposeedit",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "EDIT_VENUE_ID (path)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)",
+                    "oauth_token (query)",
+                    "name (query)",
+                    "address (query)",
+                    "crossStreet (query)",
+                    "city (query)",
+                    "state (query)",
+                    "zip (query)",
+                    "phone (query)",
+                    "twitter (query)",
+                    "description (query)",
+                    "url (query)",
+                    "menuUrl (query)",
+                    "facebookUrl (query)",
+                    "venuell (query)",
+                    "primaryCategoryId (query)",
+                    "addCategoryIds (query)",
+                    "removeCategoryIds (query)",
+                    "hours (query)",
+                    "creditCards (query)",
+                    "americanExpress (query)",
+                    "visa (query)",
+                    "mastercard (query)",
+                    "name:zh (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /v2/venues/{EDIT_VENUE_ID}/proposeedit",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "EDIT_VENUE_ID (path)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)",
+                    "oauth_token (query)",
+                    "name (query)",
+                    "address (query)",
+                    "crossStreet (query)",
+                    "city (query)",
+                    "state (query)",
+                    "zip (query)",
+                    "phone (query)",
+                    "twitter (query)",
+                    "description (query)",
+                    "url (query)",
+                    "menuUrl (query)",
+                    "facebookUrl (query)",
+                    "venuell (query)",
+                    "primaryCategoryId (query)",
+                    "addCategoryIds (query)",
+                    "removeCategoryIds (query)",
+                    "hours (query)",
+                    "creditCards (query)",
+                    "americanExpress (query)",
+                    "visa (query)",
+                    "mastercard (query)",
+                    "name:zh (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /v2/venues/{EDIT_VENUE_ID}/proposeedit",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "EDIT_VENUE_ID (path)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)",
+                    "oauth_token (query)",
+                    "name (query)",
+                    "address (query)",
+                    "crossStreet (query)",
+                    "city (query)",
+                    "state (query)",
+                    "zip (query)",
+                    "phone (query)",
+                    "twitter (query)",
+                    "description (query)",
+                    "url (query)",
+                    "menuUrl (query)",
+                    "facebookUrl (query)",
+                    "venuell (query)",
+                    "primaryCategoryId (query)",
+                    "addCategoryIds (query)",
+                    "removeCategoryIds (query)",
+                    "hours (query)",
+                    "creditCards (query)",
+                    "americanExpress (query)",
+                    "visa (query)",
+                    "mastercard (query)",
+                    "name:zh (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /v2/venues/{EDIT_VENUE_ID}/proposeedit",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "EDIT_VENUE_ID (path)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)",
+                    "oauth_token (query)",
+                    "name (query)",
+                    "address (query)",
+                    "crossStreet (query)",
+                    "city (query)",
+                    "state (query)",
+                    "zip (query)",
+                    "phone (query)",
+                    "twitter (query)",
+                    "description (query)",
+                    "url (query)",
+                    "menuUrl (query)",
+                    "facebookUrl (query)",
+                    "venuell (query)",
+                    "primaryCategoryId (query)",
+                    "addCategoryIds (query)",
+                    "removeCategoryIds (query)",
+                    "hours (query)",
+                    "creditCards (query)",
+                    "americanExpress (query)",
+                    "visa (query)",
+                    "mastercard (query)",
+                    "name:zh (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /v2/venues/{EDIT_VENUE_ID}/proposeedit",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "EDIT_VENUE_ID (path)",
+                    "client_id (query)",
+                    "client_secret (query)",
+                    "v (query)",
+                    "oauth_token (query)",
+                    "name (query)",
+                    "address (query)",
+                    "crossStreet (query)",
+                    "city (query)",
+                    "state (query)",
+                    "zip (query)",
+                    "phone (query)",
+                    "twitter (query)",
+                    "description (query)",
+                    "url (query)",
+                    "menuUrl (query)",
+                    "facebookUrl (query)",
+                    "venuell (query)",
+                    "primaryCategoryId (query)",
+                    "addCategoryIds (query)",
+                    "removeCategoryIds (query)",
+                    "hours (query)",
+                    "creditCards (query)",
+                    "americanExpress (query)",
+                    "visa (query)",
+                    "mastercard (query)",
+                    "name:zh (query)"
+                ]
+            }
+        ]
+    }
+}

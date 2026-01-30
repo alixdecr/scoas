@@ -1,0 +1,38 @@
+{
+    "name": "random-user-generator",
+    "timestamp": "2026-01-29-11-30",
+    "nb-routes": 1,
+    "nb-routes-without-violations": 0,
+    "status-codes": {
+        "total": 1,
+        "by-code": {
+            "200": 1
+        }
+    },
+    "rule-violations": {
+        "total": 1,
+        "average-per-route": 1.0,
+        "by-rule": {
+            "has-406-if-accept": 1
+        },
+        "list": [
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /api",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "Accept (header)"
+                ]
+            }
+        ]
+    }
+}

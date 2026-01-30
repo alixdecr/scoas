@@ -1,0 +1,283 @@
+{
+    "name": "cheapshark",
+    "timestamp": "2026-01-29-11-30",
+    "nb-routes": 4,
+    "nb-routes-without-violations": 0,
+    "status-codes": {
+        "total": 5,
+        "by-code": {
+            "200": 4,
+            "400": 1
+        }
+    },
+    "rule-violations": {
+        "total": 11,
+        "average-per-route": 2.75,
+        "by-rule": {
+            "has-400-if-params": 3,
+            "has-406-if-accept": 4,
+            "has-422-if-params": 4
+        },
+        "list": [
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /api/1.0/deals",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "storeID (query)",
+                    "pageNumber (query)",
+                    "pageSize (query)",
+                    "sortBy (query)",
+                    "desc (query)",
+                    "lowerPrice (query)",
+                    "upperPrice (query)",
+                    "metacritic (query)",
+                    "steamRating (query)",
+                    "maxAge (query)",
+                    "steamAppID (query)",
+                    "title (query)",
+                    "exact (query)",
+                    "AAA (query)",
+                    "steamworks (query)",
+                    "onSale (query)",
+                    "output (query)",
+                    "id (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /api/1.0/deals",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "storeID (query)",
+                    "pageNumber (query)",
+                    "pageSize (query)",
+                    "sortBy (query)",
+                    "desc (query)",
+                    "lowerPrice (query)",
+                    "upperPrice (query)",
+                    "metacritic (query)",
+                    "steamRating (query)",
+                    "maxAge (query)",
+                    "steamAppID (query)",
+                    "title (query)",
+                    "exact (query)",
+                    "AAA (query)",
+                    "steamworks (query)",
+                    "onSale (query)",
+                    "output (query)",
+                    "id (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /api/1.0/deals",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "storeID (query)",
+                    "pageNumber (query)",
+                    "pageSize (query)",
+                    "sortBy (query)",
+                    "desc (query)",
+                    "lowerPrice (query)",
+                    "upperPrice (query)",
+                    "metacritic (query)",
+                    "steamRating (query)",
+                    "maxAge (query)",
+                    "steamAppID (query)",
+                    "title (query)",
+                    "exact (query)",
+                    "AAA (query)",
+                    "steamworks (query)",
+                    "onSale (query)",
+                    "output (query)",
+                    "id (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /api/1.0/games",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "ids (query)",
+                    "format (query)",
+                    "id (query)",
+                    "title (query)",
+                    "steamAppID (query)",
+                    "limit (query)",
+                    "exact (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /api/1.0/games",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "ids (query)",
+                    "format (query)",
+                    "id (query)",
+                    "title (query)",
+                    "steamAppID (query)",
+                    "limit (query)",
+                    "exact (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /api/1.0/games",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "ids (query)",
+                    "format (query)",
+                    "id (query)",
+                    "title (query)",
+                    "steamAppID (query)",
+                    "limit (query)",
+                    "exact (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /api/1.0/stores",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "lastChange (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /api/1.0/stores",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "lastChange (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /api/1.0/stores",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "lastChange (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /api/1.0/alerts",
+                "status-codes": [
+                    "200",
+                    "400"
+                ],
+                "parameters": [
+                    "action (query)",
+                    "key (query)",
+                    "email (query)",
+                    "gameID (query)",
+                    "price (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /api/1.0/alerts",
+                "status-codes": [
+                    "200",
+                    "400"
+                ],
+                "parameters": [
+                    "action (query)",
+                    "key (query)",
+                    "email (query)",
+                    "gameID (query)",
+                    "price (query)"
+                ]
+            }
+        ]
+    }
+}

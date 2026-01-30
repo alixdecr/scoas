@@ -1,0 +1,1490 @@
+{
+    "name": "rest-countries",
+    "timestamp": "2026-01-29-11-30",
+    "nb-routes": 22,
+    "nb-routes-without-violations": 0,
+    "status-codes": {
+        "total": 44,
+        "by-code": {
+            "200": 22,
+            "default": 22
+        }
+    },
+    "rule-violations": {
+        "total": 82,
+        "average-per-route": 3.73,
+        "by-rule": {
+            "has-204-if-no-content": 22,
+            "has-400-if-params": 21,
+            "has-404-if-path": 18,
+            "has-422-if-params": 21
+        },
+        "list": [
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /v1/all",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /v1/alpha/{alphacode}",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": [
+                    "alphacode (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v1/alpha/{alphacode}",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": [
+                    "alphacode (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /v1/alpha/{alphacode}",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": [
+                    "alphacode (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v1/alpha/{alphacode}",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": [
+                    "alphacode (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /v1/alpha",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": [
+                    "codes (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v1/alpha",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": [
+                    "codes (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v1/alpha",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": [
+                    "codes (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /v1/currency/{currency}",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": [
+                    "currency (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v1/currency/{currency}",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": [
+                    "currency (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /v1/currency/{currency}",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": [
+                    "currency (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v1/currency/{currency}",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": [
+                    "currency (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /v1/name/{name}",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": [
+                    "name (path)",
+                    "fullText (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v1/name/{name}",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": [
+                    "name (path)",
+                    "fullText (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /v1/name/{name}",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": [
+                    "name (path)",
+                    "fullText (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v1/name/{name}",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": [
+                    "name (path)",
+                    "fullText (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /v1/callingcode/{callingcode}",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": [
+                    "callingcode (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v1/callingcode/{callingcode}",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": [
+                    "callingcode (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /v1/callingcode/{callingcode}",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": [
+                    "callingcode (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v1/callingcode/{callingcode}",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": [
+                    "callingcode (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /v1/capital/{capital}",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": [
+                    "capital (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v1/capital/{capital}",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": [
+                    "capital (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /v1/capital/{capital}",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": [
+                    "capital (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v1/capital/{capital}",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": [
+                    "capital (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /v1/region/{region}",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": [
+                    "region (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v1/region/{region}",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": [
+                    "region (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /v1/region/{region}",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": [
+                    "region (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v1/region/{region}",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": [
+                    "region (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /v1/subregion/{subregion}",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": [
+                    "subregion (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v1/subregion/{subregion}",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": [
+                    "subregion (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /v1/subregion/{subregion}",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": [
+                    "subregion (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v1/subregion/{subregion}",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": [
+                    "subregion (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /v1/lang/{lang}",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": [
+                    "lang (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v1/lang/{lang}",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": [
+                    "lang (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /v1/lang/{lang}",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": [
+                    "lang (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v1/lang/{lang}",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": [
+                    "lang (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /v2/all",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": [
+                    "fields (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v2/all",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": [
+                    "fields (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v2/all",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": [
+                    "fields (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /v2/alpha/{alphacode}",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": [
+                    "fields (query)",
+                    "alphacode (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v2/alpha/{alphacode}",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": [
+                    "fields (query)",
+                    "alphacode (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /v2/alpha/{alphacode}",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": [
+                    "fields (query)",
+                    "alphacode (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v2/alpha/{alphacode}",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": [
+                    "fields (query)",
+                    "alphacode (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /v2/alpha",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": [
+                    "fields (query)",
+                    "codes (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v2/alpha",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": [
+                    "fields (query)",
+                    "codes (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v2/alpha",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": [
+                    "fields (query)",
+                    "codes (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /v2/currency/{currency}",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": [
+                    "fields (query)",
+                    "currency (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v2/currency/{currency}",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": [
+                    "fields (query)",
+                    "currency (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /v2/currency/{currency}",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": [
+                    "fields (query)",
+                    "currency (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v2/currency/{currency}",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": [
+                    "fields (query)",
+                    "currency (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /v2/name/{name}",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": [
+                    "fields (query)",
+                    "name (path)",
+                    "fullText (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v2/name/{name}",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": [
+                    "fields (query)",
+                    "name (path)",
+                    "fullText (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /v2/name/{name}",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": [
+                    "fields (query)",
+                    "name (path)",
+                    "fullText (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v2/name/{name}",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": [
+                    "fields (query)",
+                    "name (path)",
+                    "fullText (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /v2/callingcode/{callingcode}",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": [
+                    "fields (query)",
+                    "callingcode (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v2/callingcode/{callingcode}",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": [
+                    "fields (query)",
+                    "callingcode (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /v2/callingcode/{callingcode}",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": [
+                    "fields (query)",
+                    "callingcode (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v2/callingcode/{callingcode}",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": [
+                    "fields (query)",
+                    "callingcode (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /v2/capital/{capital}",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": [
+                    "fields (query)",
+                    "capital (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v2/capital/{capital}",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": [
+                    "fields (query)",
+                    "capital (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /v2/capital/{capital}",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": [
+                    "fields (query)",
+                    "capital (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v2/capital/{capital}",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": [
+                    "fields (query)",
+                    "capital (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /v2/region/{region}",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": [
+                    "fields (query)",
+                    "region (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v2/region/{region}",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": [
+                    "fields (query)",
+                    "region (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /v2/region/{region}",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": [
+                    "fields (query)",
+                    "region (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v2/region/{region}",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": [
+                    "fields (query)",
+                    "region (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /v2/subregion/{subregion}",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": [
+                    "fields (query)",
+                    "subregion (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v2/subregion/{subregion}",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": [
+                    "fields (query)",
+                    "subregion (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /v2/subregion/{subregion}",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": [
+                    "fields (query)",
+                    "subregion (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v2/subregion/{subregion}",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": [
+                    "fields (query)",
+                    "subregion (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /v2/lang/{lang}",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": [
+                    "fields (query)",
+                    "lang (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v2/lang/{lang}",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": [
+                    "fields (query)",
+                    "lang (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /v2/lang/{lang}",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": [
+                    "fields (query)",
+                    "lang (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v2/lang/{lang}",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": [
+                    "fields (query)",
+                    "lang (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /v2/demonym/{demonym}",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": [
+                    "fields (query)",
+                    "demonym (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v2/demonym/{demonym}",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": [
+                    "fields (query)",
+                    "demonym (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /v2/demonym/{demonym}",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": [
+                    "fields (query)",
+                    "demonym (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v2/demonym/{demonym}",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": [
+                    "fields (query)",
+                    "demonym (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /v2/regionalbloc/{regionalbloc}",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": [
+                    "fields (query)",
+                    "regionalbloc (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v2/regionalbloc/{regionalbloc}",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": [
+                    "fields (query)",
+                    "regionalbloc (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /v2/regionalbloc/{regionalbloc}",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": [
+                    "fields (query)",
+                    "regionalbloc (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v2/regionalbloc/{regionalbloc}",
+                "status-codes": [
+                    "200",
+                    "default"
+                ],
+                "parameters": [
+                    "fields (query)",
+                    "regionalbloc (path)"
+                ]
+            }
+        ]
+    }
+}

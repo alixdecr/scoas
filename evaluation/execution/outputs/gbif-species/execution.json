@@ -1,0 +1,1266 @@
+{
+    "name": "gbif-species",
+    "timestamp": "2026-01-29-11-30",
+    "nb-routes": 27,
+    "nb-routes-without-violations": 0,
+    "status-codes": {
+        "total": 75,
+        "by-code": {
+            "200": 27,
+            "400": 24,
+            "404": 24
+        }
+    },
+    "rule-violations": {
+        "total": 59,
+        "average-per-route": 2.19,
+        "by-rule": {
+            "has-400-if-params": 2,
+            "has-406-if-accept": 27,
+            "has-422-if-params": 26,
+            "has-400-if-payload": 1,
+            "has-413-if-content-length": 1,
+            "has-415-if-content-type": 1,
+            "has-422-if-payload": 1
+        },
+        "list": [
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /parser/name",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "name (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /parser/name",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "name (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /parser/name",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "name (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-payload",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /parser/name",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "POST /parser/name",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /parser/name",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /parser/name",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /parser/name",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /species/{usageKey}/vernacularNames",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404"
+                ],
+                "parameters": [
+                    "usageKey (path)",
+                    "limit (query)",
+                    "offset (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /species/{usageKey}/vernacularNames",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404"
+                ],
+                "parameters": [
+                    "usageKey (path)",
+                    "limit (query)",
+                    "offset (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /species/{usageKey}/verbatim",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404"
+                ],
+                "parameters": [
+                    "usageKey (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /species/{usageKey}/verbatim",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404"
+                ],
+                "parameters": [
+                    "usageKey (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /species/{usageKey}/typeSpecimens",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404"
+                ],
+                "parameters": [
+                    "usageKey (path)",
+                    "limit (query)",
+                    "offset (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /species/{usageKey}/typeSpecimens",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404"
+                ],
+                "parameters": [
+                    "usageKey (path)",
+                    "limit (query)",
+                    "offset (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /species/{usageKey}/toc",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404"
+                ],
+                "parameters": [
+                    "usageKey (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /species/{usageKey}/toc",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404"
+                ],
+                "parameters": [
+                    "usageKey (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /species/{usageKey}/synonyms",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404"
+                ],
+                "parameters": [
+                    "usageKey (path)",
+                    "Accept-Language (header)",
+                    "limit (query)",
+                    "offset (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /species/{usageKey}/synonyms",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404"
+                ],
+                "parameters": [
+                    "usageKey (path)",
+                    "Accept-Language (header)",
+                    "limit (query)",
+                    "offset (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /species/{usageKey}/speciesProfiles",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404"
+                ],
+                "parameters": [
+                    "usageKey (path)",
+                    "limit (query)",
+                    "offset (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /species/{usageKey}/speciesProfiles",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404"
+                ],
+                "parameters": [
+                    "usageKey (path)",
+                    "limit (query)",
+                    "offset (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /species/{usageKey}/related",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404"
+                ],
+                "parameters": [
+                    "usageKey (path)",
+                    "datasetKey (query)",
+                    "Accept-Language (header)",
+                    "limit (query)",
+                    "offset (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /species/{usageKey}/related",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404"
+                ],
+                "parameters": [
+                    "usageKey (path)",
+                    "datasetKey (query)",
+                    "Accept-Language (header)",
+                    "limit (query)",
+                    "offset (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /species/{usageKey}/references",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404"
+                ],
+                "parameters": [
+                    "usageKey (path)",
+                    "limit (query)",
+                    "offset (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /species/{usageKey}/references",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404"
+                ],
+                "parameters": [
+                    "usageKey (path)",
+                    "limit (query)",
+                    "offset (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /species/{usageKey}/parents",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404"
+                ],
+                "parameters": [
+                    "usageKey (path)",
+                    "Accept-Language (header)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /species/{usageKey}/parents",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404"
+                ],
+                "parameters": [
+                    "usageKey (path)",
+                    "Accept-Language (header)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /species/{usageKey}/name",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404"
+                ],
+                "parameters": [
+                    "usageKey (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /species/{usageKey}/name",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404"
+                ],
+                "parameters": [
+                    "usageKey (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /species/{usageKey}/metrics",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404"
+                ],
+                "parameters": [
+                    "usageKey (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /species/{usageKey}/metrics",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404"
+                ],
+                "parameters": [
+                    "usageKey (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /species/{usageKey}/media",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404"
+                ],
+                "parameters": [
+                    "usageKey (path)",
+                    "limit (query)",
+                    "offset (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /species/{usageKey}/media",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404"
+                ],
+                "parameters": [
+                    "usageKey (path)",
+                    "limit (query)",
+                    "offset (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /species/{usageKey}/iucnRedListCategory",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404"
+                ],
+                "parameters": [
+                    "usageKey (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /species/{usageKey}/iucnRedListCategory",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404"
+                ],
+                "parameters": [
+                    "usageKey (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /species/{usageKey}/identifier",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404"
+                ],
+                "parameters": [
+                    "usageKey (path)",
+                    "limit (query)",
+                    "offset (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /species/{usageKey}/identifier",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404"
+                ],
+                "parameters": [
+                    "usageKey (path)",
+                    "limit (query)",
+                    "offset (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /species/{usageKey}/distributions",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404"
+                ],
+                "parameters": [
+                    "usageKey (path)",
+                    "limit (query)",
+                    "offset (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /species/{usageKey}/distributions",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404"
+                ],
+                "parameters": [
+                    "usageKey (path)",
+                    "limit (query)",
+                    "offset (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /species/{usageKey}/descriptions",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404"
+                ],
+                "parameters": [
+                    "usageKey (path)",
+                    "limit (query)",
+                    "offset (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /species/{usageKey}/descriptions",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404"
+                ],
+                "parameters": [
+                    "usageKey (path)",
+                    "limit (query)",
+                    "offset (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /species/{usageKey}/combinations",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404"
+                ],
+                "parameters": [
+                    "usageKey (path)",
+                    "Accept-Language (header)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /species/{usageKey}/combinations",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404"
+                ],
+                "parameters": [
+                    "usageKey (path)",
+                    "Accept-Language (header)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /species/{usageKey}/childrenAll",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404"
+                ],
+                "parameters": [
+                    "usageKey (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /species/{usageKey}/childrenAll",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404"
+                ],
+                "parameters": [
+                    "usageKey (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /species/{usageKey}/children",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404"
+                ],
+                "parameters": [
+                    "usageKey (path)",
+                    "Accept-Language (header)",
+                    "limit (query)",
+                    "offset (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /species/{usageKey}/children",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404"
+                ],
+                "parameters": [
+                    "usageKey (path)",
+                    "Accept-Language (header)",
+                    "limit (query)",
+                    "offset (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /species/{usageKey}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404"
+                ],
+                "parameters": [
+                    "usageKey (path)",
+                    "Accept-Language (header)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /species/{usageKey}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404"
+                ],
+                "parameters": [
+                    "usageKey (path)",
+                    "Accept-Language (header)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /species/suggest",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404"
+                ],
+                "parameters": [
+                    "datasetKey (query)",
+                    "constituentKey (query)",
+                    "rank (query)",
+                    "higherTaxonKey (query)",
+                    "status (query)",
+                    "isExtinct (query)",
+                    "habitat (query)",
+                    "threat (query)",
+                    "nameType (query)",
+                    "nomenclaturalStatus (query)",
+                    "origin (query)",
+                    "issue (query)",
+                    "q (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /species/suggest",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404"
+                ],
+                "parameters": [
+                    "datasetKey (query)",
+                    "constituentKey (query)",
+                    "rank (query)",
+                    "higherTaxonKey (query)",
+                    "status (query)",
+                    "isExtinct (query)",
+                    "habitat (query)",
+                    "threat (query)",
+                    "nameType (query)",
+                    "nomenclaturalStatus (query)",
+                    "origin (query)",
+                    "issue (query)",
+                    "q (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /species/search",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404"
+                ],
+                "parameters": [
+                    "datasetKey (query)",
+                    "constituentKey (query)",
+                    "rank (query)",
+                    "higherTaxonKey (query)",
+                    "status (query)",
+                    "isExtinct (query)",
+                    "habitat (query)",
+                    "threat (query)",
+                    "nameType (query)",
+                    "nomenclaturalStatus (query)",
+                    "origin (query)",
+                    "issue (query)",
+                    "q (query)",
+                    "hl (query)",
+                    "limit (query)",
+                    "offset (query)",
+                    "facet (query)",
+                    "facetMincount (query)",
+                    "facetMultiselect (query)",
+                    "facetLimit (query)",
+                    "facetOffset (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /species/search",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404"
+                ],
+                "parameters": [
+                    "datasetKey (query)",
+                    "constituentKey (query)",
+                    "rank (query)",
+                    "higherTaxonKey (query)",
+                    "status (query)",
+                    "isExtinct (query)",
+                    "habitat (query)",
+                    "threat (query)",
+                    "nameType (query)",
+                    "nomenclaturalStatus (query)",
+                    "origin (query)",
+                    "issue (query)",
+                    "q (query)",
+                    "hl (query)",
+                    "limit (query)",
+                    "offset (query)",
+                    "facet (query)",
+                    "facetMincount (query)",
+                    "facetMultiselect (query)",
+                    "facetLimit (query)",
+                    "facetOffset (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /species/root/{datasetKey}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404"
+                ],
+                "parameters": [
+                    "datasetKey (path)",
+                    "Accept-Language (header)",
+                    "limit (query)",
+                    "offset (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /species/root/{datasetKey}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404"
+                ],
+                "parameters": [
+                    "datasetKey (path)",
+                    "Accept-Language (header)",
+                    "limit (query)",
+                    "offset (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /species",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404"
+                ],
+                "parameters": [
+                    "datasetKey (query)",
+                    "sourceId (query)",
+                    "name (query)",
+                    "page (query)",
+                    "Accept-Language (header)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /species",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404"
+                ],
+                "parameters": [
+                    "datasetKey (query)",
+                    "sourceId (query)",
+                    "name (query)",
+                    "page (query)",
+                    "Accept-Language (header)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /species/match",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "usageKey (query)",
+                    "name (query)",
+                    "authorship (query)",
+                    "rank (query)",
+                    "genericName (query)",
+                    "specificEpithet (query)",
+                    "infraspecificEpithet (query)",
+                    "strict (query)",
+                    "verbose (query)",
+                    "kingdom (query)",
+                    "phylum (query)",
+                    "order (query)",
+                    "class (query)",
+                    "family (query)",
+                    "genus (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /species/match",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "usageKey (query)",
+                    "name (query)",
+                    "authorship (query)",
+                    "rank (query)",
+                    "genericName (query)",
+                    "specificEpithet (query)",
+                    "infraspecificEpithet (query)",
+                    "strict (query)",
+                    "verbose (query)",
+                    "kingdom (query)",
+                    "phylum (query)",
+                    "order (query)",
+                    "class (query)",
+                    "family (query)",
+                    "genus (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /species/match",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "usageKey (query)",
+                    "name (query)",
+                    "authorship (query)",
+                    "rank (query)",
+                    "genericName (query)",
+                    "specificEpithet (query)",
+                    "infraspecificEpithet (query)",
+                    "strict (query)",
+                    "verbose (query)",
+                    "kingdom (query)",
+                    "phylum (query)",
+                    "order (query)",
+                    "class (query)",
+                    "family (query)",
+                    "genus (query)"
+                ]
+            }
+        ]
+    }
+}

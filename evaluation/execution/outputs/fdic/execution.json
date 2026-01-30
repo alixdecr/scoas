@@ -1,0 +1,423 @@
+{
+    "name": "fdic",
+    "timestamp": "2026-01-29-11-30",
+    "nb-routes": 8,
+    "nb-routes-without-violations": 0,
+    "status-codes": {
+        "total": 16,
+        "by-code": {
+            "200": 8,
+            "400": 8
+        }
+    },
+    "rule-violations": {
+        "total": 16,
+        "average-per-route": 2.0,
+        "by-rule": {
+            "has-406-if-accept": 8,
+            "has-422-if-params": 8
+        },
+        "list": [
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /institutions",
+                "status-codes": [
+                    "200",
+                    "400"
+                ],
+                "parameters": [
+                    "filters (query)",
+                    "search (query)",
+                    "fields (query)",
+                    "sort_by (query)",
+                    "sort_order (query)",
+                    "limit (query)",
+                    "offset (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /institutions",
+                "status-codes": [
+                    "200",
+                    "400"
+                ],
+                "parameters": [
+                    "filters (query)",
+                    "search (query)",
+                    "fields (query)",
+                    "sort_by (query)",
+                    "sort_order (query)",
+                    "limit (query)",
+                    "offset (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /locations",
+                "status-codes": [
+                    "200",
+                    "400"
+                ],
+                "parameters": [
+                    "filters (query)",
+                    "fields (query)",
+                    "sort_by (query)",
+                    "sort_order (query)",
+                    "limit (query)",
+                    "offset (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /locations",
+                "status-codes": [
+                    "200",
+                    "400"
+                ],
+                "parameters": [
+                    "filters (query)",
+                    "fields (query)",
+                    "sort_by (query)",
+                    "sort_order (query)",
+                    "limit (query)",
+                    "offset (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /summary",
+                "status-codes": [
+                    "200",
+                    "400"
+                ],
+                "parameters": [
+                    "filters (query)",
+                    "fields (query)",
+                    "sort_by (query)",
+                    "sort_order (query)",
+                    "limit (query)",
+                    "offset (query)",
+                    "agg_by (query)",
+                    "agg_term_fields (query)",
+                    "agg_sum_fields (query)",
+                    "agg_limit (query)",
+                    "max_value (query)",
+                    "max_value_by (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /summary",
+                "status-codes": [
+                    "200",
+                    "400"
+                ],
+                "parameters": [
+                    "filters (query)",
+                    "fields (query)",
+                    "sort_by (query)",
+                    "sort_order (query)",
+                    "limit (query)",
+                    "offset (query)",
+                    "agg_by (query)",
+                    "agg_term_fields (query)",
+                    "agg_sum_fields (query)",
+                    "agg_limit (query)",
+                    "max_value (query)",
+                    "max_value_by (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /failures",
+                "status-codes": [
+                    "200",
+                    "400"
+                ],
+                "parameters": [
+                    "filters (query)",
+                    "fields (query)",
+                    "sort_by (query)",
+                    "sort_order (query)",
+                    "limit (query)",
+                    "offset (query)",
+                    "total_fields (query)",
+                    "subtotal_by (query)",
+                    "agg_by (query)",
+                    "agg_term_fields (query)",
+                    "agg_sum_fields (query)",
+                    "agg_limit (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /failures",
+                "status-codes": [
+                    "200",
+                    "400"
+                ],
+                "parameters": [
+                    "filters (query)",
+                    "fields (query)",
+                    "sort_by (query)",
+                    "sort_order (query)",
+                    "limit (query)",
+                    "offset (query)",
+                    "total_fields (query)",
+                    "subtotal_by (query)",
+                    "agg_by (query)",
+                    "agg_term_fields (query)",
+                    "agg_sum_fields (query)",
+                    "agg_limit (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /history",
+                "status-codes": [
+                    "200",
+                    "400"
+                ],
+                "parameters": [
+                    "filters (query)",
+                    "search (query)",
+                    "fields (query)",
+                    "sort_by (query)",
+                    "sort_order (query)",
+                    "limit (query)",
+                    "offset (query)",
+                    "agg_by (query)",
+                    "agg_term_fields (query)",
+                    "agg_limit (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /history",
+                "status-codes": [
+                    "200",
+                    "400"
+                ],
+                "parameters": [
+                    "filters (query)",
+                    "search (query)",
+                    "fields (query)",
+                    "sort_by (query)",
+                    "sort_order (query)",
+                    "limit (query)",
+                    "offset (query)",
+                    "agg_by (query)",
+                    "agg_term_fields (query)",
+                    "agg_limit (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /financials",
+                "status-codes": [
+                    "200",
+                    "400"
+                ],
+                "parameters": [
+                    "filters (query)",
+                    "fields (query)",
+                    "sort_by (query)",
+                    "sort_order (query)",
+                    "limit (query)",
+                    "offset (query)",
+                    "agg_by (query)",
+                    "agg_term_fields (query)",
+                    "agg_sum_fields (query)",
+                    "agg_limit (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /financials",
+                "status-codes": [
+                    "200",
+                    "400"
+                ],
+                "parameters": [
+                    "filters (query)",
+                    "fields (query)",
+                    "sort_by (query)",
+                    "sort_order (query)",
+                    "limit (query)",
+                    "offset (query)",
+                    "agg_by (query)",
+                    "agg_term_fields (query)",
+                    "agg_sum_fields (query)",
+                    "agg_limit (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /demographics",
+                "status-codes": [
+                    "200",
+                    "400"
+                ],
+                "parameters": [
+                    "filters (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /demographics",
+                "status-codes": [
+                    "200",
+                    "400"
+                ],
+                "parameters": [
+                    "filters (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /sod",
+                "status-codes": [
+                    "200",
+                    "400"
+                ],
+                "parameters": [
+                    "filters (query)",
+                    "fields (query)",
+                    "sort_by (query)",
+                    "sort_order (query)",
+                    "limit (query)",
+                    "offset (query)",
+                    "agg_by (query)",
+                    "agg_term_fields (query)",
+                    "agg_sum_fields (query)",
+                    "agg_limit (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /sod",
+                "status-codes": [
+                    "200",
+                    "400"
+                ],
+                "parameters": [
+                    "filters (query)",
+                    "fields (query)",
+                    "sort_by (query)",
+                    "sort_order (query)",
+                    "limit (query)",
+                    "offset (query)",
+                    "agg_by (query)",
+                    "agg_term_fields (query)",
+                    "agg_sum_fields (query)",
+                    "agg_limit (query)"
+                ]
+            }
+        ]
+    }
+}

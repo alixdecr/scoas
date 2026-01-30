@@ -1,0 +1,1334 @@
+{
+    "name": "catwatch",
+    "timestamp": "2026-01-29-11-30",
+    "nb-routes": 21,
+    "nb-routes-without-violations": 0,
+    "status-codes": {
+        "total": 92,
+        "by-code": {
+            "200": 21,
+            "401": 21,
+            "403": 21,
+            "404": 19,
+            "201": 4,
+            "0": 4,
+            "204": 2
+        }
+    },
+    "rule-violations": {
+        "total": 63,
+        "average-per-route": 3.0,
+        "by-rule": {
+            "no-401-if-no-auth": 21,
+            "has-204-if-no-content": 4,
+            "has-400-if-payload": 5,
+            "has-413-if-content-length": 5,
+            "has-415-if-content-type": 5,
+            "has-422-if-payload": 5,
+            "has-400-if-params": 7,
+            "has-422-if-params": 7,
+            "no-non-standard-codes": 4
+        },
+        "list": [
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /config",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "POST /config/scoring.project",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "scoringProject (body)",
+                    "X-Organizations (header)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-payload",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /config/scoring.project",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "scoringProject (body)",
+                    "X-Organizations (header)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /config/scoring.project",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "scoringProject (body)",
+                    "X-Organizations (header)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /config/scoring.project",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "scoringProject (body)",
+                    "X-Organizations (header)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /config/scoring.project",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "scoringProject (body)",
+                    "X-Organizations (header)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "POST /config/scoring.project",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "scoringProject (body)",
+                    "X-Organizations (header)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /contributors",
+                "status-codes": [
+                    "0",
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "organizations (query)",
+                    "limit (query)",
+                    "offset (query)",
+                    "start_date (query)",
+                    "end_date (query)",
+                    "sortBy (query)",
+                    "q (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /contributors",
+                "status-codes": [
+                    "0",
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "organizations (query)",
+                    "limit (query)",
+                    "offset (query)",
+                    "start_date (query)",
+                    "end_date (query)",
+                    "sortBy (query)",
+                    "q (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /contributors",
+                "status-codes": [
+                    "0",
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "organizations (query)",
+                    "limit (query)",
+                    "offset (query)",
+                    "start_date (query)",
+                    "end_date (query)",
+                    "sortBy (query)",
+                    "q (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /contributors",
+                "status-codes": [
+                    "0",
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "organizations (query)",
+                    "limit (query)",
+                    "offset (query)",
+                    "start_date (query)",
+                    "end_date (query)",
+                    "sortBy (query)",
+                    "q (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /delete",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /error",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "POST /error",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-payload",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /error",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /error",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /error",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /error",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "POST /error",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "PUT /error",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-payload",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "PUT /error",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "PUT /error",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "PUT /error",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "PUT /error",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "PUT /error",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "DELETE /error",
+                "status-codes": [
+                    "200",
+                    "204",
+                    "401",
+                    "403"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-payload",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "PATCH /error",
+                "status-codes": [
+                    "200",
+                    "204",
+                    "401",
+                    "403"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "PATCH /error",
+                "status-codes": [
+                    "200",
+                    "204",
+                    "401",
+                    "403"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "PATCH /error",
+                "status-codes": [
+                    "200",
+                    "204",
+                    "401",
+                    "403"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "PATCH /error",
+                "status-codes": [
+                    "200",
+                    "204",
+                    "401",
+                    "403"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "PATCH /error",
+                "status-codes": [
+                    "200",
+                    "204",
+                    "401",
+                    "403"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /export",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /fetch",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /health",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /health.json",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "POST /import",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "dto (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-payload",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /import",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "dto (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /import",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "dto (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /import",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "dto (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /import",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "dto (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "POST /import",
+                "status-codes": [
+                    "200",
+                    "201",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "dto (body)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /init",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /languages",
+                "status-codes": [
+                    "0",
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "organizations (query)",
+                    "limit (query)",
+                    "offset (query)",
+                    "q (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /languages",
+                "status-codes": [
+                    "0",
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "organizations (query)",
+                    "limit (query)",
+                    "offset (query)",
+                    "q (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /languages",
+                "status-codes": [
+                    "0",
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "organizations (query)",
+                    "limit (query)",
+                    "offset (query)",
+                    "q (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /languages",
+                "status-codes": [
+                    "0",
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "organizations (query)",
+                    "limit (query)",
+                    "offset (query)",
+                    "q (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /projects",
+                "status-codes": [
+                    "0",
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "organizations (query)",
+                    "limit (query)",
+                    "offset (query)",
+                    "start_date (query)",
+                    "end_date (query)",
+                    "sortBy (query)",
+                    "q (query)",
+                    "language (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /projects",
+                "status-codes": [
+                    "0",
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "organizations (query)",
+                    "limit (query)",
+                    "offset (query)",
+                    "start_date (query)",
+                    "end_date (query)",
+                    "sortBy (query)",
+                    "q (query)",
+                    "language (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /projects",
+                "status-codes": [
+                    "0",
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "organizations (query)",
+                    "limit (query)",
+                    "offset (query)",
+                    "start_date (query)",
+                    "end_date (query)",
+                    "sortBy (query)",
+                    "q (query)",
+                    "language (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /projects",
+                "status-codes": [
+                    "0",
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "organizations (query)",
+                    "limit (query)",
+                    "offset (query)",
+                    "start_date (query)",
+                    "end_date (query)",
+                    "sortBy (query)",
+                    "q (query)",
+                    "language (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /statistics",
+                "status-codes": [
+                    "0",
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "organizations (query)",
+                    "start_date (query)",
+                    "end_date (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /statistics",
+                "status-codes": [
+                    "0",
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "organizations (query)",
+                    "start_date (query)",
+                    "end_date (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /statistics",
+                "status-codes": [
+                    "0",
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "organizations (query)",
+                    "start_date (query)",
+                    "end_date (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /statistics",
+                "status-codes": [
+                    "0",
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "organizations (query)",
+                    "start_date (query)",
+                    "end_date (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /statistics/contributors",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "organizations (query)",
+                    "start_date (query)",
+                    "end_date (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /statistics/contributors",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "organizations (query)",
+                    "start_date (query)",
+                    "end_date (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /statistics/contributors",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "organizations (query)",
+                    "start_date (query)",
+                    "end_date (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /statistics/languages",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "organizations (query)",
+                    "start_date (query)",
+                    "end_date (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /statistics/languages",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "organizations (query)",
+                    "start_date (query)",
+                    "end_date (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /statistics/languages",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "organizations (query)",
+                    "start_date (query)",
+                    "end_date (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /statistics/projects",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "organizations (query)",
+                    "start_date (query)",
+                    "end_date (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /statistics/projects",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "organizations (query)",
+                    "start_date (query)",
+                    "end_date (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "no-401-if-no-auth",
+                    "description": "Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "GET /statistics/projects",
+                "status-codes": [
+                    "200",
+                    "401",
+                    "403",
+                    "404"
+                ],
+                "parameters": [
+                    "organizations (query)",
+                    "start_date (query)",
+                    "end_date (query)"
+                ]
+            }
+        ]
+    }
+}

@@ -1,0 +1,898 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCOAS Execution Report - paypal-invoices</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            margin-bottom: 2rem;
+            margin-top: 2rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+        h1 {
+            border-bottom: 1px solid gray;
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+        }
+        h2 {
+            font-size: 1.2rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        h3 {
+            font-size: 1rem;
+        }
+        ul {
+            margin-left: 2rem;
+        }
+        p {
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+        code {
+            color: blueviolet;
+        }
+        .info-container {
+            background-color: rgb(202, 223, 255);
+            color: rgb(0, 80, 146);
+            padding: 0.5rem;
+        }
+        .rule-container {
+            background-color: rgb(247, 247, 247);
+            margin-bottom: 1rem;
+            margin-top: 1rem;
+            padding: 1rem;
+        }
+        .rule-id {
+            color: rgb(197, 118, 0);
+        }
+        .violation-color {
+            color: rgb(212, 0, 0);
+        }
+        .ok-color {
+            color: rgb(0, 136, 0);
+        }
+        .source-color {
+            color: rgb(0, 89, 255);
+        }
+        .summary-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: flex-start;
+            margin: 1rem;
+        }
+        .summary-card {
+            text-align: center;
+            padding: 0.5rem;
+        }
+        .summary-number {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        .summary-title {
+            font-size: 1rem;
+            margin-top: 0.1rem;
+        }
+    </style>
+</head>
+<body>
+    <h1>SCOAS Execution Report - paypal-invoices</h1>
+
+    <p><b>Timestamp:</b> 2026-01-29-11-30</p>
+
+    <h2>Summary</h2>
+
+    <div class="summary-container">
+        <div class="summary-card">
+            <div class="summary-number violation-color">75</div>
+            <div class="summary-title violation-color">Rule Violations</div>
+        </div>
+        <div class="summary-card">
+            <div class="summary-number violation-color">3.75</div>
+            <div class="summary-title violation-color">Average Violations/Route</div>
+        </div>
+        <div class="summary-card">
+            <div class="summary-number ok-color">0</div>
+            <div class="summary-title ok-color">Routes Without Violations</div>
+        </div>
+        <div class="summary-card">
+            <div class="summary-number">20</div>
+            <div class="summary-title">Routes Analyzed</div>
+        </div>
+        <div class="summary-card">
+            <div class="summary-number">102</div>
+            <div class="summary-title">Responses Analyzed</div>
+        </div>
+    </div>
+
+    <div class="info-container">If your OpenAPI Specification file contains status code misuses, they should be fixed based on the rule descriptions that are provided. The rule sources provide references to the standards (RFCs) that were used to define the rules.</div>
+
+    <h2>Details</h2>
+
+    <ul>
+        
+            <li><b class="violation-color">20</b> violations of the rule <code class="rule-id">has-406-if-accept</code></li>
+        
+            <li><b class="violation-color">19</b> violations of the rule <code class="rule-id">no-403-if-no-401</code></li>
+        
+            <li><b class="violation-color">12</b> violations of the rule <code class="rule-id">has-413-if-content-length</code></li>
+        
+            <li><b class="violation-color">12</b> violations of the rule <code class="rule-id">has-415-if-content-type</code></li>
+        
+            <li><b class="violation-color">4</b> violations of the rule <code class="rule-id">has-422-if-params</code></li>
+        
+            <li><b class="violation-color">3</b> violations of the rule <code class="rule-id">has-400-if-params</code></li>
+        
+            <li><b class="violation-color">3</b> violations of the rule <code class="rule-id">has-422-if-payload</code></li>
+        
+            <li><b class="violation-color">1</b> violations of the rule <code class="rule-id">has-204-if-no-content</code></li>
+        
+            <li><b class="violation-color">1</b> violations of the rule <code class="rule-id">has-400-if-payload</code></li>
+        
+    </ul>
+
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #1</h3>
+            <p><b>Route:</b> <code>POST /v2/invoicing/invoices</code></p>
+            <p><b>Responses:</b> <code>201 Created, 400 Bad Request, 403 Forbidden, 422 Unprocessable Content, default (OpenAPI)</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-406-if-accept</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>406 Not Acceptable</code> in case the sever does not support the <code>Accept</code> header specified in the request. Only applies to routes that respond with content.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.7 (406 Not Acceptable) | RFC 9110, Section 12.5.1 (Accept)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #2</h3>
+            <p><b>Route:</b> <code>POST /v2/invoicing/invoices</code></p>
+            <p><b>Responses:</b> <code>201 Created, 400 Bad Request, 403 Forbidden, 422 Unprocessable Content, default (OpenAPI)</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-413-if-content-length</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>413 Content Too Large</code> in case the server does not support the <code>Content-Length</code> header specified in the request.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.14 (413 Content Too Large) | RFC 9110, Section 8.6 (Content-Length)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #3</h3>
+            <p><b>Route:</b> <code>POST /v2/invoicing/invoices</code></p>
+            <p><b>Responses:</b> <code>201 Created, 400 Bad Request, 403 Forbidden, 422 Unprocessable Content, default (OpenAPI)</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-415-if-content-type</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>415 Unsupported Media Type</code> in case the server does not support the <code>Content-Type</code> header specified in the request.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.16 (415 Unsupported Media Type) | RFC 9110, Section 8.3 (Content-Type)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #4</h3>
+            <p><b>Route:</b> <code>POST /v2/invoicing/invoices</code></p>
+            <p><b>Responses:</b> <code>201 Created, 400 Bad Request, 403 Forbidden, 422 Unprocessable Content, default (OpenAPI)</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">no-403-if-no-401</code></p>
+            <p><b>Rule Description:</b> Never implement a response with the status code <code>403 Forbidden</code> if the method does not implement a response with the status code <code>401 Unauthorized</code>.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.4 (403 Forbidden) | RFC 9110, Section 15.5.2 (401 Unauthorized)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #5</h3>
+            <p><b>Route:</b> <code>GET /v2/invoicing/invoices</code></p>
+            <p><b>Responses:</b> <code>200 OK, 400 Bad Request, 403 Forbidden, default (OpenAPI)</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-406-if-accept</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>406 Not Acceptable</code> in case the sever does not support the <code>Accept</code> header specified in the request. Only applies to routes that respond with content.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.7 (406 Not Acceptable) | RFC 9110, Section 12.5.1 (Accept)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #6</h3>
+            <p><b>Route:</b> <code>GET /v2/invoicing/invoices</code></p>
+            <p><b>Responses:</b> <code>200 OK, 400 Bad Request, 403 Forbidden, default (OpenAPI)</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">no-403-if-no-401</code></p>
+            <p><b>Rule Description:</b> Never implement a response with the status code <code>403 Forbidden</code> if the method does not implement a response with the status code <code>401 Unauthorized</code>.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.4 (403 Forbidden) | RFC 9110, Section 15.5.2 (401 Unauthorized)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #7</h3>
+            <p><b>Route:</b> <code>POST /v2/invoicing/invoices/{invoice_id}/send</code></p>
+            <p><b>Responses:</b> <code>200 OK, 202 Accepted, 400 Bad Request, 403 Forbidden, 404 Not Found, 422 Unprocessable Content, default (OpenAPI)</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-406-if-accept</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>406 Not Acceptable</code> in case the sever does not support the <code>Accept</code> header specified in the request. Only applies to routes that respond with content.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.7 (406 Not Acceptable) | RFC 9110, Section 12.5.1 (Accept)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #8</h3>
+            <p><b>Route:</b> <code>POST /v2/invoicing/invoices/{invoice_id}/send</code></p>
+            <p><b>Responses:</b> <code>200 OK, 202 Accepted, 400 Bad Request, 403 Forbidden, 404 Not Found, 422 Unprocessable Content, default (OpenAPI)</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-413-if-content-length</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>413 Content Too Large</code> in case the server does not support the <code>Content-Length</code> header specified in the request.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.14 (413 Content Too Large) | RFC 9110, Section 8.6 (Content-Length)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #9</h3>
+            <p><b>Route:</b> <code>POST /v2/invoicing/invoices/{invoice_id}/send</code></p>
+            <p><b>Responses:</b> <code>200 OK, 202 Accepted, 400 Bad Request, 403 Forbidden, 404 Not Found, 422 Unprocessable Content, default (OpenAPI)</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-415-if-content-type</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>415 Unsupported Media Type</code> in case the server does not support the <code>Content-Type</code> header specified in the request.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.16 (415 Unsupported Media Type) | RFC 9110, Section 8.3 (Content-Type)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #10</h3>
+            <p><b>Route:</b> <code>POST /v2/invoicing/invoices/{invoice_id}/send</code></p>
+            <p><b>Responses:</b> <code>200 OK, 202 Accepted, 400 Bad Request, 403 Forbidden, 404 Not Found, 422 Unprocessable Content, default (OpenAPI)</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">no-403-if-no-401</code></p>
+            <p><b>Rule Description:</b> Never implement a response with the status code <code>403 Forbidden</code> if the method does not implement a response with the status code <code>401 Unauthorized</code>.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.4 (403 Forbidden) | RFC 9110, Section 15.5.2 (401 Unauthorized)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #11</h3>
+            <p><b>Route:</b> <code>POST /v2/invoicing/invoices/{invoice_id}/remind</code></p>
+            <p><b>Responses:</b> <code>204 No Content, 400 Bad Request, 403 Forbidden, 404 Not Found, 422 Unprocessable Content, default (OpenAPI)</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-406-if-accept</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>406 Not Acceptable</code> in case the sever does not support the <code>Accept</code> header specified in the request. Only applies to routes that respond with content.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.7 (406 Not Acceptable) | RFC 9110, Section 12.5.1 (Accept)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #12</h3>
+            <p><b>Route:</b> <code>POST /v2/invoicing/invoices/{invoice_id}/remind</code></p>
+            <p><b>Responses:</b> <code>204 No Content, 400 Bad Request, 403 Forbidden, 404 Not Found, 422 Unprocessable Content, default (OpenAPI)</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-413-if-content-length</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>413 Content Too Large</code> in case the server does not support the <code>Content-Length</code> header specified in the request.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.14 (413 Content Too Large) | RFC 9110, Section 8.6 (Content-Length)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #13</h3>
+            <p><b>Route:</b> <code>POST /v2/invoicing/invoices/{invoice_id}/remind</code></p>
+            <p><b>Responses:</b> <code>204 No Content, 400 Bad Request, 403 Forbidden, 404 Not Found, 422 Unprocessable Content, default (OpenAPI)</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-415-if-content-type</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>415 Unsupported Media Type</code> in case the server does not support the <code>Content-Type</code> header specified in the request.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.16 (415 Unsupported Media Type) | RFC 9110, Section 8.3 (Content-Type)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #14</h3>
+            <p><b>Route:</b> <code>POST /v2/invoicing/invoices/{invoice_id}/remind</code></p>
+            <p><b>Responses:</b> <code>204 No Content, 400 Bad Request, 403 Forbidden, 404 Not Found, 422 Unprocessable Content, default (OpenAPI)</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">no-403-if-no-401</code></p>
+            <p><b>Rule Description:</b> Never implement a response with the status code <code>403 Forbidden</code> if the method does not implement a response with the status code <code>401 Unauthorized</code>.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.4 (403 Forbidden) | RFC 9110, Section 15.5.2 (401 Unauthorized)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #15</h3>
+            <p><b>Route:</b> <code>POST /v2/invoicing/invoices/{invoice_id}/cancel</code></p>
+            <p><b>Responses:</b> <code>204 No Content, 400 Bad Request, 403 Forbidden, 404 Not Found, 422 Unprocessable Content, default (OpenAPI)</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-406-if-accept</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>406 Not Acceptable</code> in case the sever does not support the <code>Accept</code> header specified in the request. Only applies to routes that respond with content.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.7 (406 Not Acceptable) | RFC 9110, Section 12.5.1 (Accept)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #16</h3>
+            <p><b>Route:</b> <code>POST /v2/invoicing/invoices/{invoice_id}/cancel</code></p>
+            <p><b>Responses:</b> <code>204 No Content, 400 Bad Request, 403 Forbidden, 404 Not Found, 422 Unprocessable Content, default (OpenAPI)</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-413-if-content-length</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>413 Content Too Large</code> in case the server does not support the <code>Content-Length</code> header specified in the request.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.14 (413 Content Too Large) | RFC 9110, Section 8.6 (Content-Length)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #17</h3>
+            <p><b>Route:</b> <code>POST /v2/invoicing/invoices/{invoice_id}/cancel</code></p>
+            <p><b>Responses:</b> <code>204 No Content, 400 Bad Request, 403 Forbidden, 404 Not Found, 422 Unprocessable Content, default (OpenAPI)</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-415-if-content-type</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>415 Unsupported Media Type</code> in case the server does not support the <code>Content-Type</code> header specified in the request.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.16 (415 Unsupported Media Type) | RFC 9110, Section 8.3 (Content-Type)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #18</h3>
+            <p><b>Route:</b> <code>POST /v2/invoicing/invoices/{invoice_id}/cancel</code></p>
+            <p><b>Responses:</b> <code>204 No Content, 400 Bad Request, 403 Forbidden, 404 Not Found, 422 Unprocessable Content, default (OpenAPI)</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">no-403-if-no-401</code></p>
+            <p><b>Rule Description:</b> Never implement a response with the status code <code>403 Forbidden</code> if the method does not implement a response with the status code <code>401 Unauthorized</code>.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.4 (403 Forbidden) | RFC 9110, Section 15.5.2 (401 Unauthorized)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #19</h3>
+            <p><b>Route:</b> <code>POST /v2/invoicing/invoices/{invoice_id}/payments</code></p>
+            <p><b>Responses:</b> <code>200 OK, 400 Bad Request, 403 Forbidden, 404 Not Found, 422 Unprocessable Content, default (OpenAPI)</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-406-if-accept</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>406 Not Acceptable</code> in case the sever does not support the <code>Accept</code> header specified in the request. Only applies to routes that respond with content.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.7 (406 Not Acceptable) | RFC 9110, Section 12.5.1 (Accept)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #20</h3>
+            <p><b>Route:</b> <code>POST /v2/invoicing/invoices/{invoice_id}/payments</code></p>
+            <p><b>Responses:</b> <code>200 OK, 400 Bad Request, 403 Forbidden, 404 Not Found, 422 Unprocessable Content, default (OpenAPI)</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-413-if-content-length</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>413 Content Too Large</code> in case the server does not support the <code>Content-Length</code> header specified in the request.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.14 (413 Content Too Large) | RFC 9110, Section 8.6 (Content-Length)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #21</h3>
+            <p><b>Route:</b> <code>POST /v2/invoicing/invoices/{invoice_id}/payments</code></p>
+            <p><b>Responses:</b> <code>200 OK, 400 Bad Request, 403 Forbidden, 404 Not Found, 422 Unprocessable Content, default (OpenAPI)</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-415-if-content-type</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>415 Unsupported Media Type</code> in case the server does not support the <code>Content-Type</code> header specified in the request.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.16 (415 Unsupported Media Type) | RFC 9110, Section 8.3 (Content-Type)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #22</h3>
+            <p><b>Route:</b> <code>POST /v2/invoicing/invoices/{invoice_id}/payments</code></p>
+            <p><b>Responses:</b> <code>200 OK, 400 Bad Request, 403 Forbidden, 404 Not Found, 422 Unprocessable Content, default (OpenAPI)</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">no-403-if-no-401</code></p>
+            <p><b>Rule Description:</b> Never implement a response with the status code <code>403 Forbidden</code> if the method does not implement a response with the status code <code>401 Unauthorized</code>.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.4 (403 Forbidden) | RFC 9110, Section 15.5.2 (401 Unauthorized)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #23</h3>
+            <p><b>Route:</b> <code>DELETE /v2/invoicing/invoices/{invoice_id}/payments/{transaction_id}</code></p>
+            <p><b>Responses:</b> <code>204 No Content, 403 Forbidden, 404 Not Found, 422 Unprocessable Content, default (OpenAPI)</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-400-if-params</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>400 Bad Request</code> if the method contains parameters (in case of invalid syntax).</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.1 (400 Bad Request)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #24</h3>
+            <p><b>Route:</b> <code>DELETE /v2/invoicing/invoices/{invoice_id}/payments/{transaction_id}</code></p>
+            <p><b>Responses:</b> <code>204 No Content, 403 Forbidden, 404 Not Found, 422 Unprocessable Content, default (OpenAPI)</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-406-if-accept</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>406 Not Acceptable</code> in case the sever does not support the <code>Accept</code> header specified in the request. Only applies to routes that respond with content.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.7 (406 Not Acceptable) | RFC 9110, Section 12.5.1 (Accept)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #25</h3>
+            <p><b>Route:</b> <code>DELETE /v2/invoicing/invoices/{invoice_id}/payments/{transaction_id}</code></p>
+            <p><b>Responses:</b> <code>204 No Content, 403 Forbidden, 404 Not Found, 422 Unprocessable Content, default (OpenAPI)</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">no-403-if-no-401</code></p>
+            <p><b>Rule Description:</b> Never implement a response with the status code <code>403 Forbidden</code> if the method does not implement a response with the status code <code>401 Unauthorized</code>.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.4 (403 Forbidden) | RFC 9110, Section 15.5.2 (401 Unauthorized)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #26</h3>
+            <p><b>Route:</b> <code>POST /v2/invoicing/invoices/{invoice_id}/refunds</code></p>
+            <p><b>Responses:</b> <code>200 OK, 400 Bad Request, 403 Forbidden, 404 Not Found, 422 Unprocessable Content, default (OpenAPI)</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-406-if-accept</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>406 Not Acceptable</code> in case the sever does not support the <code>Accept</code> header specified in the request. Only applies to routes that respond with content.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.7 (406 Not Acceptable) | RFC 9110, Section 12.5.1 (Accept)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #27</h3>
+            <p><b>Route:</b> <code>POST /v2/invoicing/invoices/{invoice_id}/refunds</code></p>
+            <p><b>Responses:</b> <code>200 OK, 400 Bad Request, 403 Forbidden, 404 Not Found, 422 Unprocessable Content, default (OpenAPI)</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-413-if-content-length</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>413 Content Too Large</code> in case the server does not support the <code>Content-Length</code> header specified in the request.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.14 (413 Content Too Large) | RFC 9110, Section 8.6 (Content-Length)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #28</h3>
+            <p><b>Route:</b> <code>POST /v2/invoicing/invoices/{invoice_id}/refunds</code></p>
+            <p><b>Responses:</b> <code>200 OK, 400 Bad Request, 403 Forbidden, 404 Not Found, 422 Unprocessable Content, default (OpenAPI)</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-415-if-content-type</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>415 Unsupported Media Type</code> in case the server does not support the <code>Content-Type</code> header specified in the request.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.16 (415 Unsupported Media Type) | RFC 9110, Section 8.3 (Content-Type)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #29</h3>
+            <p><b>Route:</b> <code>POST /v2/invoicing/invoices/{invoice_id}/refunds</code></p>
+            <p><b>Responses:</b> <code>200 OK, 400 Bad Request, 403 Forbidden, 404 Not Found, 422 Unprocessable Content, default (OpenAPI)</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">no-403-if-no-401</code></p>
+            <p><b>Rule Description:</b> Never implement a response with the status code <code>403 Forbidden</code> if the method does not implement a response with the status code <code>401 Unauthorized</code>.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.4 (403 Forbidden) | RFC 9110, Section 15.5.2 (401 Unauthorized)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #30</h3>
+            <p><b>Route:</b> <code>DELETE /v2/invoicing/invoices/{invoice_id}/refunds/{transaction_id}</code></p>
+            <p><b>Responses:</b> <code>204 No Content, 403 Forbidden, 404 Not Found, default (OpenAPI)</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-400-if-params</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>400 Bad Request</code> if the method contains parameters (in case of invalid syntax).</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.1 (400 Bad Request)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #31</h3>
+            <p><b>Route:</b> <code>DELETE /v2/invoicing/invoices/{invoice_id}/refunds/{transaction_id}</code></p>
+            <p><b>Responses:</b> <code>204 No Content, 403 Forbidden, 404 Not Found, default (OpenAPI)</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-406-if-accept</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>406 Not Acceptable</code> in case the sever does not support the <code>Accept</code> header specified in the request. Only applies to routes that respond with content.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.7 (406 Not Acceptable) | RFC 9110, Section 12.5.1 (Accept)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #32</h3>
+            <p><b>Route:</b> <code>DELETE /v2/invoicing/invoices/{invoice_id}/refunds/{transaction_id}</code></p>
+            <p><b>Responses:</b> <code>204 No Content, 403 Forbidden, 404 Not Found, default (OpenAPI)</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-422-if-params</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>422 Unprocessable Content</code> if the method contains parameters (in case of invalid semantics).</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.21 (422 Unprocessable Content)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #33</h3>
+            <p><b>Route:</b> <code>DELETE /v2/invoicing/invoices/{invoice_id}/refunds/{transaction_id}</code></p>
+            <p><b>Responses:</b> <code>204 No Content, 403 Forbidden, 404 Not Found, default (OpenAPI)</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">no-403-if-no-401</code></p>
+            <p><b>Rule Description:</b> Never implement a response with the status code <code>403 Forbidden</code> if the method does not implement a response with the status code <code>401 Unauthorized</code>.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.4 (403 Forbidden) | RFC 9110, Section 15.5.2 (401 Unauthorized)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #34</h3>
+            <p><b>Route:</b> <code>POST /v2/invoicing/invoices/{invoice_id}/generate-qr-code</code></p>
+            <p><b>Responses:</b> <code>200 OK, 400 Bad Request, 403 Forbidden, 404 Not Found, default (OpenAPI)</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-204-if-no-content</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>204 No Content</code> if a response in the <code>2xx Successful</code> range does not have content.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.3.5 (204 No Content) | RFC 9110, Section 15.3 (Successful 2xx)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #35</h3>
+            <p><b>Route:</b> <code>POST /v2/invoicing/invoices/{invoice_id}/generate-qr-code</code></p>
+            <p><b>Responses:</b> <code>200 OK, 400 Bad Request, 403 Forbidden, 404 Not Found, default (OpenAPI)</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-406-if-accept</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>406 Not Acceptable</code> in case the sever does not support the <code>Accept</code> header specified in the request. Only applies to routes that respond with content.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.7 (406 Not Acceptable) | RFC 9110, Section 12.5.1 (Accept)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #36</h3>
+            <p><b>Route:</b> <code>POST /v2/invoicing/invoices/{invoice_id}/generate-qr-code</code></p>
+            <p><b>Responses:</b> <code>200 OK, 400 Bad Request, 403 Forbidden, 404 Not Found, default (OpenAPI)</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-413-if-content-length</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>413 Content Too Large</code> in case the server does not support the <code>Content-Length</code> header specified in the request.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.14 (413 Content Too Large) | RFC 9110, Section 8.6 (Content-Length)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #37</h3>
+            <p><b>Route:</b> <code>POST /v2/invoicing/invoices/{invoice_id}/generate-qr-code</code></p>
+            <p><b>Responses:</b> <code>200 OK, 400 Bad Request, 403 Forbidden, 404 Not Found, default (OpenAPI)</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-415-if-content-type</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>415 Unsupported Media Type</code> in case the server does not support the <code>Content-Type</code> header specified in the request.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.16 (415 Unsupported Media Type) | RFC 9110, Section 8.3 (Content-Type)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #38</h3>
+            <p><b>Route:</b> <code>POST /v2/invoicing/invoices/{invoice_id}/generate-qr-code</code></p>
+            <p><b>Responses:</b> <code>200 OK, 400 Bad Request, 403 Forbidden, 404 Not Found, default (OpenAPI)</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-422-if-params</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>422 Unprocessable Content</code> if the method contains parameters (in case of invalid semantics).</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.21 (422 Unprocessable Content)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #39</h3>
+            <p><b>Route:</b> <code>POST /v2/invoicing/invoices/{invoice_id}/generate-qr-code</code></p>
+            <p><b>Responses:</b> <code>200 OK, 400 Bad Request, 403 Forbidden, 404 Not Found, default (OpenAPI)</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-422-if-payload</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>422 Unprocessable Content</code> if the method contains a payload (in case of invalid semantics).</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.21 (422 Unprocessable Content)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #40</h3>
+            <p><b>Route:</b> <code>POST /v2/invoicing/invoices/{invoice_id}/generate-qr-code</code></p>
+            <p><b>Responses:</b> <code>200 OK, 400 Bad Request, 403 Forbidden, 404 Not Found, default (OpenAPI)</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">no-403-if-no-401</code></p>
+            <p><b>Rule Description:</b> Never implement a response with the status code <code>403 Forbidden</code> if the method does not implement a response with the status code <code>401 Unauthorized</code>.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.4 (403 Forbidden) | RFC 9110, Section 15.5.2 (401 Unauthorized)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #41</h3>
+            <p><b>Route:</b> <code>POST /v2/invoicing/generate-next-invoice-number</code></p>
+            <p><b>Responses:</b> <code>200 OK, 403 Forbidden, default (OpenAPI)</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-400-if-payload</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>400 Bad Request</code> if the method contains a payload (in case of invalid syntax).</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.1 (400 Bad Request)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #42</h3>
+            <p><b>Route:</b> <code>POST /v2/invoicing/generate-next-invoice-number</code></p>
+            <p><b>Responses:</b> <code>200 OK, 403 Forbidden, default (OpenAPI)</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-406-if-accept</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>406 Not Acceptable</code> in case the sever does not support the <code>Accept</code> header specified in the request. Only applies to routes that respond with content.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.7 (406 Not Acceptable) | RFC 9110, Section 12.5.1 (Accept)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #43</h3>
+            <p><b>Route:</b> <code>POST /v2/invoicing/generate-next-invoice-number</code></p>
+            <p><b>Responses:</b> <code>200 OK, 403 Forbidden, default (OpenAPI)</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-413-if-content-length</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>413 Content Too Large</code> in case the server does not support the <code>Content-Length</code> header specified in the request.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.14 (413 Content Too Large) | RFC 9110, Section 8.6 (Content-Length)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #44</h3>
+            <p><b>Route:</b> <code>POST /v2/invoicing/generate-next-invoice-number</code></p>
+            <p><b>Responses:</b> <code>200 OK, 403 Forbidden, default (OpenAPI)</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-415-if-content-type</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>415 Unsupported Media Type</code> in case the server does not support the <code>Content-Type</code> header specified in the request.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.16 (415 Unsupported Media Type) | RFC 9110, Section 8.3 (Content-Type)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #45</h3>
+            <p><b>Route:</b> <code>POST /v2/invoicing/generate-next-invoice-number</code></p>
+            <p><b>Responses:</b> <code>200 OK, 403 Forbidden, default (OpenAPI)</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-422-if-payload</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>422 Unprocessable Content</code> if the method contains a payload (in case of invalid semantics).</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.21 (422 Unprocessable Content)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #46</h3>
+            <p><b>Route:</b> <code>POST /v2/invoicing/generate-next-invoice-number</code></p>
+            <p><b>Responses:</b> <code>200 OK, 403 Forbidden, default (OpenAPI)</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">no-403-if-no-401</code></p>
+            <p><b>Rule Description:</b> Never implement a response with the status code <code>403 Forbidden</code> if the method does not implement a response with the status code <code>401 Unauthorized</code>.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.4 (403 Forbidden) | RFC 9110, Section 15.5.2 (401 Unauthorized)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #47</h3>
+            <p><b>Route:</b> <code>GET /v2/invoicing/invoices/{invoice_id}</code></p>
+            <p><b>Responses:</b> <code>200 OK, 400 Bad Request, 403 Forbidden, 404 Not Found, 422 Unprocessable Content, default (OpenAPI)</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-406-if-accept</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>406 Not Acceptable</code> in case the sever does not support the <code>Accept</code> header specified in the request. Only applies to routes that respond with content.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.7 (406 Not Acceptable) | RFC 9110, Section 12.5.1 (Accept)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #48</h3>
+            <p><b>Route:</b> <code>GET /v2/invoicing/invoices/{invoice_id}</code></p>
+            <p><b>Responses:</b> <code>200 OK, 400 Bad Request, 403 Forbidden, 404 Not Found, 422 Unprocessable Content, default (OpenAPI)</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">no-403-if-no-401</code></p>
+            <p><b>Rule Description:</b> Never implement a response with the status code <code>403 Forbidden</code> if the method does not implement a response with the status code <code>401 Unauthorized</code>.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.4 (403 Forbidden) | RFC 9110, Section 15.5.2 (401 Unauthorized)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #49</h3>
+            <p><b>Route:</b> <code>PUT /v2/invoicing/invoices/{invoice_id}</code></p>
+            <p><b>Responses:</b> <code>200 OK, 400 Bad Request, 403 Forbidden, 404 Not Found, 422 Unprocessable Content, default (OpenAPI)</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-406-if-accept</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>406 Not Acceptable</code> in case the sever does not support the <code>Accept</code> header specified in the request. Only applies to routes that respond with content.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.7 (406 Not Acceptable) | RFC 9110, Section 12.5.1 (Accept)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #50</h3>
+            <p><b>Route:</b> <code>PUT /v2/invoicing/invoices/{invoice_id}</code></p>
+            <p><b>Responses:</b> <code>200 OK, 400 Bad Request, 403 Forbidden, 404 Not Found, 422 Unprocessable Content, default (OpenAPI)</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-413-if-content-length</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>413 Content Too Large</code> in case the server does not support the <code>Content-Length</code> header specified in the request.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.14 (413 Content Too Large) | RFC 9110, Section 8.6 (Content-Length)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #51</h3>
+            <p><b>Route:</b> <code>PUT /v2/invoicing/invoices/{invoice_id}</code></p>
+            <p><b>Responses:</b> <code>200 OK, 400 Bad Request, 403 Forbidden, 404 Not Found, 422 Unprocessable Content, default (OpenAPI)</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-415-if-content-type</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>415 Unsupported Media Type</code> in case the server does not support the <code>Content-Type</code> header specified in the request.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.16 (415 Unsupported Media Type) | RFC 9110, Section 8.3 (Content-Type)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #52</h3>
+            <p><b>Route:</b> <code>PUT /v2/invoicing/invoices/{invoice_id}</code></p>
+            <p><b>Responses:</b> <code>200 OK, 400 Bad Request, 403 Forbidden, 404 Not Found, 422 Unprocessable Content, default (OpenAPI)</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">no-403-if-no-401</code></p>
+            <p><b>Rule Description:</b> Never implement a response with the status code <code>403 Forbidden</code> if the method does not implement a response with the status code <code>401 Unauthorized</code>.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.4 (403 Forbidden) | RFC 9110, Section 15.5.2 (401 Unauthorized)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #53</h3>
+            <p><b>Route:</b> <code>DELETE /v2/invoicing/invoices/{invoice_id}</code></p>
+            <p><b>Responses:</b> <code>204 No Content, 400 Bad Request, 403 Forbidden, 404 Not Found, default (OpenAPI)</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-406-if-accept</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>406 Not Acceptable</code> in case the sever does not support the <code>Accept</code> header specified in the request. Only applies to routes that respond with content.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.7 (406 Not Acceptable) | RFC 9110, Section 12.5.1 (Accept)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #54</h3>
+            <p><b>Route:</b> <code>DELETE /v2/invoicing/invoices/{invoice_id}</code></p>
+            <p><b>Responses:</b> <code>204 No Content, 400 Bad Request, 403 Forbidden, 404 Not Found, default (OpenAPI)</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-422-if-params</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>422 Unprocessable Content</code> if the method contains parameters (in case of invalid semantics).</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.21 (422 Unprocessable Content)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #55</h3>
+            <p><b>Route:</b> <code>DELETE /v2/invoicing/invoices/{invoice_id}</code></p>
+            <p><b>Responses:</b> <code>204 No Content, 400 Bad Request, 403 Forbidden, 404 Not Found, default (OpenAPI)</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">no-403-if-no-401</code></p>
+            <p><b>Rule Description:</b> Never implement a response with the status code <code>403 Forbidden</code> if the method does not implement a response with the status code <code>401 Unauthorized</code>.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.4 (403 Forbidden) | RFC 9110, Section 15.5.2 (401 Unauthorized)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #56</h3>
+            <p><b>Route:</b> <code>POST /v2/invoicing/search-invoices</code></p>
+            <p><b>Responses:</b> <code>200 OK, 400 Bad Request, 403 Forbidden, default (OpenAPI)</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-406-if-accept</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>406 Not Acceptable</code> in case the sever does not support the <code>Accept</code> header specified in the request. Only applies to routes that respond with content.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.7 (406 Not Acceptable) | RFC 9110, Section 12.5.1 (Accept)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #57</h3>
+            <p><b>Route:</b> <code>POST /v2/invoicing/search-invoices</code></p>
+            <p><b>Responses:</b> <code>200 OK, 400 Bad Request, 403 Forbidden, default (OpenAPI)</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-413-if-content-length</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>413 Content Too Large</code> in case the server does not support the <code>Content-Length</code> header specified in the request.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.14 (413 Content Too Large) | RFC 9110, Section 8.6 (Content-Length)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #58</h3>
+            <p><b>Route:</b> <code>POST /v2/invoicing/search-invoices</code></p>
+            <p><b>Responses:</b> <code>200 OK, 400 Bad Request, 403 Forbidden, default (OpenAPI)</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-415-if-content-type</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>415 Unsupported Media Type</code> in case the server does not support the <code>Content-Type</code> header specified in the request.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.16 (415 Unsupported Media Type) | RFC 9110, Section 8.3 (Content-Type)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #59</h3>
+            <p><b>Route:</b> <code>POST /v2/invoicing/search-invoices</code></p>
+            <p><b>Responses:</b> <code>200 OK, 400 Bad Request, 403 Forbidden, default (OpenAPI)</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-422-if-payload</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>422 Unprocessable Content</code> if the method contains a payload (in case of invalid semantics).</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.21 (422 Unprocessable Content)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #60</h3>
+            <p><b>Route:</b> <code>POST /v2/invoicing/search-invoices</code></p>
+            <p><b>Responses:</b> <code>200 OK, 400 Bad Request, 403 Forbidden, default (OpenAPI)</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">no-403-if-no-401</code></p>
+            <p><b>Rule Description:</b> Never implement a response with the status code <code>403 Forbidden</code> if the method does not implement a response with the status code <code>401 Unauthorized</code>.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.4 (403 Forbidden) | RFC 9110, Section 15.5.2 (401 Unauthorized)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #61</h3>
+            <p><b>Route:</b> <code>GET /v2/invoicing/templates</code></p>
+            <p><b>Responses:</b> <code>200 OK, 400 Bad Request, 403 Forbidden, default (OpenAPI)</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-406-if-accept</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>406 Not Acceptable</code> in case the sever does not support the <code>Accept</code> header specified in the request. Only applies to routes that respond with content.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.7 (406 Not Acceptable) | RFC 9110, Section 12.5.1 (Accept)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #62</h3>
+            <p><b>Route:</b> <code>GET /v2/invoicing/templates</code></p>
+            <p><b>Responses:</b> <code>200 OK, 400 Bad Request, 403 Forbidden, default (OpenAPI)</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">no-403-if-no-401</code></p>
+            <p><b>Rule Description:</b> Never implement a response with the status code <code>403 Forbidden</code> if the method does not implement a response with the status code <code>401 Unauthorized</code>.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.4 (403 Forbidden) | RFC 9110, Section 15.5.2 (401 Unauthorized)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #63</h3>
+            <p><b>Route:</b> <code>POST /v2/invoicing/templates</code></p>
+            <p><b>Responses:</b> <code>201 Created, 400 Bad Request, 422 Unprocessable Content, default (OpenAPI)</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-406-if-accept</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>406 Not Acceptable</code> in case the sever does not support the <code>Accept</code> header specified in the request. Only applies to routes that respond with content.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.7 (406 Not Acceptable) | RFC 9110, Section 12.5.1 (Accept)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #64</h3>
+            <p><b>Route:</b> <code>POST /v2/invoicing/templates</code></p>
+            <p><b>Responses:</b> <code>201 Created, 400 Bad Request, 422 Unprocessable Content, default (OpenAPI)</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-413-if-content-length</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>413 Content Too Large</code> in case the server does not support the <code>Content-Length</code> header specified in the request.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.14 (413 Content Too Large) | RFC 9110, Section 8.6 (Content-Length)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #65</h3>
+            <p><b>Route:</b> <code>POST /v2/invoicing/templates</code></p>
+            <p><b>Responses:</b> <code>201 Created, 400 Bad Request, 422 Unprocessable Content, default (OpenAPI)</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-415-if-content-type</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>415 Unsupported Media Type</code> in case the server does not support the <code>Content-Type</code> header specified in the request.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.16 (415 Unsupported Media Type) | RFC 9110, Section 8.3 (Content-Type)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #66</h3>
+            <p><b>Route:</b> <code>GET /v2/invoicing/templates/{template_id}</code></p>
+            <p><b>Responses:</b> <code>200 OK, 403 Forbidden, 404 Not Found, default (OpenAPI)</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-400-if-params</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>400 Bad Request</code> if the method contains parameters (in case of invalid syntax).</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.1 (400 Bad Request)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #67</h3>
+            <p><b>Route:</b> <code>GET /v2/invoicing/templates/{template_id}</code></p>
+            <p><b>Responses:</b> <code>200 OK, 403 Forbidden, 404 Not Found, default (OpenAPI)</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-406-if-accept</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>406 Not Acceptable</code> in case the sever does not support the <code>Accept</code> header specified in the request. Only applies to routes that respond with content.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.7 (406 Not Acceptable) | RFC 9110, Section 12.5.1 (Accept)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #68</h3>
+            <p><b>Route:</b> <code>GET /v2/invoicing/templates/{template_id}</code></p>
+            <p><b>Responses:</b> <code>200 OK, 403 Forbidden, 404 Not Found, default (OpenAPI)</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-422-if-params</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>422 Unprocessable Content</code> if the method contains parameters (in case of invalid semantics).</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.21 (422 Unprocessable Content)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #69</h3>
+            <p><b>Route:</b> <code>GET /v2/invoicing/templates/{template_id}</code></p>
+            <p><b>Responses:</b> <code>200 OK, 403 Forbidden, 404 Not Found, default (OpenAPI)</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">no-403-if-no-401</code></p>
+            <p><b>Rule Description:</b> Never implement a response with the status code <code>403 Forbidden</code> if the method does not implement a response with the status code <code>401 Unauthorized</code>.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.4 (403 Forbidden) | RFC 9110, Section 15.5.2 (401 Unauthorized)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #70</h3>
+            <p><b>Route:</b> <code>PUT /v2/invoicing/templates/{template_id}</code></p>
+            <p><b>Responses:</b> <code>200 OK, 400 Bad Request, 403 Forbidden, 404 Not Found, 422 Unprocessable Content, default (OpenAPI)</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-406-if-accept</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>406 Not Acceptable</code> in case the sever does not support the <code>Accept</code> header specified in the request. Only applies to routes that respond with content.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.7 (406 Not Acceptable) | RFC 9110, Section 12.5.1 (Accept)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #71</h3>
+            <p><b>Route:</b> <code>PUT /v2/invoicing/templates/{template_id}</code></p>
+            <p><b>Responses:</b> <code>200 OK, 400 Bad Request, 403 Forbidden, 404 Not Found, 422 Unprocessable Content, default (OpenAPI)</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-413-if-content-length</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>413 Content Too Large</code> in case the server does not support the <code>Content-Length</code> header specified in the request.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.14 (413 Content Too Large) | RFC 9110, Section 8.6 (Content-Length)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #72</h3>
+            <p><b>Route:</b> <code>PUT /v2/invoicing/templates/{template_id}</code></p>
+            <p><b>Responses:</b> <code>200 OK, 400 Bad Request, 403 Forbidden, 404 Not Found, 422 Unprocessable Content, default (OpenAPI)</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-415-if-content-type</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>415 Unsupported Media Type</code> in case the server does not support the <code>Content-Type</code> header specified in the request.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.16 (415 Unsupported Media Type) | RFC 9110, Section 8.3 (Content-Type)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #73</h3>
+            <p><b>Route:</b> <code>PUT /v2/invoicing/templates/{template_id}</code></p>
+            <p><b>Responses:</b> <code>200 OK, 400 Bad Request, 403 Forbidden, 404 Not Found, 422 Unprocessable Content, default (OpenAPI)</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">no-403-if-no-401</code></p>
+            <p><b>Rule Description:</b> Never implement a response with the status code <code>403 Forbidden</code> if the method does not implement a response with the status code <code>401 Unauthorized</code>.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.4 (403 Forbidden) | RFC 9110, Section 15.5.2 (401 Unauthorized)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #74</h3>
+            <p><b>Route:</b> <code>DELETE /v2/invoicing/templates/{template_id}</code></p>
+            <p><b>Responses:</b> <code>204 No Content, 400 Bad Request, 403 Forbidden, 404 Not Found, 422 Unprocessable Content, default (OpenAPI)</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">has-406-if-accept</code></p>
+            <p><b>Rule Description:</b> Always implement a response with the status code <code>406 Not Acceptable</code> in case the sever does not support the <code>Accept</code> header specified in the request. Only applies to routes that respond with content.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.7 (406 Not Acceptable) | RFC 9110, Section 12.5.1 (Accept)</code></p>
+        </div>
+    
+        <div class="rule-container">
+            <h3 class="violation-color">Violation #75</h3>
+            <p><b>Route:</b> <code>DELETE /v2/invoicing/templates/{template_id}</code></p>
+            <p><b>Responses:</b> <code>204 No Content, 400 Bad Request, 403 Forbidden, 404 Not Found, 422 Unprocessable Content, default (OpenAPI)</code></p>
+            <p><b>Parameters:</b> <code>/</code></p>
+            <p><b>Rule ID:</b> <code class="rule-id">no-403-if-no-401</code></p>
+            <p><b>Rule Description:</b> Never implement a response with the status code <code>403 Forbidden</code> if the method does not implement a response with the status code <code>401 Unauthorized</code>.</p>
+            <p><b>Rule Sources:</b> <code class="source-color">RFC 9110, Section 15.5.4 (403 Forbidden) | RFC 9110, Section 15.5.2 (401 Unauthorized)</code></p>
+        </div>
+    
+</body>
+</html>

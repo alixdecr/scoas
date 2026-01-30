@@ -1,0 +1,366 @@
+{
+    "name": "cwa-verification-server",
+    "timestamp": "2026-01-29-11-30",
+    "nb-routes": 5,
+    "nb-routes-without-violations": 0,
+    "status-codes": {
+        "total": 27,
+        "by-code": {
+            "500": 5,
+            "400": 5,
+            "405": 5,
+            "415": 5,
+            "200": 2,
+            "403": 1,
+            "201": 3,
+            "404": 1
+        }
+    },
+    "rule-violations": {
+        "total": 16,
+        "average-per-route": 3.2,
+        "by-rule": {
+            "has-406-if-accept": 5,
+            "has-413-if-content-length": 5,
+            "has-422-if-payload": 5,
+            "no-403-if-no-401": 1
+        },
+        "list": [
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "POST /version/v1/testresult",
+                "status-codes": [
+                    "500",
+                    "400",
+                    "405",
+                    "415",
+                    "200",
+                    "403"
+                ],
+                "parameters": [
+                    "cwa-fake (header)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /version/v1/testresult",
+                "status-codes": [
+                    "500",
+                    "400",
+                    "405",
+                    "415",
+                    "200",
+                    "403"
+                ],
+                "parameters": [
+                    "cwa-fake (header)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /version/v1/testresult",
+                "status-codes": [
+                    "500",
+                    "400",
+                    "405",
+                    "415",
+                    "200",
+                    "403"
+                ],
+                "parameters": [
+                    "cwa-fake (header)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "no-403-if-no-401",
+                    "description": "Never implement a response with the status code '403 Forbidden' if the method does not implement a response with the status code '401 Unauthorized'.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.4 (403 Forbidden)",
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "POST /version/v1/testresult",
+                "status-codes": [
+                    "500",
+                    "400",
+                    "405",
+                    "415",
+                    "200",
+                    "403"
+                ],
+                "parameters": [
+                    "cwa-fake (header)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "POST /version/v1/tan",
+                "status-codes": [
+                    "500",
+                    "400",
+                    "405",
+                    "415",
+                    "201"
+                ],
+                "parameters": [
+                    "cwa-fake (header)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /version/v1/tan",
+                "status-codes": [
+                    "500",
+                    "400",
+                    "405",
+                    "415",
+                    "201"
+                ],
+                "parameters": [
+                    "cwa-fake (header)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /version/v1/tan",
+                "status-codes": [
+                    "500",
+                    "400",
+                    "405",
+                    "415",
+                    "201"
+                ],
+                "parameters": [
+                    "cwa-fake (header)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "POST /version/v1/tan/verify",
+                "status-codes": [
+                    "500",
+                    "400",
+                    "405",
+                    "415",
+                    "200",
+                    "404"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /version/v1/tan/verify",
+                "status-codes": [
+                    "500",
+                    "400",
+                    "405",
+                    "415",
+                    "200",
+                    "404"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /version/v1/tan/verify",
+                "status-codes": [
+                    "500",
+                    "400",
+                    "405",
+                    "415",
+                    "200",
+                    "404"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "POST /version/v1/tan/teletan",
+                "status-codes": [
+                    "500",
+                    "400",
+                    "405",
+                    "415",
+                    "201"
+                ],
+                "parameters": [
+                    "Authorization (header)",
+                    "X-CWA-TELETAN-TYPE (header)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /version/v1/tan/teletan",
+                "status-codes": [
+                    "500",
+                    "400",
+                    "405",
+                    "415",
+                    "201"
+                ],
+                "parameters": [
+                    "Authorization (header)",
+                    "X-CWA-TELETAN-TYPE (header)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /version/v1/tan/teletan",
+                "status-codes": [
+                    "500",
+                    "400",
+                    "405",
+                    "415",
+                    "201"
+                ],
+                "parameters": [
+                    "Authorization (header)",
+                    "X-CWA-TELETAN-TYPE (header)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "POST /version/v1/registrationToken",
+                "status-codes": [
+                    "500",
+                    "400",
+                    "405",
+                    "415",
+                    "201"
+                ],
+                "parameters": [
+                    "cwa-fake (header)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /version/v1/registrationToken",
+                "status-codes": [
+                    "500",
+                    "400",
+                    "405",
+                    "415",
+                    "201"
+                ],
+                "parameters": [
+                    "cwa-fake (header)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /version/v1/registrationToken",
+                "status-codes": [
+                    "500",
+                    "400",
+                    "405",
+                    "415",
+                    "201"
+                ],
+                "parameters": [
+                    "cwa-fake (header)"
+                ]
+            }
+        ]
+    }
+}

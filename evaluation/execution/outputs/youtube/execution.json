@@ -1,0 +1,3599 @@
+{
+    "name": "youtube",
+    "timestamp": "2026-01-29-11-30",
+    "nb-routes": 46,
+    "nb-routes-without-violations": 0,
+    "status-codes": {
+        "total": 46,
+        "by-code": {
+            "200": 46
+        }
+    },
+    "rule-violations": {
+        "total": 187,
+        "average-per-route": 4.07,
+        "by-rule": {
+            "has-400-if-params": 46,
+            "has-404-if-path": 5,
+            "has-406-if-accept": 46,
+            "has-422-if-params": 46,
+            "has-400-if-payload": 11,
+            "has-413-if-content-length": 11,
+            "has-415-if-content-type": 11,
+            "has-422-if-payload": 11
+        },
+        "list": [
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v1/jobs/{jobId}/reports",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "createdAfter (query)",
+                    "onBehalfOfContentOwner (query)",
+                    "pageSize (query)",
+                    "pageToken (query)",
+                    "startTimeAtOrAfter (query)",
+                    "startTimeBefore (query)",
+                    "jobId (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /v1/jobs/{jobId}/reports",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "createdAfter (query)",
+                    "onBehalfOfContentOwner (query)",
+                    "pageSize (query)",
+                    "pageToken (query)",
+                    "startTimeAtOrAfter (query)",
+                    "startTimeBefore (query)",
+                    "jobId (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /v1/jobs/{jobId}/reports",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "createdAfter (query)",
+                    "onBehalfOfContentOwner (query)",
+                    "pageSize (query)",
+                    "pageToken (query)",
+                    "startTimeAtOrAfter (query)",
+                    "startTimeBefore (query)",
+                    "jobId (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v1/jobs/{jobId}/reports",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "createdAfter (query)",
+                    "onBehalfOfContentOwner (query)",
+                    "pageSize (query)",
+                    "pageToken (query)",
+                    "startTimeAtOrAfter (query)",
+                    "startTimeBefore (query)",
+                    "jobId (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v1/jobs/{jobId}/reports/{reportId}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "onBehalfOfContentOwner (query)",
+                    "jobId (path)",
+                    "reportId (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /v1/jobs/{jobId}/reports/{reportId}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "onBehalfOfContentOwner (query)",
+                    "jobId (path)",
+                    "reportId (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /v1/jobs/{jobId}/reports/{reportId}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "onBehalfOfContentOwner (query)",
+                    "jobId (path)",
+                    "reportId (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v1/jobs/{jobId}/reports/{reportId}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "onBehalfOfContentOwner (query)",
+                    "jobId (path)",
+                    "reportId (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "DELETE /v1/jobs/{jobId}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "onBehalfOfContentOwner (query)",
+                    "jobId (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "DELETE /v1/jobs/{jobId}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "onBehalfOfContentOwner (query)",
+                    "jobId (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "DELETE /v1/jobs/{jobId}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "onBehalfOfContentOwner (query)",
+                    "jobId (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "DELETE /v1/jobs/{jobId}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "onBehalfOfContentOwner (query)",
+                    "jobId (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v1/jobs",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "includeSystemManaged (query)",
+                    "onBehalfOfContentOwner (query)",
+                    "pageSize (query)",
+                    "pageToken (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /v1/jobs",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "includeSystemManaged (query)",
+                    "onBehalfOfContentOwner (query)",
+                    "pageSize (query)",
+                    "pageToken (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v1/jobs",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "includeSystemManaged (query)",
+                    "onBehalfOfContentOwner (query)",
+                    "pageSize (query)",
+                    "pageToken (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v1/media/{resourceName}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "resourceName (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /v1/media/{resourceName}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "resourceName (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /v1/media/{resourceName}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "resourceName (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v1/media/{resourceName}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "resourceName (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /v1/reportTypes",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "includeSystemManaged (query)",
+                    "onBehalfOfContentOwner (query)",
+                    "pageSize (query)",
+                    "pageToken (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /v1/reportTypes",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "includeSystemManaged (query)",
+                    "onBehalfOfContentOwner (query)",
+                    "pageSize (query)",
+                    "pageToken (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /v1/reportTypes",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "includeSystemManaged (query)",
+                    "onBehalfOfContentOwner (query)",
+                    "pageSize (query)",
+                    "pageToken (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "DELETE /captions",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (query)",
+                    "onBehalfOf (query)",
+                    "onBehalfOfContentOwner (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "DELETE /captions",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (query)",
+                    "onBehalfOf (query)",
+                    "onBehalfOfContentOwner (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "DELETE /captions",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (query)",
+                    "onBehalfOf (query)",
+                    "onBehalfOfContentOwner (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /captions/{id}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "onBehalfOf (query)",
+                    "onBehalfOfContentOwner (query)",
+                    "tfmt (query)",
+                    "tlang (query)",
+                    "id (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-404-if-path",
+                    "description": "Always implement a response with the status code '404 Not Found' if the method contains path parameters.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.5 (404 Not Found)"
+                    ]
+                },
+                "route": "GET /captions/{id}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "onBehalfOf (query)",
+                    "onBehalfOfContentOwner (query)",
+                    "tfmt (query)",
+                    "tlang (query)",
+                    "id (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /captions/{id}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "onBehalfOf (query)",
+                    "onBehalfOfContentOwner (query)",
+                    "tfmt (query)",
+                    "tlang (query)",
+                    "id (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /captions/{id}",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "onBehalfOf (query)",
+                    "onBehalfOfContentOwner (query)",
+                    "tfmt (query)",
+                    "tlang (query)",
+                    "id (path)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "DELETE /comments",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "DELETE /comments",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "DELETE /comments",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /comments/markAsSpam",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-payload",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /comments/markAsSpam",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "POST /comments/markAsSpam",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /comments/markAsSpam",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /comments/markAsSpam",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /comments/markAsSpam",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /comments/markAsSpam",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /comments/setModerationStatus",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "banAuthor (query)",
+                    "id (query)",
+                    "moderationStatus (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-payload",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /comments/setModerationStatus",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "banAuthor (query)",
+                    "id (query)",
+                    "moderationStatus (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "POST /comments/setModerationStatus",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "banAuthor (query)",
+                    "id (query)",
+                    "moderationStatus (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /comments/setModerationStatus",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "banAuthor (query)",
+                    "id (query)",
+                    "moderationStatus (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /comments/setModerationStatus",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "banAuthor (query)",
+                    "id (query)",
+                    "moderationStatus (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /comments/setModerationStatus",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "banAuthor (query)",
+                    "id (query)",
+                    "moderationStatus (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /comments/setModerationStatus",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "banAuthor (query)",
+                    "id (query)",
+                    "moderationStatus (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "DELETE /liveBroadcasts",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (query)",
+                    "onBehalfOfContentOwner (query)",
+                    "onBehalfOfContentOwnerChannel (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "DELETE /liveBroadcasts",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (query)",
+                    "onBehalfOfContentOwner (query)",
+                    "onBehalfOfContentOwnerChannel (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "DELETE /liveBroadcasts",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (query)",
+                    "onBehalfOfContentOwner (query)",
+                    "onBehalfOfContentOwnerChannel (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /liveBroadcasts/bind",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (query)",
+                    "onBehalfOfContentOwner (query)",
+                    "onBehalfOfContentOwnerChannel (query)",
+                    "part (query)",
+                    "streamId (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-payload",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /liveBroadcasts/bind",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (query)",
+                    "onBehalfOfContentOwner (query)",
+                    "onBehalfOfContentOwnerChannel (query)",
+                    "part (query)",
+                    "streamId (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "POST /liveBroadcasts/bind",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (query)",
+                    "onBehalfOfContentOwner (query)",
+                    "onBehalfOfContentOwnerChannel (query)",
+                    "part (query)",
+                    "streamId (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /liveBroadcasts/bind",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (query)",
+                    "onBehalfOfContentOwner (query)",
+                    "onBehalfOfContentOwnerChannel (query)",
+                    "part (query)",
+                    "streamId (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /liveBroadcasts/bind",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (query)",
+                    "onBehalfOfContentOwner (query)",
+                    "onBehalfOfContentOwnerChannel (query)",
+                    "part (query)",
+                    "streamId (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /liveBroadcasts/bind",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (query)",
+                    "onBehalfOfContentOwner (query)",
+                    "onBehalfOfContentOwnerChannel (query)",
+                    "part (query)",
+                    "streamId (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /liveBroadcasts/bind",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (query)",
+                    "onBehalfOfContentOwner (query)",
+                    "onBehalfOfContentOwnerChannel (query)",
+                    "part (query)",
+                    "streamId (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /liveBroadcasts/control",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "displaySlate (query)",
+                    "id (query)",
+                    "offsetTimeMs (query)",
+                    "onBehalfOfContentOwner (query)",
+                    "onBehalfOfContentOwnerChannel (query)",
+                    "part (query)",
+                    "walltime (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-payload",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /liveBroadcasts/control",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "displaySlate (query)",
+                    "id (query)",
+                    "offsetTimeMs (query)",
+                    "onBehalfOfContentOwner (query)",
+                    "onBehalfOfContentOwnerChannel (query)",
+                    "part (query)",
+                    "walltime (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "POST /liveBroadcasts/control",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "displaySlate (query)",
+                    "id (query)",
+                    "offsetTimeMs (query)",
+                    "onBehalfOfContentOwner (query)",
+                    "onBehalfOfContentOwnerChannel (query)",
+                    "part (query)",
+                    "walltime (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /liveBroadcasts/control",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "displaySlate (query)",
+                    "id (query)",
+                    "offsetTimeMs (query)",
+                    "onBehalfOfContentOwner (query)",
+                    "onBehalfOfContentOwnerChannel (query)",
+                    "part (query)",
+                    "walltime (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /liveBroadcasts/control",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "displaySlate (query)",
+                    "id (query)",
+                    "offsetTimeMs (query)",
+                    "onBehalfOfContentOwner (query)",
+                    "onBehalfOfContentOwnerChannel (query)",
+                    "part (query)",
+                    "walltime (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /liveBroadcasts/control",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "displaySlate (query)",
+                    "id (query)",
+                    "offsetTimeMs (query)",
+                    "onBehalfOfContentOwner (query)",
+                    "onBehalfOfContentOwnerChannel (query)",
+                    "part (query)",
+                    "walltime (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /liveBroadcasts/control",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "displaySlate (query)",
+                    "id (query)",
+                    "offsetTimeMs (query)",
+                    "onBehalfOfContentOwner (query)",
+                    "onBehalfOfContentOwnerChannel (query)",
+                    "part (query)",
+                    "walltime (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /liveBroadcasts/transition",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "broadcastStatus (query)",
+                    "id (query)",
+                    "onBehalfOfContentOwner (query)",
+                    "onBehalfOfContentOwnerChannel (query)",
+                    "part (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-payload",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /liveBroadcasts/transition",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "broadcastStatus (query)",
+                    "id (query)",
+                    "onBehalfOfContentOwner (query)",
+                    "onBehalfOfContentOwnerChannel (query)",
+                    "part (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "POST /liveBroadcasts/transition",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "broadcastStatus (query)",
+                    "id (query)",
+                    "onBehalfOfContentOwner (query)",
+                    "onBehalfOfContentOwnerChannel (query)",
+                    "part (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /liveBroadcasts/transition",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "broadcastStatus (query)",
+                    "id (query)",
+                    "onBehalfOfContentOwner (query)",
+                    "onBehalfOfContentOwnerChannel (query)",
+                    "part (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /liveBroadcasts/transition",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "broadcastStatus (query)",
+                    "id (query)",
+                    "onBehalfOfContentOwner (query)",
+                    "onBehalfOfContentOwnerChannel (query)",
+                    "part (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /liveBroadcasts/transition",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "broadcastStatus (query)",
+                    "id (query)",
+                    "onBehalfOfContentOwner (query)",
+                    "onBehalfOfContentOwnerChannel (query)",
+                    "part (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /liveBroadcasts/transition",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "broadcastStatus (query)",
+                    "id (query)",
+                    "onBehalfOfContentOwner (query)",
+                    "onBehalfOfContentOwnerChannel (query)",
+                    "part (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "DELETE /liveChat/bans",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "DELETE /liveChat/bans",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "DELETE /liveChat/bans",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "DELETE /liveChat/messages",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "DELETE /liveChat/messages",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "DELETE /liveChat/messages",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "DELETE /liveChat/moderators",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "DELETE /liveChat/moderators",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "DELETE /liveChat/moderators",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "DELETE /videos",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (query)",
+                    "onBehalfOfContentOwner (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "DELETE /videos",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (query)",
+                    "onBehalfOfContentOwner (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "DELETE /videos",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (query)",
+                    "onBehalfOfContentOwner (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /videos/getRating",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (query)",
+                    "onBehalfOfContentOwner (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /videos/getRating",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (query)",
+                    "onBehalfOfContentOwner (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /videos/getRating",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (query)",
+                    "onBehalfOfContentOwner (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /videos/rate",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (query)",
+                    "rating (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-payload",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /videos/rate",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (query)",
+                    "rating (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "POST /videos/rate",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (query)",
+                    "rating (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /videos/rate",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (query)",
+                    "rating (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /videos/rate",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (query)",
+                    "rating (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /videos/rate",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (query)",
+                    "rating (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /videos/rate",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (query)",
+                    "rating (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /videos/reportAbuse",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "onBehalfOfContentOwner (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-payload",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /videos/reportAbuse",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "onBehalfOfContentOwner (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "POST /videos/reportAbuse",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "onBehalfOfContentOwner (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /videos/reportAbuse",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "onBehalfOfContentOwner (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /videos/reportAbuse",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "onBehalfOfContentOwner (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /videos/reportAbuse",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "onBehalfOfContentOwner (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /videos/reportAbuse",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "onBehalfOfContentOwner (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /watermarks/set",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "channelId (query)",
+                    "onBehalfOfContentOwner (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-payload",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /watermarks/set",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "channelId (query)",
+                    "onBehalfOfContentOwner (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "POST /watermarks/set",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "channelId (query)",
+                    "onBehalfOfContentOwner (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /watermarks/set",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "channelId (query)",
+                    "onBehalfOfContentOwner (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /watermarks/set",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "channelId (query)",
+                    "onBehalfOfContentOwner (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /watermarks/set",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "channelId (query)",
+                    "onBehalfOfContentOwner (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /watermarks/set",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "channelId (query)",
+                    "onBehalfOfContentOwner (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /watermarks/unset",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "channelId (query)",
+                    "onBehalfOfContentOwner (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-payload",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /watermarks/unset",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "channelId (query)",
+                    "onBehalfOfContentOwner (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "POST /watermarks/unset",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "channelId (query)",
+                    "onBehalfOfContentOwner (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /watermarks/unset",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "channelId (query)",
+                    "onBehalfOfContentOwner (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /watermarks/unset",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "channelId (query)",
+                    "onBehalfOfContentOwner (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /watermarks/unset",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "channelId (query)",
+                    "onBehalfOfContentOwner (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /watermarks/unset",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "channelId (query)",
+                    "onBehalfOfContentOwner (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /activities",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "channelId (query)",
+                    "home (query)",
+                    "maxResults (query)",
+                    "mine (query)",
+                    "pageToken (query)",
+                    "part (query)",
+                    "publishedAfter (query)",
+                    "publishedBefore (query)",
+                    "regionCode (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /activities",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "channelId (query)",
+                    "home (query)",
+                    "maxResults (query)",
+                    "mine (query)",
+                    "pageToken (query)",
+                    "part (query)",
+                    "publishedAfter (query)",
+                    "publishedBefore (query)",
+                    "regionCode (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /activities",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "channelId (query)",
+                    "home (query)",
+                    "maxResults (query)",
+                    "mine (query)",
+                    "pageToken (query)",
+                    "part (query)",
+                    "publishedAfter (query)",
+                    "publishedBefore (query)",
+                    "regionCode (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /channelBanners/insert",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "channelId (query)",
+                    "onBehalfOfContentOwner (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-payload",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /channelBanners/insert",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "channelId (query)",
+                    "onBehalfOfContentOwner (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "POST /channelBanners/insert",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "channelId (query)",
+                    "onBehalfOfContentOwner (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /channelBanners/insert",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "channelId (query)",
+                    "onBehalfOfContentOwner (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /channelBanners/insert",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "channelId (query)",
+                    "onBehalfOfContentOwner (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /channelBanners/insert",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "channelId (query)",
+                    "onBehalfOfContentOwner (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /channelBanners/insert",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "channelId (query)",
+                    "onBehalfOfContentOwner (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "DELETE /channelSections",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (query)",
+                    "onBehalfOfContentOwner (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "DELETE /channelSections",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (query)",
+                    "onBehalfOfContentOwner (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "DELETE /channelSections",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (query)",
+                    "onBehalfOfContentOwner (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /channels",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "categoryId (query)",
+                    "forUsername (query)",
+                    "hl (query)",
+                    "id (query)",
+                    "managedByMe (query)",
+                    "maxResults (query)",
+                    "mine (query)",
+                    "mySubscribers (query)",
+                    "onBehalfOfContentOwner (query)",
+                    "pageToken (query)",
+                    "part (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /channels",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "categoryId (query)",
+                    "forUsername (query)",
+                    "hl (query)",
+                    "id (query)",
+                    "managedByMe (query)",
+                    "maxResults (query)",
+                    "mine (query)",
+                    "mySubscribers (query)",
+                    "onBehalfOfContentOwner (query)",
+                    "pageToken (query)",
+                    "part (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /channels",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "categoryId (query)",
+                    "forUsername (query)",
+                    "hl (query)",
+                    "id (query)",
+                    "managedByMe (query)",
+                    "maxResults (query)",
+                    "mine (query)",
+                    "mySubscribers (query)",
+                    "onBehalfOfContentOwner (query)",
+                    "pageToken (query)",
+                    "part (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /commentThreads",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "allThreadsRelatedToChannelId (query)",
+                    "channelId (query)",
+                    "id (query)",
+                    "maxResults (query)",
+                    "moderationStatus (query)",
+                    "order (query)",
+                    "pageToken (query)",
+                    "part (query)",
+                    "searchTerms (query)",
+                    "textFormat (query)",
+                    "videoId (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /commentThreads",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "allThreadsRelatedToChannelId (query)",
+                    "channelId (query)",
+                    "id (query)",
+                    "maxResults (query)",
+                    "moderationStatus (query)",
+                    "order (query)",
+                    "pageToken (query)",
+                    "part (query)",
+                    "searchTerms (query)",
+                    "textFormat (query)",
+                    "videoId (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /commentThreads",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "allThreadsRelatedToChannelId (query)",
+                    "channelId (query)",
+                    "id (query)",
+                    "maxResults (query)",
+                    "moderationStatus (query)",
+                    "order (query)",
+                    "pageToken (query)",
+                    "part (query)",
+                    "searchTerms (query)",
+                    "textFormat (query)",
+                    "videoId (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /fanFundingEvents",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "hl (query)",
+                    "maxResults (query)",
+                    "pageToken (query)",
+                    "part (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /fanFundingEvents",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "hl (query)",
+                    "maxResults (query)",
+                    "pageToken (query)",
+                    "part (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /fanFundingEvents",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "hl (query)",
+                    "maxResults (query)",
+                    "pageToken (query)",
+                    "part (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /guideCategories",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "hl (query)",
+                    "id (query)",
+                    "part (query)",
+                    "regionCode (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /guideCategories",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "hl (query)",
+                    "id (query)",
+                    "part (query)",
+                    "regionCode (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /guideCategories",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "hl (query)",
+                    "id (query)",
+                    "part (query)",
+                    "regionCode (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /i18nLanguages",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "hl (query)",
+                    "part (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /i18nLanguages",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "hl (query)",
+                    "part (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /i18nLanguages",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "hl (query)",
+                    "part (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /i18nRegions",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "hl (query)",
+                    "part (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /i18nRegions",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "hl (query)",
+                    "part (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /i18nRegions",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "hl (query)",
+                    "part (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "DELETE /liveStreams",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (query)",
+                    "onBehalfOfContentOwner (query)",
+                    "onBehalfOfContentOwnerChannel (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "DELETE /liveStreams",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (query)",
+                    "onBehalfOfContentOwner (query)",
+                    "onBehalfOfContentOwnerChannel (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "DELETE /liveStreams",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (query)",
+                    "onBehalfOfContentOwner (query)",
+                    "onBehalfOfContentOwnerChannel (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "DELETE /playlistItems",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (query)",
+                    "onBehalfOfContentOwner (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "DELETE /playlistItems",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (query)",
+                    "onBehalfOfContentOwner (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "DELETE /playlistItems",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (query)",
+                    "onBehalfOfContentOwner (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "DELETE /playlists",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (query)",
+                    "onBehalfOfContentOwner (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "DELETE /playlists",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (query)",
+                    "onBehalfOfContentOwner (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "DELETE /playlists",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (query)",
+                    "onBehalfOfContentOwner (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /search",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "channelId (query)",
+                    "channelType (query)",
+                    "eventType (query)",
+                    "forContentOwner (query)",
+                    "forDeveloper (query)",
+                    "forMine (query)",
+                    "location (query)",
+                    "locationRadius (query)",
+                    "maxResults (query)",
+                    "onBehalfOfContentOwner (query)",
+                    "order (query)",
+                    "pageToken (query)",
+                    "part (query)",
+                    "publishedAfter (query)",
+                    "publishedBefore (query)",
+                    "q (query)",
+                    "regionCode (query)",
+                    "relatedToVideoId (query)",
+                    "relevanceLanguage (query)",
+                    "safeSearch (query)",
+                    "topicId (query)",
+                    "type (query)",
+                    "videoCaption (query)",
+                    "videoCategoryId (query)",
+                    "videoDefinition (query)",
+                    "videoDimension (query)",
+                    "videoDuration (query)",
+                    "videoEmbeddable (query)",
+                    "videoLicense (query)",
+                    "videoSyndicated (query)",
+                    "videoType (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /search",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "channelId (query)",
+                    "channelType (query)",
+                    "eventType (query)",
+                    "forContentOwner (query)",
+                    "forDeveloper (query)",
+                    "forMine (query)",
+                    "location (query)",
+                    "locationRadius (query)",
+                    "maxResults (query)",
+                    "onBehalfOfContentOwner (query)",
+                    "order (query)",
+                    "pageToken (query)",
+                    "part (query)",
+                    "publishedAfter (query)",
+                    "publishedBefore (query)",
+                    "q (query)",
+                    "regionCode (query)",
+                    "relatedToVideoId (query)",
+                    "relevanceLanguage (query)",
+                    "safeSearch (query)",
+                    "topicId (query)",
+                    "type (query)",
+                    "videoCaption (query)",
+                    "videoCategoryId (query)",
+                    "videoDefinition (query)",
+                    "videoDimension (query)",
+                    "videoDuration (query)",
+                    "videoEmbeddable (query)",
+                    "videoLicense (query)",
+                    "videoSyndicated (query)",
+                    "videoType (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /search",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "channelId (query)",
+                    "channelType (query)",
+                    "eventType (query)",
+                    "forContentOwner (query)",
+                    "forDeveloper (query)",
+                    "forMine (query)",
+                    "location (query)",
+                    "locationRadius (query)",
+                    "maxResults (query)",
+                    "onBehalfOfContentOwner (query)",
+                    "order (query)",
+                    "pageToken (query)",
+                    "part (query)",
+                    "publishedAfter (query)",
+                    "publishedBefore (query)",
+                    "q (query)",
+                    "regionCode (query)",
+                    "relatedToVideoId (query)",
+                    "relevanceLanguage (query)",
+                    "safeSearch (query)",
+                    "topicId (query)",
+                    "type (query)",
+                    "videoCaption (query)",
+                    "videoCategoryId (query)",
+                    "videoDefinition (query)",
+                    "videoDimension (query)",
+                    "videoDuration (query)",
+                    "videoEmbeddable (query)",
+                    "videoLicense (query)",
+                    "videoSyndicated (query)",
+                    "videoType (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /sponsors",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "filter (query)",
+                    "maxResults (query)",
+                    "pageToken (query)",
+                    "part (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /sponsors",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "filter (query)",
+                    "maxResults (query)",
+                    "pageToken (query)",
+                    "part (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /sponsors",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "filter (query)",
+                    "maxResults (query)",
+                    "pageToken (query)",
+                    "part (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "DELETE /subscriptions",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "DELETE /subscriptions",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "DELETE /subscriptions",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /superChatEvents",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "hl (query)",
+                    "maxResults (query)",
+                    "pageToken (query)",
+                    "part (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /superChatEvents",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "hl (query)",
+                    "maxResults (query)",
+                    "pageToken (query)",
+                    "part (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /superChatEvents",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "hl (query)",
+                    "maxResults (query)",
+                    "pageToken (query)",
+                    "part (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /thumbnails/set",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "onBehalfOfContentOwner (query)",
+                    "videoId (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-payload",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "POST /thumbnails/set",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "onBehalfOfContentOwner (query)",
+                    "videoId (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "POST /thumbnails/set",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "onBehalfOfContentOwner (query)",
+                    "videoId (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /thumbnails/set",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "onBehalfOfContentOwner (query)",
+                    "videoId (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /thumbnails/set",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "onBehalfOfContentOwner (query)",
+                    "videoId (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /thumbnails/set",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "onBehalfOfContentOwner (query)",
+                    "videoId (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /thumbnails/set",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "onBehalfOfContentOwner (query)",
+                    "videoId (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /videoAbuseReportReasons",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "hl (query)",
+                    "part (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /videoAbuseReportReasons",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "hl (query)",
+                    "part (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /videoAbuseReportReasons",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "hl (query)",
+                    "part (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /videoCategories",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "hl (query)",
+                    "id (query)",
+                    "part (query)",
+                    "regionCode (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /videoCategories",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "hl (query)",
+                    "id (query)",
+                    "part (query)",
+                    "regionCode (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /videoCategories",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "hl (query)",
+                    "id (query)",
+                    "part (query)",
+                    "regionCode (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "DELETE /groupItems",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (query)",
+                    "onBehalfOfContentOwner (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "DELETE /groupItems",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (query)",
+                    "onBehalfOfContentOwner (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "DELETE /groupItems",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (query)",
+                    "onBehalfOfContentOwner (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "DELETE /groups",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (query)",
+                    "onBehalfOfContentOwner (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "DELETE /groups",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (query)",
+                    "onBehalfOfContentOwner (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "DELETE /groups",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "id (query)",
+                    "onBehalfOfContentOwner (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-400-if-params",
+                    "description": "Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.1 (400 Bad Request)"
+                    ]
+                },
+                "route": "GET /reports",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "currency (query)",
+                    "dimensions (query)",
+                    "end (query)",
+                    "filters (query)",
+                    "ids (query)",
+                    "include (query)",
+                    "max (query)",
+                    "metrics (query)",
+                    "sort (query)",
+                    "start (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-406-if-accept",
+                    "description": "Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.7 (406 Not Acceptable)",
+                        "RFC 9110, Section 12.5.1 (Accept)"
+                    ]
+                },
+                "route": "GET /reports",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "currency (query)",
+                    "dimensions (query)",
+                    "end (query)",
+                    "filters (query)",
+                    "ids (query)",
+                    "include (query)",
+                    "max (query)",
+                    "metrics (query)",
+                    "sort (query)",
+                    "start (query)"
+                ]
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /reports",
+                "status-codes": [
+                    "200"
+                ],
+                "parameters": [
+                    "currency (query)",
+                    "dimensions (query)",
+                    "end (query)",
+                    "filters (query)",
+                    "ids (query)",
+                    "include (query)",
+                    "max (query)",
+                    "metrics (query)",
+                    "sort (query)",
+                    "start (query)"
+                ]
+            }
+        ]
+    }
+}

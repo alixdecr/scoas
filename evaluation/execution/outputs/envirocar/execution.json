@@ -1,0 +1,5079 @@
+{
+    "name": "envirocar",
+    "timestamp": "2026-01-29-11-30",
+    "nb-routes": 79,
+    "nb-routes-without-violations": 0,
+    "status-codes": {
+        "total": 425,
+        "by-code": {
+            "200": 52,
+            "400": 78,
+            "5XX": 79,
+            "206": 16,
+            "201": 12,
+            "401": 51,
+            "403": 52,
+            "451": 8,
+            "404": 62,
+            "204": 15
+        }
+    },
+    "rule-violations": {
+        "total": 262,
+        "average-per-route": 3.32,
+        "by-rule": {
+            "has-204-if-no-content": 64,
+            "no-non-standard-codes": 79,
+            "has-413-if-content-length": 19,
+            "has-415-if-content-type": 19,
+            "has-422-if-payload": 19,
+            "has-422-if-params": 60,
+            "no-403-if-no-401": 2
+        },
+        "list": [
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /api-docs",
+                "status-codes": [
+                    "200",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /api-docs",
+                "status-codes": [
+                    "200",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /phenomenons",
+                "status-codes": [
+                    "200",
+                    "206",
+                    "400",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /phenomenons",
+                "status-codes": [
+                    "200",
+                    "206",
+                    "400",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "POST /phenomenons",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "401",
+                    "403",
+                    "451",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /phenomenons",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "401",
+                    "403",
+                    "451",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /phenomenons",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "401",
+                    "403",
+                    "451",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /phenomenons",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "401",
+                    "403",
+                    "451",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "POST /phenomenons",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "401",
+                    "403",
+                    "451",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /phenomenons/{phenomenonId}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /phenomenons/{phenomenonId}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /phenomenons/{phenomenonId}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /phenomenons/{phenomenonId}/statistic",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /phenomenons/{phenomenonId}/statistic",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /phenomenons/{phenomenonId}/statistic",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /sensors",
+                "status-codes": [
+                    "200",
+                    "206",
+                    "400",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /sensors",
+                "status-codes": [
+                    "200",
+                    "206",
+                    "400",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "POST /sensors",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "403",
+                    "451",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /sensors",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "403",
+                    "451",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /sensors",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "403",
+                    "451",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /sensors",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "403",
+                    "451",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-403-if-no-401",
+                    "description": "Never implement a response with the status code '403 Forbidden' if the method does not implement a response with the status code '401 Unauthorized'.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.4 (403 Forbidden)",
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "POST /sensors",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "403",
+                    "451",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "POST /sensors",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "403",
+                    "451",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /sensors/{sensorId}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /sensors/{sensorId}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /sensors/{sensorId}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /sensors/{sensorId}/statistics",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /sensors/{sensorId}/statistics",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /sensors/{sensorId}/statistics",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /tracks",
+                "status-codes": [
+                    "200",
+                    "206",
+                    "400",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /tracks",
+                "status-codes": [
+                    "200",
+                    "206",
+                    "400",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "POST /tracks",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "401",
+                    "403",
+                    "451",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /tracks",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "401",
+                    "403",
+                    "451",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /tracks",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "401",
+                    "403",
+                    "451",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /tracks",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "401",
+                    "403",
+                    "451",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "POST /tracks",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "401",
+                    "403",
+                    "451",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /tracks/{trackId}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /tracks/{trackId}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /tracks/{trackId}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "PUT /tracks/{trackId}",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "PUT /tracks/{trackId}",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "PUT /tracks/{trackId}",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "PUT /tracks/{trackId}",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "PUT /tracks/{trackId}",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "DELETE /tracks/{trackId}",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "DELETE /tracks/{trackId}",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /tracks/{trackId}/measurements",
+                "status-codes": [
+                    "200",
+                    "206",
+                    "400",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /tracks/{trackId}/measurements",
+                "status-codes": [
+                    "200",
+                    "206",
+                    "400",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /tracks/{trackId}/measurements",
+                "status-codes": [
+                    "200",
+                    "206",
+                    "400",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "POST /tracks/{trackId}/measurements",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "401",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /tracks/{trackId}/measurements",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "401",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /tracks/{trackId}/measurements",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "401",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /tracks/{trackId}/measurements",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "401",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /tracks/{trackId}/measurements",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "401",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "POST /tracks/{trackId}/measurements",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "401",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /tracks/{trackId}/preview",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /tracks/{trackId}/preview",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /tracks/{trackId}/preview",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /tracks/{trackId}/share",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /tracks/{trackId}/share",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /tracks/{trackId}/share",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /tracks/{trackId}/statistics",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /tracks/{trackId}/statistics",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /tracks/{trackId}/statistics",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /tracks/{trackId}/sensor",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /tracks/{trackId}/sensor",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /tracks/{trackId}/sensor",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /measurements",
+                "status-codes": [
+                    "200",
+                    "206",
+                    "400",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /measurements",
+                "status-codes": [
+                    "200",
+                    "206",
+                    "400",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "POST /measurements",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "401",
+                    "403",
+                    "451",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /measurements",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "401",
+                    "403",
+                    "451",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /measurements",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "401",
+                    "403",
+                    "451",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /measurements",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "401",
+                    "403",
+                    "451",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "POST /measurements",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "401",
+                    "403",
+                    "451",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /measurements/{measurementId}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /measurements/{measurementId}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /measurements/{measurementId}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "DELETE /measurements/{measurementId}",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "DELETE /measurements/{measurementId}",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /measurements/{measurementId}/sensor",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /measurements/{measurementId}/sensor",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /measurements/{measurementId}/sensor",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /privacyStatements",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /privacyStatements",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /privacyStatements/{privacyStatementId}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /privacyStatements/{privacyStatementId}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /privacyStatements/{privacyStatementId}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /termsOfUse",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /termsOfUse",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /termsOfUse/{termsOfUseId}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /termsOfUse/{termsOfUseId}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /termsOfUse/{termsOfUseId}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /users",
+                "status-codes": [
+                    "200",
+                    "206",
+                    "400",
+                    "401",
+                    "403",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /users",
+                "status-codes": [
+                    "200",
+                    "206",
+                    "400",
+                    "401",
+                    "403",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "POST /users",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "403",
+                    "451",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /users",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "403",
+                    "451",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /users",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "403",
+                    "451",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /users",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "403",
+                    "451",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-403-if-no-401",
+                    "description": "Never implement a response with the status code '403 Forbidden' if the method does not implement a response with the status code '401 Unauthorized'.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.4 (403 Forbidden)",
+                        "RFC 9110, Section 15.5.2 (401 Unauthorized)"
+                    ]
+                },
+                "route": "POST /users",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "403",
+                    "451",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "POST /users",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "403",
+                    "451",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /users/{userId}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /users/{userId}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /users/{userId}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "PUT /users/{userId}",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "PUT /users/{userId}",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "PUT /users/{userId}",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "PUT /users/{userId}",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "PUT /users/{userId}",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "DELETE /users/{userId}",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "DELETE /users/{userId}",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /users/{userId}/friends",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /users/{userId}/friends",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /users/{userId}/friends",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /users/{userId}/friends",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /users/{userId}/friends",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /users/{userId}/friends",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /users/{userId}/friends",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "POST /users/{userId}/friends",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /users/{userId}/friends/incomingRequests",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /users/{userId}/friends/incomingRequests",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /users/{userId}/friends/incomingRequests",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /users/{userId}/friends/outgoingRequests",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /users/{userId}/friends/outgoingRequests",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /users/{userId}/friends/outgoingRequests",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /users/{userId}/friends/declineRequest",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /users/{userId}/friends/declineRequest",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /users/{userId}/friends/declineRequest",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /users/{userId}/friends/declineRequest",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "POST /users/{userId}/friends/declineRequest",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /users/{userId}/friends/{friendId}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /users/{userId}/friends/{friendId}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /users/{userId}/friends/{friendId}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "DELETE /users/{userId}/friends/{friendId}",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "DELETE /users/{userId}/friends/{friendId}",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /users/{userId}/groups",
+                "status-codes": [
+                    "200",
+                    "206",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /users/{userId}/groups",
+                "status-codes": [
+                    "200",
+                    "206",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /users/{userId}/groups",
+                "status-codes": [
+                    "200",
+                    "206",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "POST /users/{userId}/groups",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /users/{userId}/groups",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /users/{userId}/groups",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /users/{userId}/groups",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /users/{userId}/groups",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "POST /users/{userId}/groups",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /users/{userId}/groups/{groupId}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /users/{userId}/groups/{groupId}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /users/{userId}/groups/{groupId}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "PUT /users/{userId}/groups/{groupId}",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "PUT /users/{userId}/groups/{groupId}",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "PUT /users/{userId}/groups/{groupId}",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "PUT /users/{userId}/groups/{groupId}",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "PUT /users/{userId}/groups/{groupId}",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "DELETE /users/{userId}/groups/{groupId}",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "DELETE /users/{userId}/groups/{groupId}",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /users/{userId}/tracks",
+                "status-codes": [
+                    "200",
+                    "206",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /users/{userId}/tracks",
+                "status-codes": [
+                    "200",
+                    "206",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /users/{userId}/tracks",
+                "status-codes": [
+                    "200",
+                    "206",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "POST /users/{userId}/tracks",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "451",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /users/{userId}/tracks",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "451",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /users/{userId}/tracks",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "451",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /users/{userId}/tracks",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "451",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /users/{userId}/tracks",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "451",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "POST /users/{userId}/tracks",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "451",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /users/{userId}/measurements",
+                "status-codes": [
+                    "200",
+                    "206",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /users/{userId}/measurements",
+                "status-codes": [
+                    "200",
+                    "206",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /users/{userId}/measurements",
+                "status-codes": [
+                    "200",
+                    "206",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "POST /users/{userId}/measurements",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "451",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /users/{userId}/measurements",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "451",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /users/{userId}/measurements",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "451",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /users/{userId}/measurements",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "451",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /users/{userId}/measurements",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "451",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "POST /users/{userId}/measurements",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "451",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /users/{userId}/statistics",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /users/{userId}/statistics",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /users/{userId}/statistics",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /users/{userId}/userStatistic",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /users/{userId}/userStatistic",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /users/{userId}/userStatistic",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /users/{userId}/activities",
+                "status-codes": [
+                    "200",
+                    "206",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /users/{userId}/activities",
+                "status-codes": [
+                    "200",
+                    "206",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /users/{userId}/activities",
+                "status-codes": [
+                    "200",
+                    "206",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /users/{userId}/activities/{activityId}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /users/{userId}/activities/{activityId}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /users/{userId}/activities/{activityId}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /users/{userId}/friendActivities",
+                "status-codes": [
+                    "200",
+                    "206",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /users/{userId}/friendActivities",
+                "status-codes": [
+                    "200",
+                    "206",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /users/{userId}/friendActivities",
+                "status-codes": [
+                    "200",
+                    "206",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /users/{userId}/friendActivities/{activityId}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /users/{userId}/friendActivities/{activityId}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /users/{userId}/friendActivities/{activityId}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /users/{userId}/avatar",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /users/{userId}/avatar",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /users/{userId}/avatar",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /users/{userId}/fuelings",
+                "status-codes": [
+                    "200",
+                    "206",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /users/{userId}/fuelings",
+                "status-codes": [
+                    "200",
+                    "206",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /users/{userId}/fuelings",
+                "status-codes": [
+                    "200",
+                    "206",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "POST /users/{userId}/fuelings",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /users/{userId}/fuelings",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /users/{userId}/fuelings",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /users/{userId}/fuelings",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /users/{userId}/fuelings",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "POST /users/{userId}/fuelings",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /users/{userId}/fuelings/{fuelingId}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /users/{userId}/fuelings/{fuelingId}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /users/{userId}/fuelings/{fuelingId}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "DELETE /users/{userId}/fuelings/{fuelingId}",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "DELETE /users/{userId}/fuelings/{fuelingId}",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /users/{userId}/sensors",
+                "status-codes": [
+                    "200",
+                    "206",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /users/{userId}/sensors",
+                "status-codes": [
+                    "200",
+                    "206",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /users/{userId}/sensors",
+                "status-codes": [
+                    "200",
+                    "206",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "POST /users/{userId}/sensors",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "451",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /users/{userId}/sensors",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "451",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /users/{userId}/sensors",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "451",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /users/{userId}/sensors",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "451",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /users/{userId}/sensors",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "451",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "POST /users/{userId}/sensors",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "451",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /groups",
+                "status-codes": [
+                    "200",
+                    "206",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /groups",
+                "status-codes": [
+                    "200",
+                    "206",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "POST /groups",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /groups",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /groups",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /groups",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "POST /groups",
+                "status-codes": [
+                    "201",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /groups/{groupId}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /groups/{groupId}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /groups/{groupId}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "PUT /groups/{groupId}",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "PUT /groups/{groupId}",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "PUT /groups/{groupId}",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "PUT /groups/{groupId}",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "PUT /groups/{groupId}",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "DELETE /groups/{groupId}",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "DELETE /groups/{groupId}",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /groups/{groupId}/activities",
+                "status-codes": [
+                    "200",
+                    "206",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /groups/{groupId}/activities",
+                "status-codes": [
+                    "200",
+                    "206",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /groups/{groupId}/activities",
+                "status-codes": [
+                    "200",
+                    "206",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /groups/{groupId}/activities/{activityId}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /groups/{groupId}/activities/{activityId}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /groups/{groupId}/activities/{activityId}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /groups/{groupId}/members",
+                "status-codes": [
+                    "200",
+                    "206",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /groups/{groupId}/members",
+                "status-codes": [
+                    "200",
+                    "206",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /groups/{groupId}/members",
+                "status-codes": [
+                    "200",
+                    "206",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-413-if-content-length",
+                    "description": "Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.14 (413 Content Too Large)",
+                        "RFC 9110, Section 8.6 (Content-Length)"
+                    ]
+                },
+                "route": "POST /groups/{groupId}/members",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-415-if-content-type",
+                    "description": "Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.",
+                    "sources": [
+                        "RFC 9110, Section 15.5.16 (415 Unsupported Media Type)",
+                        "RFC 9110, Section 8.3 (Content-Type)"
+                    ]
+                },
+                "route": "POST /groups/{groupId}/members",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /groups/{groupId}/members",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-payload",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "POST /groups/{groupId}/members",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "POST /groups/{groupId}/members",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /groups/{groupId}/members/{memberId}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /groups/{groupId}/members/{memberId}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /groups/{groupId}/members/{memberId}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "DELETE /groups/{groupId}/members/{memberId}",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "DELETE /groups/{groupId}/members/{memberId}",
+                "status-codes": [
+                    "204",
+                    "400",
+                    "401",
+                    "403",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /schemas",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /schemas",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /schemas/{schemaId}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-422-if-params",
+                    "description": "Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).",
+                    "sources": [
+                        "RFC 9110, Section 15.5.21 (422 Unprocessable Content)"
+                    ]
+                },
+                "route": "GET /schemas/{schemaId}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /schemas/{schemaId}",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "404",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /badges",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /badges",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "has-204-if-no-content",
+                    "description": "Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.",
+                    "sources": [
+                        "RFC 9110, Section 15.3.5 (204 No Content)",
+                        "RFC 9110, Section 15.3 (Successful 2xx)"
+                    ]
+                },
+                "route": "GET /announcements",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "5XX"
+                ],
+                "parameters": []
+            },
+            {
+                "rule": {
+                    "id": "no-non-standard-codes",
+                    "description": "Never implement responses with non-standard status codes.",
+                    "sources": [
+                        "RFC 9110, Section 15 (Status Codes)",
+                        "OpenAPI 'default' response"
+                    ]
+                },
+                "route": "GET /announcements",
+                "status-codes": [
+                    "200",
+                    "400",
+                    "5XX"
+                ],
+                "parameters": []
+            }
+        ]
+    }
+}

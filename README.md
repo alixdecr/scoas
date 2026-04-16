@@ -6,7 +6,7 @@ Repository for the tool SCOAS.
 
 If you use this tool in your research or find it useful in your work, please cite our paper:
 
-Decrop, A, Papadakis, M & Perrouin, G 2026, Analyzing Status Code Misuses in REST API Specifications. In Proceedings of the 26th International Conference on Web Engineering, ICWE 2026.
+Decrop, A., Papadakis, M. and Perrouin, G. 2026. Analyzing Status Code Misuses in REST API Specifications. In Proceedings of the 26th International Conference on Web Engineering, ICWE 2026.
 
 ```bibtex
 @inproceedings{decrop2026analyzing,

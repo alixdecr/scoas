@@ -1,49 +1,28 @@
-# Complete List of Status Code Usage Rules
+# Status Code Usage Rules Implemented in SCOAS
 
-`Has200IfGet`: Always implement a response with the status code '200 OK' in a 'GET' method.
-
-`Has200Or201Or204IfPost`: Always implement a response with the status code '200 OK', '201 Created', or '204 No Content' in a 'POST' method.
-
-`Has200Or201Or204IfPut`: Always implement a response with the status code '200 OK', '201 Created', or '204 No Content' in a 'PUT' method.
-
-`Has200Or204IfDelete`: Always implement a response with the status code '200 OK' or '204 No Content' in a 'DELETE' method.
-
-`Has200Or204IfPatch`: Always implement a response with the status code '200 OK' or '204 No Content' in a 'PATCH' method.
-
-`Has204IfNoContent`: Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content.
-
-`Has400IfParams`: Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax).
-
-`Has400IfPayload`: Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax).
-
-`Has404IfPath`: Always implement a response with the status code '404 Not Found' if the method contains path parameters.
-
-`Has406IfAccept`: Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content.
-
-`Has413IfContentLength`: Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request.
-
-`Has415IfContentType`: Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request.
-
-`Has422IfParams`: Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics).
-
-`Has422IfPayload`: Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics).
-
-`No200IfError`: Never implement a response with the status code '200 OK' if the response content describes an error.
-
-`No201IfDelete`: Never implement a response with the status code '201 Created' in a 'DELETE' method (as it can never create data).
-
-`No201IfGet`: Never implement a response with the status code '201 Created' in a 'GET' method (as it can never create data).
-
-`No201IfPatch`: Never implement a response with the status code '201 Created' in a 'PATCH' method (as it can never create data).
-
-`No204IfContent`: Never implement a response with the status code '204 No Content' if its content is not empty. In the case of an OAS file, the response should not have a 'content' field.
-
-`No401IfNoAuth`: Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism.
-
-`No403IfNo401`: Never implement a response with the status code '403 Forbidden' if the method does not implement a response with the status code '401 Unauthorized'.
-
-`No413IfNoPayload`: Never implement a response with the status code '413 Content Too Large' if the method does not contain a payload.
-
-`No415IfNoPayload`: Never implement a response with the status code '415 Unsupported Media Type' if the method does not contain a payload.
-
-`NoNonStandardCodes`: Never implement responses with non-standard status codes.
+| Rule Identifier | Description | Sources |
+| --------------- | ----------- | ------- |
+| `has-200-if-get` | Always implement a response with the status code '200 OK' in a 'GET' method. | RFC 9110, Section 15.3.1 (200 OK), RFC 9110, Section 9.3.1 (GET) |
+| `has-200-or-201-or-204-if-post` | Always implement a response with the status code '200 OK', '201 Created', or '204 No Content' in a 'POST' method. | RFC 9110, Section 15.3.1 (200 OK), RFC 9110, Section 15.3.2 (201 Created), RFC 9110, Section 15.3.5 (204 No Content), RFC 9110, Section 9.3.3 (POST) |
+| `has-200-or-201-or-204-if-put` | Always implement a response with the status code '200 OK', '201 Created', or '204 No Content' in a 'PUT' method. | RFC 9110, Section 15.3.1 (200 OK), RFC 9110, Section 15.3.2 (201 Created), RFC 9110, Section 15.3.5 (204 No Content), RFC 9110, Section 9.3.4 (PUT) |
+| `has-200-or-204-if-delete` | Always implement a response with the status code '200 OK' or '204 No Content' in a 'DELETE' method. | RFC 9110, Section 15.3.1 (200 OK), RFC 9110, Section 15.3.5 (204 No Content), RFC 9110, Section 9.3.5 (DELETE) |
+| `has-200-or-204-if-patch` | Always implement a response with the status code '200 OK' or '204 No Content' in a 'PATCH' method. | RFC 9110, Section 15.3.1 (200 OK), RFC 9110, Section 15.3.5 (204 No Content), RFC 5789 (PATCH Method for HTTP) |
+| `has-204-if-no-content` | Always implement a response with the status code '204 No Content' if a response in the '2xx Successful' range does not have content. | RFC 9110, Section 15.3.5 (204 No Content), RFC 9110, Section 15.3 (Successful 2xx) |
+| `has-400-if-params` | Always implement a response with the status code '400 Bad Request' if the method contains parameters (in case of invalid syntax). | RFC 9110, Section 15.5.1 (400 Bad Request) |
+| `has-400-if-payload` | Always implement a response with the status code '400 Bad Request' if the method contains a payload (in case of invalid syntax). | RFC 9110, Section 15.5.1 (400 Bad Request) |
+| `has-404-if-path` | Always implement a response with the status code '404 Not Found' if the method contains path parameters. | RFC 9110, Section 15.5.5 (404 Not Found) |
+| `has-406-if-accept` | Always implement a response with the status code '406 Not Acceptable' in case the sever does not support the 'Accept' header specified in the request. Only applies to routes that respond with content. | RFC 9110, Section 15.5.7 (406 Not Acceptable), RFC 9110, Section 12.5.1 (Accept) |
+| `has-413-if-content-length` | Always implement a response with the status code '413 Content Too Large' in case the server does not support the 'Content-Length' header specified in the request. | RFC 9110, Section 15.5.14 (413 Content Too Large), RFC 9110, Section 8.6 (Content-Length) |
+| `has-415-if-content-type` | Always implement a response with the status code '415 Unsupported Media Type' in case the server does not support the 'Content-Type' header specified in the request. | RFC 9110, Section 15.5.16 (415 Unsupported Media Type), RFC 9110, Section 8.3 (Content-Type) |
+| `has-422-if-params` | Always implement a response with the status code '422 Unprocessable Content' if the method contains parameters (in case of invalid semantics). | RFC 9110, Section 15.5.21 (422 Unprocessable Content) |
+| `has-422-if-payload` | Always implement a response with the status code '422 Unprocessable Content' if the method contains a payload (in case of invalid semantics). | RFC 9110, Section 15.5.21 (422 Unprocessable Content) |
+| `no-200-if-error` | Never implement a response with the status code '200 OK' if the response content describes an error. | RFC 9110, Section 15.3.1 (200 OK) |
+| `no-201-if-delete` | Never implement a response with the status code '201 Created' in a 'DELETE' method (as it can never create data). | RFC 9110, Section 15.3.2 (201 Created), RFC 9110, Section 9.3.5 (DELETE) |
+| `no-201-if-get` | Never implement a response with the status code '201 Created' in a 'GET' method (as it can never create data). | RFC 9110, Section 15.3.2 (201 Created), RFC 9110, Section 9.3.1 (GET) |
+| `no-201-if-patch` | Never implement a response with the status code '201 Created' in a 'PATCH' method (as it can never create data). | RFC 9110, Section 15.3.2 (201 Created), RFC 5789 (PATCH Method for HTTP) |
+| `no-204-if-content` | Never implement a response with the status code '204 No Content' if its content is not empty. In the case of an OAS file, the response should not have a 'content' field. | RFC 9110, Section 15.3.5 (204 No Content) |
+| `no-401-if-no-auth` | Never implement a response with the status code '401 Unauthorized' if the specification does not contains an authentication mechanism. | RFC 9110, Section 15.5.2 (401 Unauthorized) |
+| `no-403-if-no-401` | Never implement a response with the status code '403 Forbidden' if the method does not implement a response with the status code '401 Unauthorized'. | RFC 9110, Section 15.5.4 (403 Forbidden), RFC 9110, Section 15.5.2 (401 Unauthorized) |
+| `no-413-if-no-payload` | Never implement a response with the status code '413 Content Too Large' if the method does not contain a payload. | RFC 9110, Section 15.5.14 (413 Content Too Large) |
+| `no-415-if-no-payload` | Never implement a response with the status code '415 Unsupported Media Type' if the method does not contain a payload. | RFC 9110, Section 15.5.16 (415 Unsupported Media Type) |
+| `no-non-standard-codes` | Never implement responses with non-standard status codes. | RFC 9110, Section 15 (Status Codes), OpenAPI 'default' response |

@@ -2,7 +2,7 @@ from .Rule import Rule
 from config import SOURCES
 
 
-class No401IfNoAuthenticate(Rule):
+class No401IfNoWWWAuthenticate(Rule):
 
 
     description = "Never implement a response with the status code '401 Unauthorized' if it does not return a 'WWW-Authenticate' header."

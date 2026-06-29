@@ -1,9 +1,21 @@
 import json
+import jsonref
 import logging
 from pathlib import Path
 
 
 logger = logging.getLogger(__name__)
+
+
+def dereference_json(data):
+
+    try:
+        dereferenced_data = jsonref.replace_refs(data)
+        return dereferenced_data
+    
+    except Exception as e:
+        logger.error(f"Unexpected error while dereferencing JSON data: {e}")
+        return data
 
 
 def load_json(file_path):

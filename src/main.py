@@ -38,8 +38,10 @@ def main():
             oas = utils.load_json(file_path)
 
             logger.info(f"Processing OAS file '{file_path.name}'")
+
+            dereferenced_oas = utils.dereference_json(oas)
         
-            checker = Checker(name, oas)
+            checker = Checker(name, dereferenced_oas)
             checker.execute()
 
         except Exception as e:

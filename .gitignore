@@ -1,6 +1,7 @@
-/logs/
-/outputs/
+logs/
+outputs/
 trash/
 __pycache__/
 .venv/
 test.py
+evaluation/extension/
